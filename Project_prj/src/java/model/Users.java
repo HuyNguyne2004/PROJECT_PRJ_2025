@@ -4,10 +4,6 @@
  */
 package model;
 
-/**
- *
- * @author Admin
- */
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,14 +22,17 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Course {
+/**
+ *
+ * @author Admin
+ */
+public class Users {
+    private int user_id;
+    private String full_name;
+    private String email;
+    private String password;
+    private String role;
+    private String status;
 
-    private int course_id;
-    private String title;
-    private String description;
-    private int instructor_id;
-    private String schedule;
-    private int max_students;
-    private Integer room_id;
 
 }

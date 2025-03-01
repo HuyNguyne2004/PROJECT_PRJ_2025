@@ -3,11 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-
-/**
- *
- * @author Admin
- */
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,14 +21,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Course {
+/**
+ *
+ * @author Admin
+ */
+public class Room {
 
-    private int course_id;
-    private String title;
-    private String description;
-    private int instructor_id;
-    private String schedule;
-    private int max_students;
-    private Integer room_id;
+    private int room_id;
+    private String room_name;
+    private int capacity;
 
 }

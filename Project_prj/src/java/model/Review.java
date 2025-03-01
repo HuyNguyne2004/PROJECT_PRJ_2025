@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.security.Timestamp;
+
 /**
  *
  * @author Admin
@@ -26,14 +28,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class Course {
+public class Review {
 
+    private int review_id;
+    private int student_id;
     private int course_id;
-    private String title;
-    private String description;
-    private int instructor_id;
-    private String schedule;
-    private int max_students;
-    private Integer room_id;
-
+    private int rating;
+    private String comment;
+    private Timestamp created_at;
 }
