@@ -14,37 +14,79 @@ import model.Users;
  */
 public class UsersDao extends GenericDAO<Users> {
 
+    public Users findByUserNameAndPass(Users users) {
+        String sql = "SELECT *\n"
+                + "  FROM [dbo].[users]\n"
+                + "  where email = ? and password = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("email", users.getEmail());
+        parameterMap.put("password", users.getPassword());
+        List<Users> list = queryGenericDAO(Users.class, sql, parameterMap);
+        return list.isEmpty() ? null : list.get(0);
+    }
+
     @Override
     public List<Users> findAll() {
         return queryGenericDAO(Users.class);
     }
 
-    public List<Users> loginUsers(String email, String password) {
-        String sql = "SELECT [user_id], [full_name], [email], [role], [status] FROM [dbo].[users]"
-                + " WHERE [email] = ? AND [] = ?";
-        parameterMap = new LinkedHashMap<>();
-        parameterMap.put("email",email);
-        parameterMap.put("password", password);
-        return queryGenericDAO(Users.class, sql, parameterMap);
-
-    }
-
     public static void main(String[] args) {
-        // Create an instance of UsersDao
+        // Khởi tạo UsersDao để thao tác với database
         UsersDao usersDao = new UsersDao();
 
-        // Call the findAll() method to get the list of users
-        List<Users> usersList = usersDao.findAll();
+        // Tạo một User mới để thêm vào DB
+        Users newUser = new Users();
+        newUser.setFull_name("Nguyễn Văn A"); // Thay đổi tên user theo ý muốn
+        newUser.setEmail("nguyenvanaq@example.com"); // Email hợp lệ
+        newUser.setPassword("securepassword"); // Mật khẩu giả định
 
-        // Print the users list to the console
-        if (usersList != null && !usersList.isEmpty()) {
-            for (Users user : usersList) {
-                // Assuming Users class has a toString() method that prints user details
-                System.out.println(user);
-            }
+        // Kiểm tra xem user đã tồn tại chưa
+        boolean exists = usersDao.checkUsernameExits(newUser);
+        if (exists) {
+            System.out.println("User đã tồn tại trong hệ thống.");
         } else {
-            System.out.println("No users found.");
+            // Nếu user chưa tồn tại, tiến hành thêm mới
+            usersDao.insert(newUser);
+            System.out.println("User đã được thêm vào hệ thống.");
+
+            // Kiểm tra lại xem user có thực sự được thêm hay không
+            exists = usersDao.checkUsernameExits(newUser);
+            if (exists) {
+                System.out.println("Thêm user thành công!");
+            } else {
+                System.out.println("Thêm user thất bại!");
+            }
         }
+    }
+
+    public boolean checkUsernameExits(Users users) {
+        String sql = "SELECT *\n"
+                + "  FROM [dbo].[users]\n"
+                + "  where full_name = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("full_name", users.getFull_name());
+        return !queryGenericDAO(Users.class, sql, parameterMap).isEmpty();
+    }
+
+    public void insert(Users users) {
+        String sql = "INSERT INTO [dbo].[users]\n"
+                + "           ([full_name]\n"
+                + "           ,[email]\n"
+                + "           ,[password]\n"
+                + "           ,[role]\n"
+                + "           ,[status])\n"
+                + "     VALUES\n"
+                + "           (?\n"
+                + "           ,?\n"
+                + "           ,?\n"
+                + "           ,'STUDENT'\n"
+                + "           ,'ACTIVE')";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("full_name", users.getFull_name());
+        parameterMap.put("email", users.getEmail());
+        parameterMap.put("password", users.getPassword());
+        int insert = insertGenericDAO(sql, parameterMap);
+
     }
 
 }

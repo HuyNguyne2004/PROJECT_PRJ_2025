@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,13 @@
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
-                        <a href="authen?action=login" class="site-btn header-btn">Login</a>
+                        <c:if test="${user == null}">
+                            <a href="${pageContext.request.contextPath}/authen?action=login" class="site-btn header-btn">Login</a>
+                        </c:if>
+                            <a href="${pageContext.request.contextPath}/authen?action=sign_up" class="site-btn header-btn">Sign up</a>
+                        <c:if test="${user != null}">
+                            <a href="${pageContext.request.contextPath}/authen?action=logout" class="site-btn header-btn">Log out</a>
+                        </c:if>
                         <nav class="main-menu">
                             <ul>
                                 <li><a href="index.html">Home</a></li>
