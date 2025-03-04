@@ -35,5 +35,6 @@ public class Course {
     private String schedule;
     private int max_students;
     private Integer room_id;
+    private String image;
 
 }
