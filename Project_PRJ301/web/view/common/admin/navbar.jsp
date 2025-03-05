@@ -1,11 +1,8 @@
 <%-- 
-    Document   : navbar
-    Created on : Feb 23, 2025, 11:06:49 PM
-    Author     : Admin
+    Author     : 4USER-FPT
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
     <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
@@ -64,7 +61,7 @@
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activity Log</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+                <a class="dropdown-item" href="${pageContext.request.contextPath}/authen?action=log-out" data-toggle="modal" data-target="#logoutModal">Logout</a>
             </div>
         </li>
     </ul>

@@ -1,132 +1,62 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%-- 
+    Document   : dashboard
+    Created on : Mar 6, 2025, 12:10:06 AM
+    Author     : Admin
+--%>
 
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html lang="en">
-
     <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>SB Admin - Dashboard</title>
-
-        <!-- Custom fonts for this template-->
-        <link href="${pageContext.request.contextPath}/vendor-admin/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-        <!-- Page level plugin CSS-->
-        <link href="${pageContext.request.contextPath}/vendor-admin/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-
-        <!-- Custom styles for this template-->
-        <link href="${pageContext.request.contextPath}/css/sb-admin.css" rel="stylesheet">
-
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/colReorder-bootstrap4.css">
-        <style>
-            .error{
-                color:red;
-            }
-        </style>
-
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Dashboard</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     </head>
+    <body>
 
-    <body id="page-top">
+        <div class="container mt-5">
+            <h2 class="text-center">Admin Dashboard</h2>
 
-       <jsp:include page="../common/user/navbar.jsp"></jsp:include>
-
-            <div id="wrapper">
-
-                <!-- Sidebar -->
-            <jsp:include page="../common/admin/sideBar.jsp"></jsp:include>
-
-                <div id="content-wrapper">
-
-                    <div class="container-fluid">
-
-                        <!-- Breadcrumbs-->
-                    <jsp:include page="../common/admin/breadcrumbs.jsp"></jsp:include>
-
-
-                        <!-- Icon Cards-->
-                    <jsp:include page="../common/admin/iconCard.jsp"></jsp:include>
-
-                        <!-- Area Chart Example-->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area"></i>
-                                Area Chart Example
-                            </div>
-                            <div class="card-body">
-                                <canvas id="myAreaChart" width="100%" height="30"></canvas>
-                            </div>
-                            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                        </div>
-
-                        <!-- DataTables Example -->
-                        <div class="card mb-3">
-                            <div class="card-header">
-                                <i class="fas fa-table"></i>
-                                Data Table Example
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                       
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                    </div>
-
+            <div class="row">
+                <!-- Course Management Button -->
+                <div class="col-md-3 mb-3">
+                    <a href="${pageContext.request.contextPath}/admin/course" class="btn btn-primary btn-block">
+                        <i class="fas fa-book"></i> Manage Courses
+                    </a>
                 </div>
-                <!-- /.container-fluid -->
 
-                <!-- Sticky Footer -->
-                <jsp:include page="../common/admin/footer.jsp"></jsp:include>
-
+                <!-- Enrollment Management Button -->
+                <div class="col-md-3 mb-3">
+                    <a href="${pageContext.request.contextPath}/admin/enrollments" class="btn btn-success btn-block">
+                        <i class="fas fa-users"></i> Manage Enrollments
+                    </a>
                 </div>
-                <!-- /.content-wrapper -->
 
+                <!-- User Management Button -->
+                <div class="col-md-3 mb-3">
+                    <a href="${pageContext.request.contextPath}/admin/user" class="btn btn-warning btn-block">
+                        <i class="fas fa-user"></i> Manage Users
+                    </a>
+                </div>
+
+                <!-- Room Management Button -->
+                <div class="col-md-3 mb-3">
+                    <a href="${pageContext.request.contextPath}/admin/room" class="btn btn-info btn-block">
+                        <i class="fas fa-door-open"></i> Manage Rooms
+                    </a>
+                </div>
             </div>
-            <!-- /#wrapper -->
 
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
+            <!-- Optionally you can add more sections here -->
+        </div>
 
-            <!-- Logout Modal-->
-        <jsp:include page="../common/admin/logoutModal.jsp"></jsp:include>
-
-        <jsp:include page="addProductModal.jsp"></jsp:include>
-
-            <!-- Bootstrap core JavaScript-->
-            <script src="${pageContext.request.contextPath}/vendor-admin/jquery/jquery.min.js"></script>
-        <script src="${pageContext.request.contextPath}/vendor-admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="${pageContext.request.contextPath}/vendor-admin/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Page level plugin JavaScript-->
-        <script src="${pageContext.request.contextPath}/vendor-admin/chart.js/Chart.min.js"></script>
-        <script src="${pageContext.request.contextPath}/vendor-admin/datatables/jquery.dataTables.js"></script>
-        <script src="${pageContext.request.contextPath}/vendor-admin/datatables/dataTables.bootstrap4.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="${pageContext.request.contextPath}/js/sb-admin.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/colReorder-bootstrap4-min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/colReorder-dataTables-min.js"></script>
-
-        <!-- Demo scripts for this page-->
-        <script src="${pageContext.request.contextPath}/js/demo/datatables-demo.js"></script>
-        <script src="${pageContext.request.contextPath}/js/demo/chart-area-demo.js"></script>
-        <script src="${pageContext.request.contextPath}/js/colReorder-dataTables-min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/colReorder-bootstrap4-min.js"></script>
-
-
+        <!-- Bootstrap JS and Font Awesome for icons -->
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
-
 </html>
+

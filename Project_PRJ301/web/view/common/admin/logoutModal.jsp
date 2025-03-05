@@ -1,11 +1,8 @@
 <%-- 
-    Document   : logoutModal
-    Created on : Feb 23, 2025, 11:18:01 PM
-    Author     : Admin
+    Author     : 4USER-FPT
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">

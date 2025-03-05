@@ -3,12 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-import java.sql.Timestamp;
-
-/**
- *
- * @author Admin
- */
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,13 +21,14 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+/**
+ *
+ * @author Admin
+ */
+public class Rooms {
 
-public class Enrollments {
-    
-    private int enrollment_id;
-    private int student_id;
-    private int course_id;
-    private Timestamp enrolled_date;
-    private String status;
+    private int room_id;
+    private String room_name;
+    private int capacity;
 
 }

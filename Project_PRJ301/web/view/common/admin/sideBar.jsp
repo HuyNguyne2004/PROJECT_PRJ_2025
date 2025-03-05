@@ -1,11 +1,8 @@
 <%-- 
-    Document   : sideBar.jsp
-    Created on : Feb 23, 2025, 11:11:28 PM
-    Author     : Admin
+    Author     : 4USER-FPT
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <ul class="sidebar navbar-nav">
     <li class="nav-item active">
         <a class="nav-link" href="index.html">

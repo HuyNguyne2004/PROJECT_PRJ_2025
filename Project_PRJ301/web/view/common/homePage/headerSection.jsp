@@ -28,8 +28,20 @@
                         <c:if test="${user == null}">
                             <a href="${pageContext.request.contextPath}/authen?action=login" class="site-btn header-btn">Login</a>
                         </c:if>
-                            <a href="${pageContext.request.contextPath}/authen?action=sign_up" class="site-btn header-btn">Sign up</a>
+                        <a href="${pageContext.request.contextPath}/authen?action=sign_up" class="site-btn header-btn">Sign up</a>
                         <c:if test="${user != null}">
+                            <c:if test="${user.role == 'ADMIN'}">
+                                <a href="${pageContext.request.contextPath}/admin/dashboard">
+                                    My Account
+                                </a>
+                            </c:if>
+
+                            <c:if test="${user.role == 'STUDENT'}">
+                                <a href="${pageContext.request.contextPath}/dashboard">
+                                    My Account
+                                </a>
+                            </c:if>
+
                             <a href="${pageContext.request.contextPath}/authen?action=logout" class="site-btn header-btn">Log out</a>
                         </c:if>
                         <nav class="main-menu">

@@ -34,28 +34,17 @@ public class UsersDao extends GenericDAO<Users> {
         // Khởi tạo UsersDao để thao tác với database
         UsersDao usersDao = new UsersDao();
 
-        // Tạo một User mới để thêm vào DB
-        Users newUser = new Users();
-        newUser.setFull_name("Nguyễn Văn A"); // Thay đổi tên user theo ý muốn
-        newUser.setEmail("nguyenvanaq@example.com"); // Email hợp lệ
-        newUser.setPassword("securepassword"); // Mật khẩu giả định
+        // Gọi phương thức findAll để lấy tất cả người dùng
+        List<Users> usersList = usersDao.findAll();
 
-        // Kiểm tra xem user đã tồn tại chưa
-        boolean exists = usersDao.checkUsernameExits(newUser);
-        if (exists) {
-            System.out.println("User đã tồn tại trong hệ thống.");
-        } else {
-            // Nếu user chưa tồn tại, tiến hành thêm mới
-            usersDao.insert(newUser);
-            System.out.println("User đã được thêm vào hệ thống.");
-
-            // Kiểm tra lại xem user có thực sự được thêm hay không
-            exists = usersDao.checkUsernameExits(newUser);
-            if (exists) {
-                System.out.println("Thêm user thành công!");
-            } else {
-                System.out.println("Thêm user thất bại!");
+        // Kiểm tra xem có người dùng nào trong danh sách không
+        if (usersList != null && !usersList.isEmpty()) {
+            // In ra thông tin của từng người dùng trong danh sách
+            for (Users user : usersList) {
+                System.out.println(user);
             }
+        } else {
+            System.out.println("Không có người dùng nào trong hệ thống.");
         }
     }
 
