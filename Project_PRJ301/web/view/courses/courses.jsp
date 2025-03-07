@@ -1,5 +1,6 @@
 <%-- 
     Document   : courses
+<<<<<<< Updated upstream
     Created on : Mar 7, 2025, 1:01:07 PM
     Author     : ADMIN
 --%>
@@ -12,6 +13,21 @@
         <title>JSP Page</title>
         <style>
         body {
+=======
+    Created on : Mar 7, 2025, 12:10:47 AM
+    Author     : ADMIN
+--%>
+
+<%@page contentType="courses/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <meta http-equiv="Content-Type" content="courses/html; charset=UTF-8">
+        <title>JSP Page</title>
+    <style>    
+    body {
+>>>>>>> Stashed changes
             margin: 0;
 	        padding: 0;
 	        font-family: 'Jost', sans-serif;
@@ -172,10 +188,17 @@
         .btn-course:hover {
             background: var(--primary-color);
         }
+<<<<<<< Updated upstream
     </style>
     </head>
     <body>
         <div class="container">
+=======
+    </style>    
+    </head>
+    <body>
+       <div class="container">
+>>>>>>> Stashed changes
         <div class="header-container">
             <h1>COURSES</h1>
             <div class="course-filter">
@@ -196,7 +219,11 @@
         <div class="course-container">
             
             <div class="course-card">
+<<<<<<< Updated upstream
                 <img src="https://source.unsplash.com/320x200/?html,css" class="course-image" alt="Python for Beginners">
+=======
+                <img src="1.jpg" class="course-image" alt="Python for Beginners">
+>>>>>>> Stashed changes
                 <div class="course-content">
                     <div class="course-title">Learn the basics of Python programming</div>
                     
@@ -356,5 +383,9 @@
                 </div>
             </div>
     </div>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     </body>
 </html>
