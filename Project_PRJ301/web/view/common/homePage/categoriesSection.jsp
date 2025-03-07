@@ -24,8 +24,8 @@
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/1.jpg"></div>
                             <div class="ci-text">
-                                <h5> Lập trình & Công nghệ </h5>
-                                <p>Khóa học giúp bạn nắm vững các ngôn ngữ lập trình và công nghệ mới, phát triển các ứng dụng sáng tạo và tối ưu hóa giải pháp kỹ thuật.</p>
+                                <h5> "Programming & Technology </h5>
+                                <p>Master programming languages and develop creative technical solutions.</p>
                                 <span>08 Courses</span>
                             </div>
                         </div>
@@ -35,8 +35,8 @@
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/2.jpg"></div>
                             <div class="ci-text">
-                                <h5> Kinh doanh & Tài chính </h5>
-                                <p>Cung cấp kiến thức về chiến lược tài chính, đầu tư, phân tích rủi ro và quản lý tài chính trong môi trường kinh doanh cạnh tranh.</p>
+                                <h5> Business & Finance </h5>
+                                <p>Learn financial strategies, investment, and risk management.</p>
                                 <span>03 Courses</span>
                             </div>
                         </div>
@@ -46,9 +46,8 @@
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/3.jpg"></div>
                             <div class="ci-text">
-                                <h5> Thiết kế & Sáng tạo         </h5>
-                                <br>
-                                <p>Giới thiệu kỹ năng thiết kế đồ họa, giao diện người dùng, giúp bạn tạo ra những sản phẩm sáng tạo, phù hợp với xu hướng hiện đại.</p>
+                                <h5>Design & Creativity</h5>
+                                <p> Develop graphic design skills for modern, creative products. </p>
                                 <span>03 Courses</span>
                             </div>
                         </div>
@@ -58,9 +57,8 @@
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/4.jpg"></div>
                             <div class="ci-text">
-                                <h5> Phát triển cá nhân </h5>
-                                <br>
-                                <p>Tăng cường khả năng tự nhận thức, phát triển kỹ năng mềm và xây dựng thói quen tích cực để đạt được mục tiêu cá nhân và nghề nghiệp.</p>
+                                <h5>Personal Development</h5>
+                                <p> Enhance self-awareness and build positive, goal-oriented habits.</p>
                                 <span>05 Courses</span>
                             </div>
                         </div>
