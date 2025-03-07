@@ -13,22 +13,7 @@
         <title>JSP Page</title>
         <style>
         body {
-=======
-    Created on : Mar 7, 2025, 12:10:47 AM
-    Author     : ADMIN
---%>
-
-<%@page contentType="courses/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        
-        <meta http-equiv="Content-Type" content="courses/html; charset=UTF-8">
-        <title>JSP Page</title>
-    <style>    
-    body {
->>>>>>> Stashed changes
-            margin: 0;
+             margin: 0;
 	        padding: 0;
 	        font-family: 'Jost', sans-serif;
 	        background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
@@ -188,12 +173,11 @@
         .btn-course:hover {
             background: var(--primary-color);
         }
-<<<<<<< Updated upstream
     </style>
     </head>
     <body>
         <div class="container">
-=======
+
     </style>    
     </head>
     <body>
