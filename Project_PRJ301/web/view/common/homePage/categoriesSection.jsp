@@ -20,68 +20,48 @@
                 </div>
                 <div class="row">
                     <!-- categorie -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-3">
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/1.jpg"></div>
                             <div class="ci-text">
-                                <h5>IT Development</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <span>120 Courses</span>
+                                <h5> Lập trình & Công nghệ </h5>
+                                <p>Khóa học giúp bạn nắm vững các ngôn ngữ lập trình và công nghệ mới, phát triển các ứng dụng sáng tạo và tối ưu hóa giải pháp kỹ thuật.</p>
+                                <span>08 Courses</span>
                             </div>
                         </div>
                     </div>
                     <!-- categorie -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-3">
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/2.jpg"></div>
                             <div class="ci-text">
-                                <h5>Web Design</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <span>70 Courses</span>
+                                <h5> Kinh doanh & Tài chính </h5>
+                                <p>Cung cấp kiến thức về chiến lược tài chính, đầu tư, phân tích rủi ro và quản lý tài chính trong môi trường kinh doanh cạnh tranh.</p>
+                                <span>03 Courses</span>
                             </div>
                         </div>
                     </div>
                     <!-- categorie -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-3">
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/3.jpg"></div>
                             <div class="ci-text">
-                                <h5>Illustration & Drawing</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <span>55 Courses</span>
+                                <h5> Thiết kế & Sáng tạo         </h5>
+                                <br>
+                                <p>Giới thiệu kỹ năng thiết kế đồ họa, giao diện người dùng, giúp bạn tạo ra những sản phẩm sáng tạo, phù hợp với xu hướng hiện đại.</p>
+                                <span>03 Courses</span>
                             </div>
                         </div>
                     </div>
                     <!-- categorie -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-3 col-md-3">
                         <div class="categorie-item">
                             <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/4.jpg"></div>
                             <div class="ci-text">
-                                <h5>Social Media</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <span>40 Courses</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- categorie -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="categorie-item">
-                            <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/5.jpg"></div>
-                            <div class="ci-text">
-                                <h5>Photoshop</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <span>220 Courses</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- categorie -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="categorie-item">
-                            <div class="ci-thumb set-bg" data-setbg="${pageContext.request.contextPath}/img/categories/6.jpg"></div>
-                            <div class="ci-text">
-                                <h5>Cryptocurrencies</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <span>25 Courses</span>
+                                <h5> Phát triển cá nhân </h5>
+                                <br>
+                                <p>Tăng cường khả năng tự nhận thức, phát triển kỹ năng mềm và xây dựng thói quen tích cực để đạt được mục tiêu cá nhân và nghề nghiệp.</p>
+                                <span>05 Courses</span>
                             </div>
                         </div>
                     </div>
