@@ -48,11 +48,11 @@
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="#">About us</a></li>
-<<<<<<< Updated upstream
+
                                 <li><a href="https://khokhoahoc.org/" target="_blank">Courses</a></li>
-=======
+
                                 <li><a href="${pageContext.request.contextPath}/authen?action=courses">Courses</a></li>
->>>>>>> Stashed changes
+
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>

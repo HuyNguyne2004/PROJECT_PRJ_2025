@@ -18,6 +18,13 @@
 	        font-family: 'Jost', sans-serif;
 	        background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
         }
+        .site-logo {
+    position: fixed;  /* Giữ cố định khi cuộn */
+    top: 20px;        /* Cách mép trên 20px */
+    left: 20px;       /* Cách mép trái 20px */
+    z-index: 999;     /* Ưu tiên hiển thị trên các phần tử khác */
+}
+
 .course-filter {
     display: flex;
     justify-content: space-evenly;
@@ -26,6 +33,7 @@
     position: relative;
     transform: translateY(10px)
 }
+
 .control:first-child {
     margin-left: auto;  /* Căn "All" sang trái */
     margin-right: auto; /* Căn "All" sang phải */ 
@@ -142,7 +150,7 @@
             color:#fff;
         }
         .course-title {
-            font-size: 14px;
+            font-size: 18px;
             font-weight: normal;
             color: var(--text-color);
             text-align:justify; 
@@ -173,6 +181,16 @@
         .btn-course:hover {
             background: var(--primary-color);
         }
+        .navbar {
+    position: sticky; /* Giữ cố định khi cuộn */
+    top: 0; /* Cố định ở phía trên cùng */
+    display: flex; /* Hiển thị các mục theo chiều ngang */
+    justify-content: center; /* Căn giữa nội dung */
+    background-color: black; /* Màu nền (có thể thay đổi) */
+    padding: 10px 0; /* Tăng khoảng cách trên dưới */
+    z-index: 1000; /* Đảm bảo luôn nằm trên các phần tử khác */
+}
+
     </style>
     </head>
     <body>
@@ -181,8 +199,38 @@
     </style>    
     </head>
     <body>
+        <header class="header-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="site-logo">
+                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
+                        </div>
+                        <div class="nav-switch">
+                            <i class="fa fa-bars"></i>
+                        </div>
+                    </div>
+                    <div class="col-lg-10 col-md-10">
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#">About us</a></li>
+
+                                <li><a href="https://khokhoahoc.org/" target="_blank">Courses</a></li>
+
+                                <li><a href="${pageContext.request.contextPath}/authen?action=courses">Courses</a></li>
+
+                                <li><a href="blog.html">News</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </body>
+    <body>
        <div class="container">
->>>>>>> Stashed changes
         <div class="header-container">
             <h1>COURSES</h1>
             <div class="course-filter">
@@ -203,173 +251,167 @@
         <div class="course-container">
             
             <div class="course-card">
-<<<<<<< Updated upstream
-                <img src="https://source.unsplash.com/320x200/?html,css" class="course-image" alt="Python for Beginners">
-=======
-                <img src="1.jpg" class="course-image" alt="Python for Beginners">
->>>>>>> Stashed changes
+
+                <img src="${pageContext.request.contextPath}/img/courses/1.jpg" class="course-image" >
+
                 <div class="course-content">
-                    <div class="course-title">Learn the basics of Python programming</div>
+                    <div class="course-title">Python for Beginners</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?html,css" class="course-image" alt="HTML & CSS">
+                <img src="${pageContext.request.contextPath}/img/courses/2.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Build responsive websites from scratch</div>
+                    <div class="course-title">HTML & CSS</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?javascript,code" class="course-image" alt="JavaScript Essentials">
+                <img src="${pageContext.request.contextPath}/img/courses/3.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Master core JavaScript concepts</div>
+                    <div class="course-title">JavaScript Essentials</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?reactjs,programming" class="course-image" alt="ReactJS Advanced">
+                <img src="${pageContext.request.contextPath}/img/courses/4.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Dive deep into advanced React development</div>
+                    <div class="course-title">ReactJS Advanced</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?python" class="course-image" alt="Full-Stack Web Development">
+                <img src="${pageContext.request.contextPath}/img/courses/5.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Frontend and backend in one course</div>
+                    <div class="course-title">Full-Stack Web Development</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>            
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?angular" class="course-image" alt="Machine Learning Basics">
+                <img src="${pageContext.request.contextPath}/img/courses/6.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">An introduction to machine learning concepts</div>
+                    <div class="course-title">Machine Learning Basics</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>            
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?java" class="course-image" alt="Cybersecurity Fundamentals">
+                <img src="${pageContext.request.contextPath}/img/courses/7.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Learn how to protect digital assets</div>
+                    <div class="course-title">Cybersecurity Fundamentals</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>            
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?css,html" class="course-image" alt="Mobile App Development with Flutter">
+                <img src="${pageContext.request.contextPath}/img/courses/8.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Build cross-platform mobile applications</div>
+                    <div class="course-title">Mobile App Development with Flutter</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>            
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Financial Analysis and Modeling">
+                <img src="${pageContext.request.contextPath}/img/courses/9.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Analyze financial data with Excel</div>
+                    <div class="course-title">Financial Analysis and Modeling</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Digital Marketing Mastery ">
+                <img src="${pageContext.request.contextPath}/img/courses/10.jpg" class="course-image" >
                 <div class="course-content">
-                    <div class="course-title">Boost online presence and drive sales</div>
+                    <div class="course-title">Digital Marketing Mastery</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Business Strategy and Management">
+                <img src="${pageContext.request.contextPath}/img/courses/11.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Learn to develop winning strategies</div>
+                    <div class="course-title">Business Strategy and Management</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="FStock Market Investment">
+                <img src="${pageContext.request.contextPath}/img/courses/12.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Master the basics of trading and investing</div>
+                    <div class="course-title">FStock Market Investment</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Graphic Design with Adobe Photoshop">
+                <img src="${pageContext.request.contextPath}/img/courses/13.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Create stunning designs effortlessly</div>
+                    <div class="course-title">Graphic Design with Adobe Photoshop</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="UI/UX Design Essentials">
+                <img src="${pageContext.request.contextPath}/img/courses/14.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Design user-friendly digital experiences</div>
+                    <div class="course-title">UI/UX Design Essentials</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Photography and Editing">
+                <img src="${pageContext.request.contextPath}/img/courses/15.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Master the art of capturing and enhancing photos</div>
+                    <div class="course-title">Photography and Editing</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Public Speaking Mastery ">
+                <img src="${pageContext.request.contextPath}/img/courses/16.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Build confidence and deliver impactful speeches</div>
+                    <div class="course-title">Public Speaking Mastery</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Project Management Essentials">
+                <img src="${pageContext.request.contextPath}/img/courses/17.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title"> Master project planning and execution</div>
+                    <div class="course-title">Project Management Essentials</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Data Science with Python">
+                <img src="${pageContext.request.contextPath}/img/courses/18.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Understand AI concepts and applications</div>
+                    <div class="course-title">Data Science with Python</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Artificial Intelligence Basics">
+                <img src="${pageContext.request.contextPath}/img/courses/19.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Analyze financial data with Excel</div>
+                    <div class="course-title">Artificial Intelligence Basics</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
             <div class="course-card">
-                <img src="https://source.unsplash.com/320x200/?cloud-computing" class="course-image" alt="Video Editing with Adobe Premiere Pro ">
+                <img src="${pageContext.request.contextPath}/img/courses/20.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">Create professional-quality videos</div>
+                    <div class="course-title">Video Editing</div>
                     
                     <a href="#" class="btn-course">Xem khóa học</a>
                 </div>
             </div>
     </div>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     </body>
 </html>
