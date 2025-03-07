@@ -24,7 +24,7 @@
                             <i class="fa fa-bars"></i>
                         </div>
                     </div>
-                    <div class="col-lg-10 col-md-10">
+                    <div class="col-lg-12 col-md-12">
                         <c:if test="${user == null}">
                             <a href="${pageContext.request.contextPath}/authen?action=login" class="site-btn header-btn">Login</a>
                         </c:if>
