@@ -16,7 +16,7 @@
         <header class="header-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3">
+                    <div class="col-lg-2 col-md-2">
                         <div class="site-logo">
                             <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
                         </div>
@@ -24,7 +24,7 @@
                             <i class="fa fa-bars"></i>
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-9">
+                    <div class="col-lg-10 col-md-10">
                         <c:if test="${user == null}">
                             <a href="${pageContext.request.contextPath}/authen?action=login" class="site-btn header-btn">Login</a>
                         </c:if>
@@ -48,7 +48,7 @@
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="#">About us</a></li>
-                                <li><a href="courses.html">Courses</a></li>
+                                <li><a href="https://khokhoahoc.org/" target="_blank">Courses</a></li>
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
