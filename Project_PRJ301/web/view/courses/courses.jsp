@@ -17,7 +17,12 @@
 	        padding: 0;
 	        font-family: 'Jost', sans-serif;
 	        background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+                padding-top: 80px;
+                
         }
+        .site-logo img {
+    height: 50px; /* Chiều cao logo, tùy chỉnh theo ý muốn */
+}
         .site-logo {
     position: fixed;  /* Giữ cố định khi cuộn */
     top: 20px;        /* Cách mép trên 20px */
@@ -67,12 +72,16 @@
     margin: 0; /* Loại bỏ margin */   
 }
 .header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: 0;
-    padding: 0 20px; /* Căn sát lề trái và phải */
-    width: 100%; /* Đảm bảo độ rộng full */
+    justify-content: space-between; /* Logo trái, search phải, menu giữa */
+    padding: 10px 20px;
+    z-index: 999;
 }
 .search-container {
     color: white;
@@ -86,14 +95,13 @@
     align-items: center;
 }
 .search-input {
-    padding: 10px;
+    padding: 8px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 200px;
+    border: none;
 }
 .search-btn {
-    padding: 10px 20px;
+    padding: 8px 15px;
     background-color: #d32f2f;
     color: white;
     font-weight: bold;
@@ -181,15 +189,53 @@
         .btn-course:hover {
             background: var(--primary-color);
         }
-        .navbar {
-    position: sticky; /* Giữ cố định khi cuộn */
-    top: 0; /* Cố định ở phía trên cùng */
-    display: flex; /* Hiển thị các mục theo chiều ngang */
-    justify-content: center; /* Căn giữa nội dung */
-    background-color: black; /* Màu nền (có thể thay đổi) */
-    padding: 10px 0; /* Tăng khoảng cách trên dưới */
-    z-index: 1000; /* Đảm bảo luôn nằm trên các phần tử khác */
+        .main-menu {
+    text-align: center; /* căn giữa menu tổng thể */
+    margin-top: 40px; /* đẩy cả menu xuống phía dưới */
+    flex-grow: 1;
+    display: flex;
+    }
+
+
+.main-menu ul {
+    display: flex;
+    justify-content: center; /* căn giữa menu */
+    align-items: center;
+    list-style-type: none; /* loại bỏ dấu chấm của danh sách */
+    padding: 0;
+    margin: 0;
 }
+
+.main-menu ul li {
+    display: inline-block; /* menu nằm ngang */
+    margin: 0 15px; /* khoảng cách giữa các mục menu */
+}
+
+.main-menu ul li a {
+    color: #fff; /* màu chữ mặc định */
+    text-decoration: none; /* bỏ gạch chân */
+    transition: color 0.3s ease;
+    font-size: 18px;
+}
+
+.main-menu ul li a:hover,
+.main-menu ul li a.active {
+    color: #cc204c; /* màu khi hover hoặc active */
+}
+.header  {
+    position: fixed; /* Cố định header khi cuộn */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* nền đậm để nổi bật trên các phần khác */
+    display: flex;
+    align-items: center; /* Canh logo và menu theo chiều dọc */
+    justify-content: space-between; /* Logo trái, menu phải */
+    padding: 10px 10px; /* Khoảng cách bên trong header */
+    z-index: 1000; /* Luôn nổi trên cùng */
+}
+
+
 
     </style>
     </head>
@@ -199,7 +245,7 @@
     </style>    
     </head>
     <body>
-        <header class="header-section">
+        <header class="header">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
@@ -216,8 +262,6 @@
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="#">About us</a></li>
 
-                                <li><a href="https://khokhoahoc.org/" target="_blank">Courses</a></li>
-
                                 <li><a href="${pageContext.request.contextPath}/authen?action=courses">Courses</a></li>
 
                                 <li><a href="blog.html">News</a></li>
@@ -225,11 +269,16 @@
                             </ul>
                         </nav>
                     </div>
+                    <div class="search-container">
+                <div class="search-fields">
+                    <input type="text" class="search-input" placeholder="Course">
+                    <input type="text" class="search-input" placeholder="Category">
+                    <button class="search-btn">Search Course</button>
+                </div>
+            </div>            
                 </div>
             </div>
         </header>
-    </body>
-    <body>
        <div class="container">
         <div class="header-container">
             <h1>COURSES</h1>
@@ -240,13 +289,6 @@
                 <button class="control" data-filter=".web">Web</button>
                 <button class="control" data-filter=".photo">Photography</button>
             </div>             
-            <div class="search-container">
-                <div class="search-fields">
-                    <input type="text" class="search-input" placeholder="Course">
-                    <input type="text" class="search-input" placeholder="Category">
-                    <button class="search-btn">Search Course</button>
-                </div>
-            </div>
         </div>        
         <div class="course-container">
             

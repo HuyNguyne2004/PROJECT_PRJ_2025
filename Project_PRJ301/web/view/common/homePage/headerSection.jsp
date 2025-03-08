@@ -48,11 +48,7 @@
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="#">About us</a></li>
-
-                                <li><a href="https://khokhoahoc.org/" target="_blank">Courses</a></li>
-
-                                <li><a href="${pageContext.request.contextPath}/authen?action=courses">Courses</a></li>
-
+                                <li><a href="view/courses/courses.jsp">Courses</a></li>
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
