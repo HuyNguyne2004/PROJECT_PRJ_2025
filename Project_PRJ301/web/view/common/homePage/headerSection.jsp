@@ -24,7 +24,7 @@
                             <i class="fa fa-bars"></i>
                         </div>
                     </div>
-                    <div class="col-lg-12 col-md-12">
+                    <div class="col-lg-10 col-md-10">
                         <c:if test="${user == null}">
                             <a href="${pageContext.request.contextPath}/authen?action=login" class="site-btn header-btn">Login</a>
                         </c:if>
@@ -48,8 +48,6 @@
                             <ul>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="#">About us</a></li>
-
-                                <li><a href="https://khokhoahoc.org/" target="_blank">Courses</a></li>
 
                                 <li><a href="${pageContext.request.contextPath}/authen?action=courses">Courses</a></li>
 
