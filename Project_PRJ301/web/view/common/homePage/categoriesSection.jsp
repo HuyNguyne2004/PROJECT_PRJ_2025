@@ -27,7 +27,7 @@
                                 <h5> "Programming & Technology </h5>
                                 <br>
                                 <p>Master programming languages and develop creative technical solutions.</p>
-                                <span>08 Courses</span>
+                                <span>06 Courses</span>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                 <br>
                                 <br>
                                 <p>Learn financial strategies, investment, and risk management.</p>
-                                <span>03 Courses</span>
+                                <span>04 Courses</span>
                             </div>
                         </div>
                     </div>
