@@ -427,7 +427,7 @@
                 <div class="course-content">
                     <div class="course-title">Python for Beginners</div>
                     
-                    <a href="register/PythonForBeginners.jsp" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/PythonForBeginners.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -435,7 +435,7 @@
                 <div class="course-content">
                     <div class="course-title">HTML & CSS</div>
                     
-                    <a href="/view/register/PythonForBeginners.jsp" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/html-css.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -443,7 +443,7 @@
                 <div class="course-content">
                     <div class="course-title">JavaScript Essentials</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/JavaScriptEssentials.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -451,7 +451,7 @@
                 <div class="course-content">
                     <div class="course-title">ReactJS Advanced</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/ReactjsAdvanced.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -459,7 +459,7 @@
                 <div class="course-content">
                     <div class="course-title">Full-Stack Web Development</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/FullStackWebDevelopment.jsp" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -467,7 +467,7 @@
                 <div class="course-content">
                     <div class="course-title">Machine Learning Basics</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/MachineLearningBasics.jsp" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -475,7 +475,7 @@
                 <div class="course-content">
                     <div class="course-title">Cybersecurity Fundamentals</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/CybersecurityFundamentals.jsp" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -483,7 +483,7 @@
                 <div class="course-content">
                     <div class="course-title">Mobile App Development with Flutter</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/MobileAppDevelopmentWithFlutte.jsp" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -491,7 +491,7 @@
                 <div class="course-content">
                     <div class="course-title">Financial Analysis and Modeling</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/FinancialAnalysisAndModeling.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -499,7 +499,7 @@
                 <div class="course-content">
                     <div class="course-title">Digital Marketing Mastery</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/DigitalMarketingMastery.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -507,7 +507,7 @@
                 <div class="course-content">
                     <div class="course-title">Business Strategy and Management</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/BusinessStrategyAndManagement.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -515,7 +515,7 @@
                 <div class="course-content">
                     <div class="course-title">FStock Market Investment</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/FStockMarketInvestment.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -523,7 +523,7 @@
                 <div class="course-content">
                     <div class="course-title">Graphic Design with Adobe Photoshop</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/GraphicDesignWithAdobePhotoshop.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -531,7 +531,7 @@
                 <div class="course-content">
                     <div class="course-title">UI/UX Design Essentials</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/UiUxDesignEssentials.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -539,7 +539,7 @@
                 <div class="course-content">
                     <div class="course-title">Photography and Editing</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/PhotographyAndEditing.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -547,7 +547,7 @@
                 <div class="course-content">
                     <div class="course-title">Public Speaking Mastery</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/PublicSpeakingMastery.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -555,7 +555,7 @@
                 <div class="course-content">
                     <div class="course-title">Project Management Essentials</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/ProjectManagementEssentials.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -563,7 +563,7 @@
                 <div class="course-content">
                     <div class="course-title">Data Science with Python</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/DataScienceWithPython.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -571,7 +571,7 @@
                 <div class="course-content">
                     <div class="course-title">Artificial Intelligence Basics</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/ArtificialIntelligenceBasics.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -579,7 +579,7 @@
                 <div class="course-content">
                     <div class="course-title">Video Editing</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/VideoEditing.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
                 
@@ -593,7 +593,7 @@
                     <p>Success is better when shared! Become part of a thriving community where you can learn, grow, and achieve more—together.</p>
                 </div>
                 <div class="text-center pt-5">
-                    <a href="#" class="site-btn">Register Now</a>
+                    <a href="#" class="site-btn">COURSES</a>
                 </div>
             </div>
                 <div class="widget-item">
