@@ -427,7 +427,7 @@
                 <div class="course-content">
                     <div class="course-title">Python for Beginners</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="register/PythonForBeginners.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -435,7 +435,7 @@
                 <div class="course-content">
                     <div class="course-title">HTML & CSS</div>
                     
-                    <a href="#" class="btn-course">View courses</a>
+                    <a href="/view/register/PythonForBeginners.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
