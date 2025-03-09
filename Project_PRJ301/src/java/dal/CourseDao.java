@@ -6,6 +6,7 @@ package dal;
 
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Scanner;
 import model.Courses;
 
 /**
@@ -20,44 +21,32 @@ public class CourseDao extends GenericDAO<Courses> {
     }
 
     public static void main(String[] args) {
+        // ✅ Tạo instance của CourseDao
         CourseDao courseDao = new CourseDao();
 
-        // 🟢 Hiển thị danh sách khóa học trước khi thêm
-        System.out.println("📌 Danh sách khóa học trước khi thêm:");
-        List<Courses> coursesBeforeInsert = courseDao.findAll();
-        if (coursesBeforeInsert.isEmpty()) {
-            System.out.println("⚠ Không có khóa học nào!");
+        // ✅ Tạo Scanner để nhập từ khóa tìm kiếm
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("🔍 Nhập từ khóa để tìm kiếm khóa học: ");
+        String keyword = scanner.nextLine();  // Người dùng nhập từ khóa tìm kiếm
+
+        // ✅ Gọi hàm searchCoursesByName để tìm kiếm khóa học
+        List<Courses> foundCourses = courseDao.searchCoursesByName("%" + keyword + "%");
+
+        // ✅ Kiểm tra và in ra danh sách khóa học tìm thấy
+        if (foundCourses.isEmpty()) {
+            System.out.println("⚠ Không tìm thấy khóa học nào với từ khóa: " + keyword);
         } else {
-            for (Courses course : coursesBeforeInsert) {
-                System.out.println("🔹 Course ID: " + course.getCourse_id() + ", Title: " + course.getTitle());
+            System.out.println("\n📌 Danh sách khóa học tìm thấy:");
+            for (Courses course : foundCourses) {
+                System.out.println("🔹 Course ID: " + course.getCourse_id()
+                        + ", Title: " + course.getTitle()
+                        + ", Instructor ID: " + course.getInstructor_id());
             }
         }
 
-        // 🆕 Tạo một khóa học mới
-        Courses newCourse = Courses.builder()
-                .title("Java Web Development")
-                .description("Comprehensive course on Java Web with JSP & Servlets")
-                .instructor_id(404) // Thay đổi ID instructor cho phù hợp với database
-                .schedule("Monday - Wednesday - Friday")
-                .max_students(30)
-                .room_id(2) // Thay đổi ID phòng học cho phù hợp với database
-                .build();
-
-        // 🛠️ Thêm khóa học mới vào database
-        System.out.println("\n🛑 Đang thêm khóa học mới...");
-        courseDao.insert(newCourse);
-        System.out.println("✅ Khóa học mới đã được thêm thành công!\n");
-
-        // 🔄 Hiển thị danh sách khóa học sau khi thêm
-        System.out.println("📌 Danh sách khóa học sau khi thêm:");
-        List<Courses> coursesAfterInsert = courseDao.findAll();
-        if (coursesAfterInsert.isEmpty()) {
-            System.out.println("⚠ Không có khóa học nào!");
-        } else {
-            for (Courses course : coursesAfterInsert) {
-                System.out.println("🔹 Course ID: " + course.getCourse_id() + ", Title: " + course.getTitle());
-            }
-        }
+        // ✅ Đóng Scanner
+        scanner.close();
     }
 
     public void delete(int courseId) {
@@ -127,7 +116,7 @@ public class CourseDao extends GenericDAO<Courses> {
         parameterMap.put("room_id", newCourse.getRoom_id());
 
         // Thực thi câu lệnh INSERT
-       int inserted = insertGenericDAO(sql, parameterMap);
+        int inserted = insertGenericDAO(sql, parameterMap);
 
     }
 
@@ -139,16 +128,16 @@ public class CourseDao extends GenericDAO<Courses> {
         parameterMap.put("course_id", courseId); // Đặt tham số đúng cách
 
         List<Courses> list = queryGenericDAO(Courses.class,
-                 sql, parameterMap);
+                sql, parameterMap);
 
         return list.isEmpty() ? null : list.get(0); // Trả về null nếu không tìm thấy khóa học
     }
 
     public List<Courses> searchCoursesByName(String searchKeyword) {
-         String sql = "SELECT * FROM courses WHERE course_id LIKE ?";
-         parameterMap = new LinkedHashMap<>();
-         parameterMap.put("course_id", searchKeyword);
-         return queryGenericDAO(Courses.class, sql, parameterMap);
+        String sql = "SELECT * FROM courses WHERE course_id LIKE ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("course_id", searchKeyword);
+        return queryGenericDAO(Courses.class, sql, parameterMap);
     }
 
 }

@@ -178,7 +178,7 @@
                                 <div class="table-title">
                                     <div class="row">
                                         <div class="col-sm-6 p-0 d-flex justify-content-lg-start justify-content-center">
-                                            <h2 class="ml-lg-2">Manage Employees</h2>
+                                            <h2 class="ml-lg-2">Manage Course</h2>
                                         </div>
                                         <div class="col-sm-6 p-0 d-flex justify-content-lg-end justify-content-center">
                                             <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addCourseModal">
@@ -209,7 +209,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="course" items="${sessionScope.listCourse}">
+                                        <c:forEach var="course" items="${listCourse}">
                                             <tr>
                                                 <td>
                                                     <span class="custom-checkbox">
