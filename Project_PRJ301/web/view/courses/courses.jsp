@@ -7,87 +7,100 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta http-equiv="Content-Type" content="courses/html; charset=UTF-8">
+        <title>WebUni - Coures</title>
         <style>
         body {
              margin: 0;
 	        padding: 0;
-	        font-family: 'Jost', sans-serif;
+	        font-family: Arial, sans-serif;
 	        background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
-                padding-top: 80px;
+                max-width: 100vw; /* Giới hạn chiều rộng tối đa bằng khung màn hình */
+                overflow-x: hidden; /* Ngăn cuộn ngang nếu có phần tử vượt quá khung */
+                font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    max-width: 100vw; /* Giới hạn chiều rộng tối đa bằng khung màn hình */
+    overflow-x: hidden; /* Ngăn cuộn ngang nếu có phần tử vượt quá khung */
                 
         }
         .site-logo img {
-    height: 50px; /* Chiều cao logo, tùy chỉnh theo ý muốn */
+    height: 50px; /* Chiá»u cao logo, tÃ¹y chá»nh theo Ã½ muá»n */
 }
         .site-logo {
-    position: fixed;  /* Giữ cố định khi cuộn */
-    top: 20px;        /* Cách mép trên 20px */
-    left: 20px;       /* Cách mép trái 20px */
-    z-index: 999;     /* Ưu tiên hiển thị trên các phần tử khác */
+    position: fixed;  /* Giá»¯ cá» Äá»nh khi cuá»n */
+    top: 20px;        /* CÃ¡ch mÃ©p trÃªn 20px */
+    left: 20px;       /* CÃ¡ch mÃ©p trÃ¡i 20px */
+    z-index: 999;     /* Æ¯u tiÃªn hiá»n thá» trÃªn cÃ¡c pháº§n tá»­ khÃ¡c */
 }
 
 .course-filter {
     display: flex;
-    justify-content: space-evenly;
-    gap: 30px;
-    margin-bottom: 30px;
-    position: relative;
-    transform: translateY(10px)
+            justify-content: flex-end; /* Căn phần All sang phải */
+            margin-top: 10px;
+            padding-right: 540px; /* Tạo khoảng cách từ lề phải */
+        
+        
 }
 
 .control:first-child {
-    margin-left: auto;  /* Căn "All" sang trái */
-    margin-right: auto; /* Căn "All" sang phải */ 
+    margin-left: auto;  /* CÄn "All" sang trÃ¡i */
+    margin-right: auto; /* CÄn "All" sang pháº£i */ 
 }
 .control {
     background-color: transparent;
     border: none;
     color: #333;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    text-decoration: none; /* Loáº¡i bá» gáº¡ch chÃ¢n máº·c Äá»nh */
     transition: color 0.3s;   
 }
 .control.active {
-    color: #cc204c; /* Màu chữ khi chọn */
-    text-decoration: underline; /* Gạch chân khi được chọn */
+    color: #cc204c; /* MÃ u chá»¯ khi chá»n */
+    text-decoration: underline; /* Gáº¡ch chÃ¢n khi ÄÆ°á»£c chá»n */
 }
 .control:hover {
-    color: #cc204c; /* Màu chữ khi hover */
-    text-decoration: underline; /* Gạch chân khi hover */
+    color: #cc204c; /* MÃ u chá»¯ khi hover */
+    text-decoration: underline; /* Gáº¡ch chÃ¢n khi hover */
 }
 .control:not(.active) {
     color:#fff;
 }
 .container {
-    width: 100vw; /* Chiếm toàn bộ chiều ngang */
-    max-width: none; /* Không giới hạn kích thước */
-    padding: 0; /* Loại bỏ padding */
-    margin: 0; /* Loại bỏ margin */   
+    width: 100vw; /* Chiáº¿m toÃ n bá» chiá»u ngang */
+    max-width: none; /* KhÃ´ng giá»i háº¡n kÃ­ch thÆ°á»c */
+    padding: 0; /* Loáº¡i bá» padding */
+    margin: 0; /* Loáº¡i bá» margin */   
 }
 .header-container {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0,0,0,0.9);
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Logo trái, search phải, menu giữa */
-    padding: 10px 20px;
+    justify-content: space-between; /* Logo trÃ¡i, search pháº£i, menu giá»¯a */
+    padding: 0px -10px;
     z-index: 999;
+    margin-top: 5px;
 }
 .search-container {
     color: white;
     text-align: center;
     padding: 0;
     margin-right: 20px;
+    text-decoration: none;
+    display: flex;
+     align-items: center;
+     justify-content: flex-end;
+     margin-top: -25px;
 }
 .search-fields {
     display: flex;
@@ -99,6 +112,7 @@
     font-size: 16px;
     border-radius: 5px;
     border: none;
+    margin-right: 10px;
 }
 .search-btn {
     padding: 8px 15px;
@@ -128,20 +142,20 @@
         }
         .course-card {
     display: flex;
-    flex-direction: column; /* Xếp các phần tử theo chiều dọc */
-    justify-content: space-between; /* Căn đều nội dung */
-    width: 320px; /* Đảm bảo chiều rộng cố định */
+    flex-direction: column; /* Xáº¿p cÃ¡c pháº§n tá»­ theo chiá»u dá»c */
+    justify-content: space-between; /* CÄn Äá»u ná»i dung */
+    width: 320px; /* Äáº£m báº£o chiá»u rá»ng cá» Äá»nh */
     
-    padding: 20px; /* Khoảng cách bên trong */
-    border-radius: 10px; /* Bo góc */
-    border: 0.5px solid #000; /* Viền */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Đổ bóng */
-    background: linear-gradient(to bottom, #cc204c); /* Nền gradient */
-    color: #fff; /* Màu chữ */
-    font-size: 20px; /* Cỡ chữ */
-    font-weight: bold; /* Độ đậm */
-    transition: all 0.3s ease-in-out; /* Hiệu ứng chuyển động */
-    overflow: hidden; /* Ẩn phần tràn */
+    padding: 20px; /* Khoáº£ng cÃ¡ch bÃªn trong */
+    border-radius: 10px; /* Bo gÃ³c */
+    border: 0.5px solid #000; /* Viá»n */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Äá» bÃ³ng */
+    background: linear-gradient(to bottom, #cc204c); /* Ná»n gradient */
+    color: #fff; /* MÃ u chá»¯ */
+    font-size: 20px; /* Cá»¡ chá»¯ */
+    font-weight: bold; /* Äá» Äáº­m */
+    transition: all 0.3s ease-in-out; /* Hiá»u á»©ng chuyá»n Äá»ng */
+    overflow: hidden; /* áº¨n pháº§n trÃ n */
 }
 
         .course-card:hover {
@@ -173,7 +187,7 @@
             color:#fff;
         }
         .btn-course {
-            display: inline-block;
+            display: flex;
             padding: 10px;
             background: var(--secondary-color);
             color:#828080;
@@ -190,63 +204,174 @@
             background: var(--primary-color);
         }
         .main-menu {
-    text-align: center; /* căn giữa menu tổng thể */
-    margin-top: 40px; /* đẩy cả menu xuống phía dưới */
+    text-align: center; /* cÄn giá»¯a menu tá»ng thá» */
+    margin-top: 20px; /* Äáº©y cáº£ menu xuá»ng phÃ­a dÆ°á»i */
     flex-grow: 1;
     display: flex;
+    justify-content: center;
+    justify-content: flex-start; 
+    padding-left: 370px; 
     }
 
 
 .main-menu ul {
     display: flex;
-    justify-content: center; /* căn giữa menu */
     align-items: center;
-    list-style-type: none; /* loại bỏ dấu chấm của danh sách */
+    list-style-type: none; /* loáº¡i bá» dáº¥u cháº¥m cá»§a danh sÃ¡ch */
     padding: 0;
     margin: 0;
+    
 }
+        
 
 .main-menu ul li {
-    display: inline-block; /* menu nằm ngang */
-    margin: 0 15px; /* khoảng cách giữa các mục menu */
+    display: inline-block; /* menu náº±m ngang */
+    margin: 0 15px; /* khoáº£ng cÃ¡ch giá»¯a cÃ¡c má»¥c menu */
 }
 
 .main-menu ul li a {
-    color: #fff; /* màu chữ mặc định */
-    text-decoration: none; /* bỏ gạch chân */
+    color: #fff; /* mÃ u chá»¯ máº·c Äá»nh */
+    text-decoration: none; /* bá» gáº¡ch chÃ¢n */
     transition: color 0.3s ease;
     font-size: 18px;
 }
-
 .main-menu ul li a:hover,
 .main-menu ul li a.active {
-    color: #cc204c; /* màu khi hover hoặc active */
+    color: #cc204c; /* mÃ u khi hover hoáº·c active */
 }
 .header  {
-    position: fixed; /* Cố định header khi cuộn */
+    position: fixed; /* Cá» Äá»nh header khi cuá»n */
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* nền đậm để nổi bật trên các phần khác */
+    background-color: rgba(0, 0, 0, 0.9); /* ná»n Äáº­m Äá» ná»i báº­t trÃªn cÃ¡c pháº§n khÃ¡c */
     display: flex;
-    align-items: center; /* Canh logo và menu theo chiều dọc */
-    justify-content: space-between; /* Logo trái, menu phải */
-    padding: 10px 10px; /* Khoảng cách bên trong header */
-    z-index: 1000; /* Luôn nổi trên cùng */
+    align-items: center; /* Canh logo vÃ  menu theo chiá»u dá»c */
+    justify-content: space-between; /* Logo trÃ¡i, menu pháº£i */
+    padding: 15px 10px; /* Khoáº£ng cÃ¡ch bÃªn trong header */
+    z-index: 1000; /* LuÃ´n ná»i trÃªn cÃ¹ng */
+    
 }
+.container logo{
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+.thanh ngang {
+    font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 100vw; /* Giới hạn chiều rộng tối đa bằng khung màn hình */
+    overflow-x: hidden; /* Ngăn cuộn ngang nếu có phần tử vượt quá khung */
+}
+
+
+/* Phần banner */
+.banner-section {
+    text-align: center;
+    padding: 60px 0px 5px;
+   
+}
+
+.banner-section .section-title h2 {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.banner-section .section-title p {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.text-center {
+    padding-top: 40px;
+}
+
+.text-center .site-btn {
+    display: center;
+    margin-top: 30px;
+    background: var(--secondary-color);
+    color: #828080;
+    text-decoration: none;
+    text-align: justify;
+    font-weight: bold;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+    padding: 12px 24px;
+    display: inline-block;
+    background-color: #fff;
+}
+.text-center .site-btn:hover {
+    background-color: #fff;
+}
+
+/* Footer */
+.widget-item {
+    padding: 10px -10px;
+    border-top: 2px solid #24243e;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    
+}
+
+.widget-item .contact-list {
+    list-style: none;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.widget-item .contact-list li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding-left: 30px;
+    color: #fff;
+}
+
+/* Newsletter */
+.newsletter {
+    text-align: center;
+}
+
+.newsletter input {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.newsletter .site-btn {
+    display: block;
+    margin: 15px auto;
+    padding: 10px 20px;
+    background: #c62839;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.newsletter .site-btn:hover {
+    background: #a21b29;
+}
+
 
 
 
     </style>
     </head>
-    <body>
-        <div class="container">
-
-    </style>    
-    </head>
-    <body>
+    
         <header class="header">
-            <div class="container">
+            <div class="container logo">
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="site-logo">
@@ -259,10 +384,10 @@
                     <div class="col-lg-10 col-md-10">
                         <nav class="main-menu">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></li>
                                 <li><a href="#">About us</a></li>
 
-                                <li><a href="${pageContext.request.contextPath}/authen?action=courses">Courses</a></li>
+                                <li><a href="courses.jsp">Courses</a></li>
 
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
@@ -278,8 +403,11 @@
             </div>            
                 </div>
             </div>
-        </header>
-       <div class="container">
+        </header>  
+           <div style="height: 80px;"></div> <!-- Giữ khoảng trống để tránh nội dung bị che khuất bởi header cố định -->                     
+        </body>  
+        <body>
+        <div class="container">
         <div class="header-container">
             <h1>COURSES</h1>
             <div class="course-filter">
@@ -299,7 +427,7 @@
                 <div class="course-content">
                     <div class="course-title">Python for Beginners</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -307,7 +435,7 @@
                 <div class="course-content">
                     <div class="course-title">HTML & CSS</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -315,7 +443,7 @@
                 <div class="course-content">
                     <div class="course-title">JavaScript Essentials</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -323,7 +451,7 @@
                 <div class="course-content">
                     <div class="course-title">ReactJS Advanced</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -331,7 +459,7 @@
                 <div class="course-content">
                     <div class="course-title">Full-Stack Web Development</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -339,7 +467,7 @@
                 <div class="course-content">
                     <div class="course-title">Machine Learning Basics</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -347,7 +475,7 @@
                 <div class="course-content">
                     <div class="course-title">Cybersecurity Fundamentals</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -355,7 +483,7 @@
                 <div class="course-content">
                     <div class="course-title">Mobile App Development with Flutter</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>            
             <div class="course-card">
@@ -363,7 +491,7 @@
                 <div class="course-content">
                     <div class="course-title">Financial Analysis and Modeling</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -371,7 +499,7 @@
                 <div class="course-content">
                     <div class="course-title">Digital Marketing Mastery</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -379,7 +507,7 @@
                 <div class="course-content">
                     <div class="course-title">Business Strategy and Management</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -387,7 +515,7 @@
                 <div class="course-content">
                     <div class="course-title">FStock Market Investment</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -395,7 +523,7 @@
                 <div class="course-content">
                     <div class="course-title">Graphic Design with Adobe Photoshop</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -403,7 +531,7 @@
                 <div class="course-content">
                     <div class="course-title">UI/UX Design Essentials</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -411,7 +539,7 @@
                 <div class="course-content">
                     <div class="course-title">Photography and Editing</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -419,7 +547,7 @@
                 <div class="course-content">
                     <div class="course-title">Public Speaking Mastery</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -427,7 +555,7 @@
                 <div class="course-content">
                     <div class="course-title">Project Management Essentials</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -435,7 +563,7 @@
                 <div class="course-content">
                     <div class="course-title">Data Science with Python</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -443,7 +571,7 @@
                 <div class="course-content">
                     <div class="course-title">Artificial Intelligence Basics</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
             <div class="course-card">
@@ -451,9 +579,31 @@
                 <div class="course-content">
                     <div class="course-title">Video Editing</div>
                     
-                    <a href="#" class="btn-course">Xem khóa học</a>
+                    <a href="#" class="btn-course">View courses</a>
                 </div>
             </div>
+                
     </div>
-    </body>
+                <section class="banner-section spad">
+            <div class="container">
+                <div class="section-title mb-0 pb-2">
+                    <h2>Join Our Community Now!</h2>
+                    <p>"If you want to go fast, go alone. If you want to go far, go together."</p>
+
+                    <p>Success is better when shared! Become part of a thriving community where you can learn, grow, and achieve more—together.</p>
+                </div>
+                <div class="text-center pt-5">
+                    <a href="#" class="site-btn">Register Now</a>
+                </div>
+            </div>
+                <div class="widget-item">
+                            <ul class="contact-list">
+                                <li>1481 Creekside Lane <br>Avila Beach, CA 931</li>
+                                <li>+53 345 7953 32453</li>
+                                <li>yourmail@gmail.com</li>
+                            </ul>
+                        </div>
+        </section>
+    </div> 
+        </body>
 </html>

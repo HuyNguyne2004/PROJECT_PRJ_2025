@@ -46,7 +46,7 @@
                         </c:if>
                         <nav class="main-menu">
                             <ul>
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></li>
                                 <li><a href="#">About us</a></li>
 
                                 <li><a href="view/courses/courses.jsp">Courses</a></li>
