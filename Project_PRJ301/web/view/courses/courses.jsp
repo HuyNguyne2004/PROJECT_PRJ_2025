@@ -387,7 +387,7 @@
                                 <li><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></li>
                                 <li><a href="#">About us</a></li>
 
-                                <li><a href="courses.jsp">Courses</a></li>
+                                <li><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></li>
 
                                 <li><a href="blog.html">News</a></li>
                                 <li><a href="contact.html">Contact</a></li>
