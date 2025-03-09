@@ -31,21 +31,7 @@ public class UsersDao extends GenericDAO<Users> {
     }
 
     public static void main(String[] args) {
-        // Khởi tạo UsersDao để thao tác với database
-        UsersDao usersDao = new UsersDao();
 
-        // Gọi phương thức findAll để lấy tất cả người dùng
-        List<Users> usersList = usersDao.findAll();
-
-        // Kiểm tra xem có người dùng nào trong danh sách không
-        if (usersList != null && !usersList.isEmpty()) {
-            // In ra thông tin của từng người dùng trong danh sách
-            for (Users user : usersList) {
-                System.out.println(user);
-            }
-        } else {
-            System.out.println("Không có người dùng nào trong hệ thống.");
-        }
     }
 
     public boolean checkUsernameExits(Users users) {
@@ -54,7 +40,9 @@ public class UsersDao extends GenericDAO<Users> {
                 + "  where full_name = ?";
         parameterMap = new LinkedHashMap<>();
         parameterMap.put("full_name", users.getFull_name());
-        return !queryGenericDAO(Users.class, sql, parameterMap).isEmpty();
+
+        return !queryGenericDAO(Users.class,
+                sql, parameterMap).isEmpty();
     }
 
     public void insert(Users users) {
@@ -76,6 +64,86 @@ public class UsersDao extends GenericDAO<Users> {
         parameterMap.put("password", users.getPassword());
         int insert = insertGenericDAO(sql, parameterMap);
 
+    }
+
+    public boolean isInstructorExist(int instructorId) {
+        String sql = "SELECT COUNT(*) \n"
+                + "FROM users \n"
+                + "WHERE user_id = ? AND role = 'INSTRUCTOR';";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("user_id ", instructorId);
+
+        int check = findTotalRecordGenericDAO(Users.class,
+                sql, parameterMap);
+        if (check > 0) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public void add(Users newUser) {
+        String sql = "INSERT INTO users (full_name, email, password, role, status) VALUES (?, ?, ?, ?, ?)";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("full_name", newUser.getFull_name());
+        parameterMap.put("email", newUser.getEmail());
+        parameterMap.put("password", newUser.getPassword());
+        parameterMap.put("role", newUser.getRole());
+        parameterMap.put("status", newUser.getStatus());
+
+        insertGenericDAO(sql, parameterMap);
+    }
+
+    public void update(Users updatedUser) {
+        String sql = "UPDATE users SET full_name = ?, email = ?, password = ?, role = ?, status = ? WHERE user_id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("full_name", updatedUser.getFull_name());
+        parameterMap.put("email", updatedUser.getEmail());
+        parameterMap.put("password", updatedUser.getPassword());
+        parameterMap.put("role", updatedUser.getRole());
+        parameterMap.put("status", updatedUser.getStatus());
+        parameterMap.put("user_id", updatedUser.getUser_id());
+        updateGenericDAO(sql, parameterMap);
+    }
+
+    public boolean delete(int userId) {
+        String sqlDeleteEnrollments = "DELETE FROM enrollments WHERE student_id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("student_id", userId);
+        deleteGenericDAO(sqlDeleteEnrollments, parameterMap);
+
+        String sqlDeleteUser = "DELETE FROM users WHERE user_id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("user_id", userId);
+        return deleteGenericDAO(sqlDeleteUser, parameterMap);
+    }
+
+    public Users findById(int userId) {
+        String sql = "SELECT * FROM users WHERE user_id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("user_id", userId);
+
+        List<Users> usersList = queryGenericDAO(Users.class, sql, parameterMap);
+        return usersList.isEmpty() ? null : usersList.get(0); // Trả về user đầu tiên nếu có
+    }
+
+    public boolean checkEmailExists(String email) {
+        String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("email", email);
+
+        int count = findTotalRecordGenericDAO(Users.class, sql, parameterMap);
+        return count > 0;
+    }
+
+    public List<Users> searchUsers(String keyword) {
+        String sql = "SELECT * FROM users WHERE full_name LIKE ? OR email LIKE ?";
+
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("full_name", "%" + keyword + "%");
+        parameterMap.put("email", "%" + keyword + "%");
+
+        return queryGenericDAO(Users.class, sql, parameterMap);
     }
 
 }

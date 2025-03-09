@@ -153,6 +153,7 @@ public abstract class GenericDAO<T> extends DBContext {
             return true;
         } catch (SQLException e) {
             rollbackTransaction();  // Rollback transaction on error
+            e.printStackTrace();
             return false;
         } finally {
             closeResources();  // Close resources

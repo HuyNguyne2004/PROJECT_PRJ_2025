@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
-
 package controller.admin;
 
 import java.io.IOException;
@@ -15,73 +10,175 @@ import model.Courses;
 import dal.CourseDao;
 import java.util.List;
 import constant.CommonCost;
+import model.Users;
+import dal.UsersDao;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.nio.file.Paths;
 
-/**
- *
- * @author Admin
- */
 public class AdminCourse extends HttpServlet {
-       CourseDao dao = new CourseDao();
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AdminCourse</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AdminCourse at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    } 
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private final CourseDao dao = new CourseDao();
+    private final UsersDao usersDao = new UsersDao();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         List<Courses> listCourses = dao.findAll();
         request.getSession().setAttribute(CommonCost.SESSION_LIST_COURSE, listCourses);
         request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
-    } 
-
-    /** 
-     * Handles the HTTP <code>POST</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
     }
 
-    /** 
-     * Returns a short description of the servlet.
-     * @return a String containing servlet description
-     */
     @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        switch (action) {
+            case "edit":
+                editCourse(request, response);
+                return;
+            case "delete":
+                deleteCourse(request, response);
+                return;
+            case "add":
+                addCourse(request, response);
+                return;
+            case "search":
+                searchCourse(request, response);
+                return;
+            default:
+                listCourses(request, response);
+                return;
+        }
+    }
+
+    private void editCourse(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            // Lấy thông tin từ request
+            String courseIdStr = request.getParameter("course_id");
+            String instructorIdStr = request.getParameter("instructor_id");
+            String maxStudentsStr = request.getParameter("max_students");
+            String roomIdStr = request.getParameter("room_id");
+
+            // Kiểm tra dữ liệu đầu vào
+            if (courseIdStr == null || instructorIdStr == null || maxStudentsStr == null || roomIdStr == null
+                    || courseIdStr.isEmpty() || instructorIdStr.isEmpty() || maxStudentsStr.isEmpty() || roomIdStr.isEmpty()) {
+                request.setAttribute("errorMessage", "Invalid input data. Please check all fields.");
+                request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+                return;
+            }
+
+            int courseId = Integer.parseInt(courseIdStr);
+            int instructorId = Integer.parseInt(instructorIdStr);
+            int maxStudents = Integer.parseInt(maxStudentsStr);
+            int roomId = Integer.parseInt(roomIdStr);
+
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
+            String schedule = request.getParameter("schedule");
+            String currentImage = request.getParameter("currentImage"); // Ảnh cũ
+
+            // Kiểm tra instructor có tồn tại không
+            if (!usersDao.isInstructorExist(instructorId)) {
+                request.setAttribute("errorMessage", "Instructor ID does not exist.");
+                request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+                return;
+            }
+            // Cập nhật course
+            Courses updatedCourse = Courses.builder()
+                    .course_id(courseId)
+                    .title(title)
+                    .description(description)
+                    .instructor_id(instructorId)
+                    .schedule(schedule)
+                    .max_students(maxStudents)
+                    .room_id(roomId)
+                    .build();
+
+            dao.update(updatedCourse);
+            request.getSession().setAttribute("successMessage", "Course updated successfully!");
+            System.out.println("✅ Success message set in session: Course updated successfully!");
+            response.sendRedirect(request.getContextPath() + "/admin/course");
+        } catch (NumberFormatException e) {
+            request.setAttribute("errorMessage", "Invalid number format.");
+            request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("errorMessage", "An unexpected error occurred.");
+            request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+        }
+    }
+
+    private void addCourse(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
+            // Lấy thông tin từ request
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
+            int instructorId = Integer.parseInt(request.getParameter("instructor_id"));
+            String schedule = request.getParameter("schedule");
+            int maxStudents = Integer.parseInt(request.getParameter("max_students"));
+            int roomId = Integer.parseInt(request.getParameter("room_id"));
+
+            // Kiểm tra instructor có tồn tại không
+            if (!usersDao.isInstructorExist(instructorId)) {
+                request.setAttribute("errorMessage", "Instructor ID does not exist.");
+                request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+                return;
+            }
+            // Tạo course mới
+            Courses newCourse = Courses.builder()
+                    .title(title)
+                    .description(description)
+                    .instructor_id(instructorId)
+                    .schedule(schedule)
+                    .max_students(maxStudents)
+                    .room_id(roomId)
+                    .build();
+
+            dao.insert(newCourse);
+            // Thêm thông báo thành công vào session
+            request.getSession().setAttribute("successMessage", "Course added successfully!");
+
+            // Chuyển hướng về trang danh sách khóa học
+            response.sendRedirect(request.getContextPath() + "/admin/course");
+        } catch (NumberFormatException e) {
+            request.setAttribute("errorMessage", "Invalid number format.");
+            request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("errorMessage", "An unexpected error occurred.");
+            request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+        }
+    }
+
+    private void deleteCourse(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int course_id = Integer.parseInt(request.getParameter("course_id"));
+        dao.delete(course_id);
+        response.sendRedirect(request.getContextPath() + "/admin/course");
+    }
+
+    private void listCourses(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<Courses> listCourses = dao.findAll();
+        request.setAttribute("listCourse", listCourses);
+        request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+    }
+
+    private void searchCourse(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String searchKeyword = request.getParameter("searchKeyword");
+
+        List<Courses> courseList;
+        if (searchKeyword != null && !searchKeyword.trim().isEmpty()) {
+            // Gọi DAO để tìm kiếm theo course_name
+            courseList = dao.searchCoursesByName(searchKeyword);
+            request.setAttribute("searchKeyword", searchKeyword); // Giữ lại từ khóa tìm kiếm trên giao diện
+        } else {
+            // Nếu không nhập từ khóa, lấy toàn bộ danh sách khóa học
+            courseList = dao.findAll();
+        }
+
+        request.setAttribute(CommonCost.SESSION_LIST_COURSE, courseList);
+        request.getRequestDispatcher("/view/admin/dashboard_course.jsp").forward(request, response);
+    }
 
 }
