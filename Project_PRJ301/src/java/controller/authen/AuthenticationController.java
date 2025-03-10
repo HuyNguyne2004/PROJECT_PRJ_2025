@@ -104,6 +104,9 @@ public class AuthenticationController extends HttpServlet {
             case "sign_up":
                 url = signUpDoPost(request, response);
                 break;
+            case "logout":
+                 url = logOut(request, response);
+                 break;
             default:
                 throw new AssertionError();
         }

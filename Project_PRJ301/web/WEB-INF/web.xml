@@ -24,13 +24,16 @@
         <servlet-name>AdminCourse</servlet-name>
         <servlet-class>controller.admin.AdminCourse</servlet-class>
         <multipart-config>
-            <location>/tmp</location> <!-- Thư mục tạm để lưu file -->
-            <max-file-size>5242880</max-file-size> <!-- 5MB -->
-            <max-request-size>20971520</max-request-size> <!-- 20MB -->
-            <file-size-threshold>1048576</file-size-threshold> <!-- 1MB -->
+            <location>/tmp</location>
+            <!-- Thư mục tạm để lưu file -->
+            <max-file-size>5242880</max-file-size>
+            <!-- 5MB -->
+            <max-request-size>20971520</max-request-size>
+            <!-- 20MB -->
+            <file-size-threshold>1048576</file-size-threshold>
+            <!-- 1MB -->
         </multipart-config>
     </servlet>
-
     <servlet>
         <servlet-name>AdminUser</servlet-name>
         <servlet-class>controller.admin.AdminUser</servlet-class>
@@ -42,6 +45,10 @@
     <servlet>
         <servlet-name>AdminRoom</servlet-name>
         <servlet-class>controller.admin.AdminRoom</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterCourse</servlet-name>
+        <servlet-class>controller.user.RegisterCourse</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AuthenticationController</servlet-name>
@@ -74,6 +81,10 @@
     <servlet-mapping>
         <servlet-name>AdminRoom</servlet-name>
         <url-pattern>/admin/room</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterCourse</servlet-name>
+        <url-pattern>/user/registerCourse</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>

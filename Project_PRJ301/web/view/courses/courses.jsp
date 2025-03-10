@@ -421,26 +421,32 @@
         <div class="course-container">
 
             <div class="course-card">
-
-                <img src="${pageContext.request.contextPath}/img/courses/1.jpg" class="course-image" >
-
+                <img src="${pageContext.request.contextPath}/img/courses/1.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Python for Beginners</div>
-                    <a href="${pageContext.request.contextPath}/view/courses/register/PythonForBeginners.jsp" class="btn-course">View courses</a>
-                    <form action="${pageContext.request.contextPath}/registerCourse" method="POST">
-                        <input type="hidden" name="courseId" value="1">
-                        <button type="submit" class="btn-course">Register</button>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/PythonForBeginners.jsp" class="btn btn-primary">View courses</a>
+                    <!-- Chuyển hướng đến trang xác nhận đăng ký -->
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="444">
+                        <button type="submit" class="btn btn-success">Register</button>
                     </form>
+
                 </div>
             </div>
+
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/2.jpg" class="course-image" >
                 <div class="course-content">
                     <div class="course-title">HTML & CSS</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/html-css.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="555">
+                        <button type="submit" class="btn btn-success">Register</button>
+                    </form>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/3.jpg" class="course-image" >
                 <div class="course-content">
@@ -449,6 +455,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/JavaScriptEssentials.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/4.jpg" class="course-image" >
                 <div class="course-content">
@@ -464,7 +471,8 @@
 
                     <a href="${pageContext.request.contextPath}/view/courses/register/FullStackWebDevelopment.jsp" class="btn-course">View courses</a>
                 </div>
-            </div>            
+            </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/6.jpg" class="course-image">
                 <div class="course-content">
@@ -472,7 +480,8 @@
 
                     <a href="${pageContext.request.contextPath}/view/courses/register/MachineLearningBasics.jsp" class="btn-course">View courses</a>
                 </div>
-            </div>            
+            </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/7.jpg" class="course-image" >
                 <div class="course-content">
@@ -480,7 +489,8 @@
 
                     <a href="${pageContext.request.contextPath}/view/courses/register/CybersecurityFundamentals.jsp" class="btn-course">View courses</a>
                 </div>
-            </div>            
+            </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/8.jpg" class="course-image" >
                 <div class="course-content">
@@ -488,7 +498,8 @@
 
                     <a href="${pageContext.request.contextPath}/view/courses/register/MobileAppDevelopmentWithFlutte.jsp" class="btn-course">View courses</a>
                 </div>
-            </div>            
+            </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/9.jpg" class="course-image" >
                 <div class="course-content">
@@ -497,6 +508,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/FinancialAnalysisAndModeling.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/10.jpg" class="course-image" >
                 <div class="course-content">
@@ -505,6 +517,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/DigitalMarketingMastery.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/11.jpg" class="course-image">
                 <div class="course-content">
@@ -513,6 +526,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/BusinessStrategyAndManagement.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/12.jpg" class="course-image">
                 <div class="course-content">
@@ -521,6 +535,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/FStockMarketInvestment.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/13.jpg" class="course-image">
                 <div class="course-content">
@@ -529,6 +544,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/GraphicDesignWithAdobePhotoshop.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/14.jpg" class="course-image">
                 <div class="course-content">
@@ -537,6 +553,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/UiUxDesignEssentials.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/15.jpg" class="course-image">
                 <div class="course-content">
@@ -545,6 +562,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/PhotographyAndEditing.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/16.jpg" class="course-image">
                 <div class="course-content">
@@ -553,6 +571,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/PublicSpeakingMastery.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/17.jpg" class="course-image">
                 <div class="course-content">
@@ -561,6 +580,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/ProjectManagementEssentials.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/18.jpg" class="course-image">
                 <div class="course-content">
@@ -569,6 +589,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/DataScienceWithPython.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/19.jpg" class="course-image">
                 <div class="course-content">
@@ -577,6 +598,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/ArtificialIntelligenceBasics.jsp" class="btn-course">View courses</a>
                 </div>
             </div>
+
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/20.jpg" class="course-image">
                 <div class="course-content">
@@ -599,6 +621,7 @@
                     <a href="#" class="site-btn">COURSES</a>
                 </div>
             </div>
+
             <div class="widget-item">
                 <ul class="contact-list">
                     <li>1481 Creekside Lane <br>Avila Beach, CA 931</li>

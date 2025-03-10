@@ -5,6 +5,7 @@
 package dal;
 
 import java.sql.Timestamp;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import model.Enrollments;
@@ -19,36 +20,29 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     public List<Enrollments> findAll() {
         return queryGenericDAO(Enrollments.class);
     }
-        
 
     public static void main(String[] args) {
         EnrollmentsDAO enrollmentsDAO = new EnrollmentsDAO();
 
-        // 1. Lấy danh sách enrollments hiện có
+        // 1. Tạo một đối tượng Enrollment mới
+        Enrollments newEnrollment = Enrollments.builder()
+                .student_id(154) // Giả sử student_id là 1
+                .course_id(444) // Giả sử course_id là 101
+                .enrolled_date(new Timestamp(System.currentTimeMillis())) // Thời gian hiện tại
+                .status("ENROLLED") // Trạng thái ban đầu
+                .build();
+
+        // 2. Thực hiện chèn dữ liệu vào database
+        enrollmentsDAO.insert(newEnrollment);
+
+        System.out.println("New enrollment inserted successfully!");
+
+        // 3. Lấy danh sách enrollments sau khi thêm
         List<Enrollments> enrollmentsList = enrollmentsDAO.findAll();
 
-        if (enrollmentsList.isEmpty()) {
-            System.out.println("No enrollments found to update.");
-            return;
-        }
-
-        // 2. Chọn một enrollment để cập nhật (lấy enrollment đầu tiên trong danh sách)
-        Enrollments enrollmentToUpdate = enrollmentsList.get(0);
-
-        System.out.println("Updating enrollment with ID: " + enrollmentToUpdate.getEnrollment_id());
-
-        // 3. Cập nhật thông tin
-        enrollmentToUpdate.setStatus("WAITLISTED");  // Thay đổi trạng thái
-        enrollmentToUpdate.setEnrolled_date(new Timestamp(System.currentTimeMillis())); // Cập nhật thời gian
-
-        // 4. Gọi phương thức update
-        enrollmentsDAO.update(enrollmentToUpdate);
-
-        System.out.println("Enrollment updated successfully!");
-
-        // 5. Kiểm tra lại danh sách enrollments sau khi cập nhật
-        List<Enrollments> updatedEnrollmentsList = enrollmentsDAO.findAll();
-        for (Enrollments enrollment : updatedEnrollmentsList) {
+        // 4. In ra danh sách enrollments
+        System.out.println("Enrollments list after insert:");
+        for (Enrollments enrollment : enrollmentsList) {
             System.out.println("Enrollment ID: " + enrollment.getEnrollment_id()
                     + ", Student ID: " + enrollment.getStudent_id()
                     + ", Course ID: " + enrollment.getCourse_id()
@@ -57,9 +51,7 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
         }
     }
 
-
-
-public void add(Enrollments newEnrollment) {
+    public void add(Enrollments newEnrollment) {
         String sql = "INSERT INTO enrollments (student_id, course_id, enrolled_date, status) VALUES (?, ?, ?, ?)";
         parameterMap = new LinkedHashMap<>();
         parameterMap.put("student_id", newEnrollment.getStudent_id());
@@ -91,10 +83,18 @@ public void add(Enrollments newEnrollment) {
         String sql = "SELECT * FROM enrollments WHERE enrollment_id = ?";
         parameterMap = new LinkedHashMap<>();
         parameterMap.put("enrollment_id", enrollmentId);
-        List <Enrollments> list = queryGenericDAO(Enrollments.class, sql, parameterMap);
+        List<Enrollments> list = queryGenericDAO(Enrollments.class, sql, parameterMap);
         return list.get(0);
     }
 
-    
+    public void insert(Enrollments enrollments) {
+        String sql = "INSERT INTO enrollments (student_id, course_id, enrolled_date, status) VALUES (?, ?, ?, ?)";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("student_id", enrollments.getStudent_id());
+        parameterMap.put("course_id", enrollments.getCourse_id());
+        parameterMap.put("enrolled_date", enrollments.getEnrolled_date());
+        parameterMap.put("status", enrollments.getStatus());
+        int insert = insertGenericDAO(sql, parameterMap);
+    }
 
 }
