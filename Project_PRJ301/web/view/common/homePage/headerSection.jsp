@@ -37,7 +37,7 @@
                             </c:if>
 
                             <c:if test="${user.role == 'STUDENT'}">
-                                <a href="${pageContext.request.contextPath}/dashboard">
+                                <a href="${pageContext.request.contextPath}/view/user/dashboar_user/dashboard_user.jsp">
                                     My Account
                                 </a>
                             </c:if>
