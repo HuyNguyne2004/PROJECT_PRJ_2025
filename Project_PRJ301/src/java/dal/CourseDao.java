@@ -20,34 +20,6 @@ public class CourseDao extends GenericDAO<Courses> {
         return queryGenericDAO(Courses.class);
     }
 
-    public static void main(String[] args) {
-        // ✅ Tạo instance của CourseDao
-        CourseDao courseDao = new CourseDao();
-
-        // ✅ Tạo Scanner để nhập từ khóa tìm kiếm
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("🔍 Nhập từ khóa để tìm kiếm khóa học: ");
-        String keyword = scanner.nextLine();  // Người dùng nhập từ khóa tìm kiếm
-
-        // ✅ Gọi hàm searchCoursesByName để tìm kiếm khóa học
-        List<Courses> foundCourses = courseDao.searchCoursesByName("%" + keyword + "%");
-
-        // ✅ Kiểm tra và in ra danh sách khóa học tìm thấy
-        if (foundCourses.isEmpty()) {
-            System.out.println("⚠ Không tìm thấy khóa học nào với từ khóa: " + keyword);
-        } else {
-            System.out.println("\n📌 Danh sách khóa học tìm thấy:");
-            for (Courses course : foundCourses) {
-                System.out.println("🔹 Course ID: " + course.getCourse_id()
-                        + ", Title: " + course.getTitle()
-                        + ", Instructor ID: " + course.getInstructor_id());
-            }
-        }
-
-        // ✅ Đóng Scanner
-        scanner.close();
-    }
 
     public void delete(int courseId) {
         // 🛑 Xóa dữ liệu liên quan trước
