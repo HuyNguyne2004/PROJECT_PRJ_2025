@@ -74,7 +74,7 @@ public class AuthenticationController extends HttpServlet {
                 url = logOut(request, response);
                 break;
             case "sign_up":
-                url = "view/authen/login.jsp";
+                url = "view/authen/signup.jsp";
                 break;
             default:
                 url = "home";

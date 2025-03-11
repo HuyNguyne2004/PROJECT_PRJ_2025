@@ -224,7 +224,6 @@
                                                 <td>${course.schedule}</td>
                                                 <td>${course.max_students}</td>
                                                 <td>${course.room_id != null ? course.room_id : 'Not Assigned'}</td>
-                                                <td><img src="${course.image}" alt="Course Image" width="100px" /></td>
                                                 <td>
                                                     <!-- Nút Edit -->
                                                     <button class="btn btn-warning btn-sm edit-btn"
@@ -234,8 +233,7 @@
                                                             data-instructorid="${course.instructor_id}"
                                                             data-schedule="${course.schedule}"
                                                             data-maxstudents="${course.max_students}"
-                                                            data-roomid="${course.room_id}"
-                                                            data-image="${course.image}">
+                                                            data-roomid="${course.room_id != null ? course.room_id : ''}">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </button>
                                                     <!-- Nút Delete -->
@@ -246,6 +244,7 @@
                                                 </td>
                                             </tr>
                                         </c:forEach>
+
                                     </tbody>
                                 </table>
                                 <div class="clearfix">

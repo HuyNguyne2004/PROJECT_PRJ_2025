@@ -427,7 +427,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/PythonForBeginners.jsp" class="btn btn-primary">View courses</a>
                     <!-- Chuyển hướng đến trang xác nhận đăng ký -->
                     <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
-                        <input type="hidden" name="courseId" value="444">
+                        <input type="hidden" name="courseId" value="1011">
                         <button type="submit" class="btn btn-success">Register</button>
                     </form>
 
@@ -441,7 +441,7 @@
                     <div class="course-title">HTML & CSS</div>
                     <a href="${pageContext.request.contextPath}/view/courses/register/html-css.jsp" class="btn-course">View courses</a>
                     <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
-                        <input type="hidden" name="courseId" value="555">
+                        <input type="hidden" name="courseId" value="1022">
                         <button type="submit" class="btn btn-success">Register</button>
                     </form>
                 </div>
@@ -451,8 +451,8 @@
                 <img src="${pageContext.request.contextPath}/img/courses/3.jpg" class="course-image" >
                 <div class="course-content">
                     <div class="course-title">JavaScript Essentials</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/JavaScriptEssentials.jsp" class="btn-course">View courses</a>
+                    
                 </div>
             </div>
 
