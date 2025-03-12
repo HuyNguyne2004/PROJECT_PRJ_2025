@@ -104,7 +104,7 @@
     font-size: 16px;
     color: #666;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .text-center {
     padding-top: 40px;
@@ -366,9 +366,7 @@ h4::before {
 
                     <p>Success is better when shared! Become part of a thriving community where you can learn, grow, and achieve more—together.</p>
                 </div>
-                <div class="text-center pt-5">
-                    <a href="#" class="site-btn">Register Now</a>
-                </div>
+                
             </div>
                 <div class="widget-item">
                             <ul class="contact-list">

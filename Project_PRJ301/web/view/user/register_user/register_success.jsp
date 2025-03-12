@@ -27,30 +27,90 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Đăng ký thành công</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <style>
+        body {
+            margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                font-family: 'Jost', sans-serif;
+                background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+            }
+            .hoanho {
+                width: 1300px;
+                height: 150px;
+                background: url("https://your-image-url.com") no-repeat center/cover;
+                border-radius: 10px;
+                box-shadow: 5px 20px 50px #000;
+                padding: 40px;
+                color: #fff;
+                font-size: 2em;
+                font-weight: bold;
+                text-align: center;
+                text-shadow: 0 0 10px rgba(255, 182, 193, 1.5);
+                
+            }
+            .thongtin{
+                color: #dfe0e1;
+                max-width: 800px;
+                margin: 40px auto;
+                font-size: 20px;
+                text-align: justify;
+            }
+            .container li{
+                color: #dfe0e1;
+                max-width: 900px;
+                margin: 10px 400px;
+                font-size: 18px;
+                text-align: justify;
+            }
+            a {
+    display: block; /* Make the anchor a block element so it can be centered */
+    width: 300px; /* Set the width for the button */
+    height: 80px;
+    background: #cc204c;
+    color: #fff;
+    font-size: 1.2em; /* Increase the font size */
+    font-weight: bold;
+    border: 3px solid #fff; /* Add a border with a larger width */
+    border-radius: 20px; /* Increase the border-radius for larger rounded corners */
+    cursor: pointer;
+    margin: 40px auto; /* Center the button horizontally */
+    text-align: center;
+    line-height: 80px; /* Vertically center the text */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    background: #b81b3c;
+    border-color: #fff; /* Ensure border color stays consistent on hover */
+}
+        </style>
     </head>
     <body>
 
-        <div class="container mt-5">
-            <div class="alert alert-success text-center">
-                <h2>🎉 Đăng ký thành công!</h2>
-                <p>Bạn đã đăng ký khóa học <strong>#<%= courseId %></strong> thành công.</p>
+        <div class="container">
+            <div class="hoanho">
+                <h2>🎉 Registration successful!</h2>
+                <p>You have successfully registered for the <strong>#<%= courseId %></strong> course.</p>
             </div>
 
-            <p><strong>Thông tin của bạn:</strong></p>
+            <p class="thongtin"><strong>Your information:</strong></p>
             <ul>
                 <% if (user != null) { %>
-                <li><strong>Họ tên:</strong> <%= user.getFull_name() %></li>
+                <li><strong>Full Name:</strong> <%= user.getFull_name() %></li>
                 <li><strong>Email:</strong> <%= user.getEmail() %></li>
-                <li><strong>Vai trò:</strong> <%= user.getRole() %></li>
-                <li><strong>Trạng thái:</strong> <%= user.getStatus() %></li>
+                <li><strong>Role:</strong> <%= user.getRole() %></li>
+                <li><strong>Status:</strong> <%= user.getStatus() %></li>
                     <% } else { %>
-                <li><strong>Chưa đăng nhập!</strong></li>
+                <li><strong>Not logged in!</strong></li>
                     <% } %>
             </ul>
 
-            <div class="text-center mt-4">
-                <a href="${pageContext.request.contextPath}/view/courses/courses.jsp" class="btn btn-primary">🏫 Quay lại danh sách khóa học</a>
-                
+            <div>
+                <a href="${pageContext.request.contextPath}/view/courses/courses.jsp">🏫 Back to the course list.</a>
             </div>
         </div>
 

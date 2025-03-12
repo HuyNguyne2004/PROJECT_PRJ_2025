@@ -25,32 +25,118 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Xác nhận đăng ký</title>
+        <title>Confirm Registration</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <style>
+        body {
+            margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                font-family: 'Jost', sans-serif;
+                background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+            }
+            .container{
+                width: 500px;
+                height: 600px;
+                background: url("https://your-image-url.com") no-repeat center/cover;
+                border-radius: 10px;
+                box-shadow: 5px 20px 50px #000;
+                padding: 20px;
+                
+                
+            }
+            .container h2{
+                color: #fff;
+                font-size: 2em;
+                font-weight: bold;
+                text-align: center;
+                text-shadow: 0 0 10px rgba(255, 182, 193, 1.5);
+                
+                }
+             .container p{
+                color: #fff;
+                max-width: 800px;
+                margin: 40px auto;
+                font-size: 20px;
+                text-align: justify;
+            }
+            .container ul{
+                color: #969896;
+                max-width: 800px;
+                margin: 40px auto;
+                font-size: 18px;
+                text-align: justify;
+                
+                }
+            
+             .container li{
+                color: #969896;
+                max-width: 800px;
+                margin: 40px auto;
+                font-size: 16px;
+                text-align: justify;
+            }
+            .cf {
+                width: 70%;
+                height: 40px;
+                background: #cc204c;
+                color: #fff;
+                font-size: 1em;
+                font-weight: bold;
+                border: none;
+                border-radius: 2px;
+                cursor: pointer;
+                margin-top: 15px;
+            }
+            .cf:hover{
+                background: #b81b3c;
+            }
+            .cancel {
+                width: 25%;
+                height: 40px;
+                background: #969896;
+                color: #fff;
+                font-size: 1em;
+                font-weight: bold;
+                border: none;
+                border-radius: 2px;
+                cursor: pointer;
+                margin-top: 15px;
+            }
+            .cancels:hover{
+                background: #b81b3c;
+            }
+            
+            
+            
+        </style>
     </head>
     <body>
 
-        <div class="container mt-5">
-            <h2>Xác nhận đăng ký khóa học</h2>
-            <p>Bạn có chắc chắn muốn đăng ký khóa học <strong><%= (courseId > 0) ? courseId : "Không xác định" %></strong> không?</p>
+        <div class="container">
+            <h2>Course Registration Confirmation</h2>
+            <p>Are you sure you want to register for course <strong><%= (courseId > 0) ? courseId : "Không xác định" %></strong> ?</p>
 
-            <p><strong>Thông tin của bạn:</strong></p>
+            <p class="thong tin"><strong>Your information:</strong></p>
             <ul>
                 <% if (user != null) { %>
-                <li><strong>Họ tên:</strong> <%= user.getFull_name() %></li>
-                <li><strong>Email:</strong> <%= user.getEmail() %></li>
-                <li><strong>Vai trò:</strong> <%= user.getRole() %></li>
-                <li><strong>Trạng thái:</strong> <%= user.getStatus() %></li>
+                <li>Full Name: <%= user.getFull_name() %></li>
+                <li>Email: <%= user.getEmail() %></li>
+                <li>Role: <%= user.getRole() %></li>
+                <li>Status: <%= user.getStatus() %></li>
                     <% } else { %>
-                <li><strong>Chưa đăng nhập!</strong></li>
+                <li class="not log"><strong>Not logged in!</strong></li>
                     <% } %>
             </ul>
 
             <!-- Form gửi dữ liệu đến Servlet để xử lý đăng ký -->
             <form action="${pageContext.request.contextPath}/user/registerCourse" method="POST">
                 <input type="hidden" name="courseId" value="<%= courseId %>">
-                <button type="submit" class="btn btn-primary">Xác nhận đăng ký</button>
-                <a href="courses.jsp" class="btn btn-secondary">Hủy</a>
+                <button class="cf" type="submit" >Confirm Registration</button>
+                <button class="cancel" href="courses.jsp" >Cancel</button>
             </form>
         </div>
 

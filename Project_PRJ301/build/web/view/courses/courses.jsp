@@ -170,6 +170,8 @@
         .course-content {
             padding: 20px;
             color:#fff;
+            margin: 10px 0;
+            gap: 10px;
         }
         .course-title {
             font-size: 18px;
@@ -188,7 +190,7 @@
         }
         .btn-course {
             display: flex;
-            padding: 10px;
+            padding: 10px 0px 10px 10px;
             background: var(--secondary-color);
             color:#828080;
             text-decoration: none;
@@ -199,8 +201,31 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
             background-color: #fff;
+            margin-bottom: 10px;
+            box-sizing: border-box;
         }
         .btn-course:hover {
+            background: var(--primary-color);
+        }
+        .btn-success {
+            display: flex;
+            padding: 10px 15px 10px 10px;
+            background: var(--secondary-color);
+            color:#828080;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align:justify;
+            width: 100%;
+            font-weight: bold;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .btn-success:hover {
             background: var(--primary-color);
         }
         .main-menu {
@@ -210,7 +235,7 @@
             display: flex;
             justify-content: center;
             justify-content: flex-start;
-            padding-left: 370px;
+            padding-left: 440px;
         }
 
 
@@ -384,13 +409,9 @@
             <div class="col-lg-10 col-md-10">
                 <nav class="main-menu">
                     <ul>
-                        <li><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></li>
-                        <li><a href="#">About us</a></li>
-
+                        <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a><strong>/</li>
                         <li><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></li>
-
-                        <li><a href="blog.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><strong><a href="contact.html">Contact</a></strong></li>
                     </ul>
                 </nav>
             </div>
@@ -410,13 +431,7 @@
     <div class="container">
         <div class="header-container">
             <h1>COURSES</h1>
-            <div class="course-filter">
-                <button class="control active" data-filter="all">All</button>
-                <button class="control" data-filter=".finance">Finance</button>
-                <button class="control" data-filter=".design">Design</button>
-                <button class="control" data-filter=".web">Web</button>
-                <button class="control" data-filter=".photo">Photography</button>
-            </div>             
+                         
         </div>        
         <div class="course-container">
 
@@ -424,11 +439,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/1.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Python for Beginners</div>
-                    <a href="${pageContext.request.contextPath}/view/courses/register/PythonForBeginners.jsp" class="btn btn-primary">View courses</a>
+                    <a href="${pageContext.request.contextPath}/view/courses/register/PythonForBeginners.jsp" class="btn-course">View courses</a>
                     <!-- Chuyển hướng đến trang xác nhận đăng ký -->
                     <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
                         <input type="hidden" name="courseId" value="1011">
-                        <button type="submit" class="btn btn-success">Register</button>
+                        <button type="submit" class="btn-success">Register</button>
                     </form>
 
                 </div>
@@ -442,7 +457,7 @@
                     <a href="${pageContext.request.contextPath}/view/courses/register/html-css.jsp" class="btn-course">View courses</a>
                     <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
                         <input type="hidden" name="courseId" value="1022">
-                        <button type="submit" class="btn btn-success">Register</button>
+                        <button type="submit" class="btn-success">Register</button>
                     </form>
                 </div>
             </div>
@@ -452,7 +467,10 @@
                 <div class="course-content">
                     <div class="course-title">JavaScript Essentials</div>
                     <a href="${pageContext.request.contextPath}/view/courses/register/JavaScriptEssentials.jsp" class="btn-course">View courses</a>
-                    
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="1033">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -460,16 +478,22 @@
                 <img src="${pageContext.request.contextPath}/img/courses/4.jpg" class="course-image" >
                 <div class="course-content">
                     <div class="course-title">ReactJS Advanced</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/ReactjsAdvanced.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="1044">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/5.jpg" class="course-image" >
                 <div class="course-content">
                     <div class="course-title">Full-Stack Web Development</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/FullStackWebDevelopment.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="1055">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -477,26 +501,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/6.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Machine Learning Basics</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/MachineLearningBasics.jsp" class="btn-course">View courses</a>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <img src="${pageContext.request.contextPath}/img/courses/7.jpg" class="course-image" >
-                <div class="course-content">
-                    <div class="course-title">Cybersecurity Fundamentals</div>
-
-                    <a href="${pageContext.request.contextPath}/view/courses/register/CybersecurityFundamentals.jsp" class="btn-course">View courses</a>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <img src="${pageContext.request.contextPath}/img/courses/8.jpg" class="course-image" >
-                <div class="course-content">
-                    <div class="course-title">Mobile App Development with Flutter</div>
-
-                    <a href="${pageContext.request.contextPath}/view/courses/register/MobileAppDevelopmentWithFlutte.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="1066">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -504,8 +513,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/9.jpg" class="course-image" >
                 <div class="course-content">
                     <div class="course-title">Financial Analysis and Modeling</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/FinancialAnalysisAndModeling.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="2011">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -513,8 +525,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/10.jpg" class="course-image" >
                 <div class="course-content">
                     <div class="course-title">Digital Marketing Mastery</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/DigitalMarketingMastery.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="2022">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -522,17 +537,23 @@
                 <img src="${pageContext.request.contextPath}/img/courses/11.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Business Strategy and Management</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/BusinessStrategyAndManagement.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="2033">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
             <div class="course-card">
                 <img src="${pageContext.request.contextPath}/img/courses/12.jpg" class="course-image">
                 <div class="course-content">
-                    <div class="course-title">FStock Market Investment</div>
-
+                    <div class="course-title">Stock Market Investment</div>
                     <a href="${pageContext.request.contextPath}/view/courses/register/FStockMarketInvestment.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="2044">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -540,8 +561,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/13.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Graphic Design with Adobe Photoshop</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/GraphicDesignWithAdobePhotoshop.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="3011">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -549,8 +573,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/14.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">UI/UX Design Essentials</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/UiUxDesignEssentials.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="3022">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -558,8 +585,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/15.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Photography and Editing</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/PhotographyAndEditing.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="3033">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -567,8 +597,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/16.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Public Speaking Mastery</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/PublicSpeakingMastery.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="4011">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -576,8 +609,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/17.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Project Management Essentials</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/ProjectManagementEssentials.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="4022">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -585,8 +621,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/18.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Data Science with Python</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/DataScienceWithPython.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="4033">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -594,8 +633,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/19.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Artificial Intelligence Basics</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/ArtificialIntelligenceBasics.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="4044">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
@@ -603,8 +645,11 @@
                 <img src="${pageContext.request.contextPath}/img/courses/20.jpg" class="course-image">
                 <div class="course-content">
                     <div class="course-title">Video Editing</div>
-
                     <a href="${pageContext.request.contextPath}/view/courses/register/VideoEditing.jsp" class="btn-course">View courses</a>
+                    <form action="${pageContext.request.contextPath}/view/user/register_user/registerConfirm.jsp" method="GET">
+                        <input type="hidden" name="courseId" value="4055">
+                        <button type="submit" class="btn-success">Register</button>
+                    </form>
                 </div>
             </div>
 
