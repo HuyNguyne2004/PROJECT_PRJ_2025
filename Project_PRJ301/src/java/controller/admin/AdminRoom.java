@@ -118,7 +118,7 @@ public class AdminRoom extends HttpServlet {
             }
 
             // Đưa danh sách kết quả lên request
-            request.setAttribute("listRoom", roomList);
+            request.setAttribute(CommonCost.SESSION_LIST_ROOM, roomList);
 
             // Chuyển hướng đến trang danh sách phòng
             request.getRequestDispatcher("../view/admin/dashboard_room.jsp").forward(request, response);

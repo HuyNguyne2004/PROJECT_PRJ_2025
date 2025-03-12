@@ -16,21 +16,21 @@
             <ul class="nav flex-column h-100">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="wallet.html">
+                    <a class="nav-link active" href="${pageContext.request.contextPath}/user/course">
                         <i class="bi-wallet me-2"></i>
                         Course
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="profile.html">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/view/user/dashboar_user/dashboard_profile.jsp">
                         <i class="bi-person me-2"></i>
                         Profile
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="setting.html">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/view/user/dashboar_user/dashboard_setting.jsp">
                         <i class="bi-gear me-2"></i>
                         Settings
                     </a>
@@ -45,7 +45,7 @@
 
 
                 <li class="nav-item border-top mt-auto pt-2">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/authen?action=logout">
                         <i class="bi-box-arrow-left me-2"></i>
                         Logout
                     </a>
