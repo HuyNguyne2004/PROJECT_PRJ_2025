@@ -90,7 +90,14 @@ public class UserCourse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String action = request.getParameter("action");
+        switch (action) {
+            case "delete":
+                delete(request, response);
+                break;
+            default:
+                throw new AssertionError();
+        }
     }
 
     /**
@@ -102,5 +109,30 @@ public class UserCourse extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            // Lấy enrollment_id từ request
+            int enrollment_id = Integer.parseInt(request.getParameter("enrollment_id"));
+
+            // Gọi DAO để cập nhật trạng thái thành 'CANCELLED'
+            boolean isDeleted = enrollmentsDAO.delete(enrollment_id);
+
+            // Sử dụng session để lưu thông báo khi redirect
+            HttpSession session = request.getSession();
+            if (isDeleted) {
+                session.setAttribute("message", "Enrollment ID " + enrollment_id + " has been cancelled.");
+            } else {
+                session.setAttribute("error", "Failed to cancel enrollment ID " + enrollment_id + ".");
+            }
+
+            // Chuyển hướng về trang danh sách khóa học sau khi xóa
+            response.sendRedirect(request.getContextPath() + "/user/course");
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            request.getSession().setAttribute("error", "Invalid enrollment ID.");
+            response.sendRedirect(request.getContextPath() + "/user/course");
+        }
+    }
 
 }

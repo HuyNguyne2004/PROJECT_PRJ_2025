@@ -22,23 +22,19 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     }
 
     public static void main(String[] args) {
-        EnrollmentsDAO enrollmentsDAO = new EnrollmentsDAO();
+        EnrollmentsDAO dao  = new EnrollmentsDAO();
 
-        // Nhập student_id cần tìm
-        int studentID = 102; // Giả sử studentID là 154, thay bằng ID thực tế có trong DB
+        // ID của enrollment cần xóa (cập nhật trạng thái thành 'CANCELLED')
+        int enrollmentId = 31; // Thay đổi giá trị này để test với các ID khác
 
-        // Gọi hàm findByStudentID để lấy danh sách khóa học của student này
-        List<Enrollments> enrollmentsList = enrollmentsDAO.findByStudentID(studentID);
+        // Gọi phương thức delete() để cập nhật trạng thái
+        boolean result = dao.delete(enrollmentId);
 
-        // Kiểm tra kết quả trả về
-        if (enrollmentsList.isEmpty()) {
-            System.out.println("Không tìm thấy khóa học nào cho sinh viên có ID: " + studentID);
+        // Kiểm tra kết quả
+        if (result) {
+            System.out.println("✅ Successfully updated enrollment ID " + enrollmentId + " to 'CANCELLED'.");
         } else {
-            System.out.println("Danh sách enrollments của sinh viên có ID: " + studentID);
-            for (Enrollments enrollment : enrollmentsList) {
-                System.out.println(enrollment);
-                       
-            }
+            System.out.println("❌ Failed to update enrollment ID " + enrollmentId + ".");
         }
     }
 
@@ -64,10 +60,12 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     }
 
     public boolean delete(int enrollmentId) {
-        String sql = "DELETE FROM enrollments WHERE enrollment_id = ?";
+        String sql = "UPDATE Enrollments\n"
+                + "SET status = 'CANCELLED'\n"
+                + "WHERE enrollment_id = ?";
         parameterMap = parameterMap = new LinkedHashMap<>();
         parameterMap.put("enrollment_id", enrollmentId);
-        return deleteGenericDAO(sql, parameterMap);
+        return updateGenericDAO(sql, parameterMap);
     }
 
     public Enrollments findById(int enrollmentId) {

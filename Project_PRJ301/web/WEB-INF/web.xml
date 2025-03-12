@@ -54,6 +54,10 @@
         <servlet-name>UserCourse</servlet-name>
         <servlet-class>controller.user.UserCourse</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserSettings</servlet-name>
+        <servlet-class>controller.user.UserSettings</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthenticationController</servlet-name>
         <url-pattern>/authen</url-pattern>
@@ -93,6 +97,10 @@
     <servlet-mapping>
         <servlet-name>UserCourse</servlet-name>
         <url-pattern>/user/course</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserSettings</servlet-name>
+        <url-pattern>/user/settings</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>home</welcome-file>
