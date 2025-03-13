@@ -174,4 +174,29 @@ public class UsersDao extends GenericDAO<Users> {
         return updateGenericDAO(sql, parameterMap);
     }
 
+    public boolean checkCurrentPassword(int userID, String currentPassword) {
+        String sql = "SELECT [user_id]\n"
+                + "      ,[full_name]\n"
+                + "      ,[email]\n"
+                + "      ,[password]\n"
+                + "      ,[role]\n"
+                + "      ,[status]\n"
+                + "  FROM [users]\n"
+                + "  WHERE password = ? AND user_id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("password", currentPassword);
+        parameterMap.put("user_id", userID);
+        int count = findTotalRecordGenericDAO(Users.class, sql, parameterMap);
+        return count > 0;
+    }
+
+    public boolean updatePassword(int userID, String newPassword) {
+        String sql = "UPDATE [dbo].[users]\n"
+                + "   SET password = ?\n"
+                + " WHERE user_id = ?";
+        parameterMap.put("password", newPassword);
+        parameterMap.put("user_id", userID);
+        return updateGenericDAO(sql, parameterMap);
+    }
+
 }

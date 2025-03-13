@@ -22,19 +22,41 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     }
 
     public static void main(String[] args) {
-        EnrollmentsDAO dao  = new EnrollmentsDAO();
+        // Tạo DAO
+        EnrollmentsDAO enrollmentsDAO = new EnrollmentsDAO();
 
-        // ID của enrollment cần xóa (cập nhật trạng thái thành 'CANCELLED')
-        int enrollmentId = 31; // Thay đổi giá trị này để test với các ID khác
+        // Dữ liệu giả lập để test
+        int studentId = 154;  // Giả sử ID sinh viên hợp lệ
+        int courseId = 1022;  // ID khóa học có trong database
+        Timestamp enrolledDate = new Timestamp(System.currentTimeMillis());
+        String status = "ENROLLED";  // Trạng thái đăng ký
 
-        // Gọi phương thức delete() để cập nhật trạng thái
-        boolean result = dao.delete(enrollmentId);
+        // Tạo đối tượng Enrollments
+        Enrollments newEnrollment = Enrollments.builder()
+                .student_id(studentId)
+                .course_id(courseId)
+                .enrolled_date(enrolledDate)
+                .status(status)
+                .build();
 
-        // Kiểm tra kết quả
-        if (result) {
-            System.out.println("✅ Successfully updated enrollment ID " + enrollmentId + " to 'CANCELLED'.");
-        } else {
-            System.out.println("❌ Failed to update enrollment ID " + enrollmentId + ".");
+        try {
+            // Thêm enrollment vào database
+            enrollmentsDAO.insert(newEnrollment);
+            System.out.println("✅ Enrollment added successfully!");
+
+            // Hiển thị danh sách enrollment sau khi thêm
+            List<Enrollments> enrollmentsList = enrollmentsDAO.findAll();
+            System.out.println("📌 List of Enrollments:");
+            for (Enrollments e : enrollmentsList) {
+                System.out.println("Enrollment ID: " + e.getEnrollment_id()
+                        + ", Student ID: " + e.getStudent_id()
+                        + ", Course ID: " + e.getCourse_id()
+                        + ", Date: " + e.getEnrolled_date()
+                        + ", Status: " + e.getStatus());
+            }
+
+        } catch (RuntimeException e) {
+            System.err.println("❌ ERROR: " + e.getMessage());
         }
     }
 
@@ -77,13 +99,28 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     }
 
     public void insert(Enrollments enrollments) {
-        String sql = "INSERT INTO enrollments (student_id, course_id, enrolled_date, status) VALUES (?, ?, ?, ?)";
+        String sql = "WITH NewEnrollment AS ( "
+                + "    INSERT INTO enrollments (student_id, course_id, enrolled_date, status) "
+                + "    OUTPUT INSERTED.course_id "
+                + "    VALUES (?, ?, ?, ?) "
+                + ") "
+                + "UPDATE courses "
+                + "SET max_students = max_students - 1 "
+                + "WHERE course_id = (SELECT course_id FROM NewEnrollment) AND max_students > 0";
+
         parameterMap = new LinkedHashMap<>();
         parameterMap.put("student_id", enrollments.getStudent_id());
         parameterMap.put("course_id", enrollments.getCourse_id());
         parameterMap.put("enrolled_date", enrollments.getEnrolled_date());
         parameterMap.put("status", enrollments.getStatus());
-        int insert = insertGenericDAO(sql, parameterMap);
+
+        // Gọi thực hiện câu SQL
+        int rowsAffected = insertGenericDAO(sql, parameterMap);
+
+        // Kiểm tra nếu không có dòng nào bị ảnh hưởng -> khóa học đã đầy
+        if (rowsAffected == 0) {
+            throw new RuntimeException("Enrollment failed: The course is full or an error occurred.");
+        }
     }
 
     public List<Enrollments> findByStudentID(int studentID) {
