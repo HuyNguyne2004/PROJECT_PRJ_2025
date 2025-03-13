@@ -126,13 +126,12 @@
                             </c:if>
 
                             <c:if test="${user.role == 'STUDENT'}">
-<<<<<<< HEAD
+
                                 <a href="${pageContext.request.contextPath}/view/user/dashboar_user/dashboard_user.jsp">
                                    <li class="admin"><strong>My Account</strong></li>
-=======
+
                                 <a href="${pageContext.request.contextPath}/user/course">
-                                    My Account
->>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
+                                    <li class="admin"><strong>My Account</strong></li>
                                 </a>
                             </c:if>
                             
