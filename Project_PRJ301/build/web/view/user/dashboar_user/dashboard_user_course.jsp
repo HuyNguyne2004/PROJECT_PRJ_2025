@@ -122,6 +122,7 @@
                         <div class="row my-4">
                             <div class="col-lg-12 col-12">
                                 <div class="custom-block bg-white">
+<<<<<<< HEAD
                                     <h5 class="mb-4">Account Activities</h5>
 
                                     <div class="table-responsive">
@@ -137,6 +138,34 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+=======
+                                <c:if test="${not empty message}">
+                                    <div class="alert alert-success" role="alert">
+                                        ${message}
+                                    </div>
+                                </c:if>
+
+                                <c:if test="${not empty error}">
+                                    <div class="alert alert-danger" role="alert">
+                                        ${error}
+                                    </div>
+                                </c:if>
+                                <h5 class="mb-4">Account Activities</h5>
+
+                                <div class="table-responsive">
+                                    <table class="account-table table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Enrollment ID</th>
+                                                <th scope="col">Student ID</th>
+                                                <th scope="col">Course ID</th>
+                                                <th scope="col">Enrolled Date</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th> <!-- C?t hành ??ng -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
                                             <c:choose>
                                                 <c:when test="${not empty listCourseUser}">
                                                     <c:forEach var="enrollment" items="${listCourseUser}">
@@ -154,7 +183,11 @@
                                                                 </td>
                                                                 <td>
                                                                     <!-- Nút Delete v?i h?p tho?i xác nh?n -->
+<<<<<<< HEAD
                                                                     <form action="deleteEnrollment" method="post" style="display:inline;">
+=======
+                                                                    <form action="${pageContext.request.contextPath}//user/course?action=delete" method="post" style="display:inline;">
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
                                                                         <input type="hidden" name="enrollment_id" value="${enrollment.enrollment_id}">
                                                                         <button type="submit" class="btn btn-danger btn-sm"
                                                                                 onclick="return confirmDelete('${enrollment.enrollment_id}')">
@@ -205,9 +238,15 @@
     <script src="${pageContext.request.contextPath}/js/apexcharts.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/custom.js"></script>
     <script>
+<<<<<<< HEAD
     function confirmDelete(enrollmentID) {
         return confirm("B?n có ch?c ch?n mu?n xóa Enrollment ID " + enrollmentID + " không?");
     }
+=======
+                                                                                    function confirmDelete(enrollmentID) {
+                                                                                        return confirm("B?nn có ch?c ch?n mu?n xóa Enrollment ID " + enrollmentID + " không?");
+                                                                                    }
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
     </script>
 </body>
 </html>

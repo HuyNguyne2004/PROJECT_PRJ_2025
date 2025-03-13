@@ -15,5 +15,6 @@ public class CommonCost {
     public static final String SESSION_LIST_ENROLLMENTS = "listEnrollments";
     public static final String SESSION_LIST_ROOM = "listRoom";
     public static final String SESSION_LIST_USERS = "listUser";
+    public static final String SESSION_LIST_COURSE_USER = "listCourseUser";
     
 }

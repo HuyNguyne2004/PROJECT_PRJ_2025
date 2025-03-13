@@ -31,7 +31,23 @@ public class UsersDao extends GenericDAO<Users> {
     }
 
     public static void main(String[] args) {
+        UsersDao userDAO = new UsersDao();
 
+        // Tạo một đối tượng User với thông tin cần cập nhật
+        Users user = new Users();
+        user.setUser_id(101); // Cập nhật user_id = 1
+        user.setFull_name("John Doe Updated");
+        user.setEmail("johndoe_updated@gmail.com");
+
+        // Gọi phương thức update
+        boolean isUpdated = userDAO.updateUserName_Gmail(user);
+
+        // Kiểm tra kết quả
+        if (isUpdated) {
+            System.out.println("✅ User updated successfully!");
+        } else {
+            System.out.println("❌ Failed to update user.");
+        }
     }
 
     public boolean checkUsernameExits(Users users) {
@@ -144,6 +160,18 @@ public class UsersDao extends GenericDAO<Users> {
         parameterMap.put("email", "%" + keyword + "%");
 
         return queryGenericDAO(Users.class, sql, parameterMap);
+    }
+
+    public boolean updateUserName_Gmail(Users user) {
+        String sql = "UPDATE [dbo].[users]\n"
+                + "   SET full_name = ?\n"
+                + "      ,email = ?\n"
+                + " WHERE user_id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("full_name", user.getFull_name());
+        parameterMap.put("email", user.getEmail());
+        parameterMap.put("user_id", user.getUser_id());
+        return updateGenericDAO(sql, parameterMap);
     }
 
 }

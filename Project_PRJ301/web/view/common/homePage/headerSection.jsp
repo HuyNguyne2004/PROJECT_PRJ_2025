@@ -4,7 +4,7 @@
     Author     : Admin
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -126,8 +126,13 @@
                             </c:if>
 
                             <c:if test="${user.role == 'STUDENT'}">
+<<<<<<< HEAD
                                 <a href="${pageContext.request.contextPath}/view/user/dashboar_user/dashboard_user.jsp">
                                    <li class="admin"><strong>My Account</strong></li>
+=======
+                                <a href="${pageContext.request.contextPath}/user/course">
+                                    My Account
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
                                 </a>
                             </c:if>
                             

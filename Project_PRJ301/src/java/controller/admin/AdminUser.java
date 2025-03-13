@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpSession;
 import dal.UsersDao;
 import model.Users;
 import java.util.List;
+import constant.CommonCost;
 
 /**
  * Servlet quản lý người dùng Admin.
@@ -172,7 +173,7 @@ public class AdminUser extends HttpServlet {
             userList = dao.findAll();
         }
 
-        request.getSession().setAttribute("listUser", userList);
+        request.getSession().setAttribute(CommonCost.SESSION_USERS, userList);
         request.getSession().setAttribute("searchKeyword", searchKeyword);
         request.getRequestDispatcher("../view/admin/dashboard_user.jsp").forward(request, response);
     }

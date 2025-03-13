@@ -10,20 +10,17 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import dal.EnrollmentsDAO;
 import jakarta.servlet.http.HttpSession;
-import java.util.List;
-import model.Enrollments;
 import model.Users;
-import constant.CommonCost;
+import dal.UsersDao;
 
 /**
  *
  * @author Admin
  */
-public class UserCourse extends HttpServlet {
+public class UserSettings extends HttpServlet {
 
-    EnrollmentsDAO enrollmentsDAO = new EnrollmentsDAO();
+    UsersDao usersDao = new UsersDao();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +39,10 @@ public class UserCourse extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserCourse</title>");
+            out.println("<title>Servlet UserSettings</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet UserCourse at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UserSettings at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,20 +60,7 @@ public class UserCourse extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Users user = (Users) session.getAttribute("user");
-        if (user == null) {
-            response.sendRedirect(request.getContextPath() + "/controller/authen?action=login");// Redirect về trang đăng nhập
-            return;
-        }
-        int studentID = user.getUser_id();
-        List<Enrollments> list = enrollmentsDAO.findByStudentID(studentID);
-        System.out.println("Enrollments size: " + list.size());
-        for (Enrollments e : list) {
-            System.out.println("Enrollment: " + e.getEnrollment_id() + ", Course: " + e.getCourse_id() + ", Status: " + e.getStatus());
-        }
-        session.setAttribute(CommonCost.SESSION_LIST_COURSE_USER, list);
-        request.getRequestDispatcher("/view/user/dashboar_user/dashboard_user_course.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/user/dashboar_user/dashboard_setting.jsp").forward(request, response);
     }
 
     /**
@@ -90,18 +74,14 @@ public class UserCourse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-<<<<<<< HEAD
-        processRequest(request, response);
-=======
         String action = request.getParameter("action");
         switch (action) {
-            case "delete":
-                delete(request, response);
+            case "account":
+                updateUserName_Gmail(request, response);
                 break;
             default:
                 throw new AssertionError();
         }
->>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
     }
 
     /**
@@ -114,32 +94,38 @@ public class UserCourse extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-<<<<<<< HEAD
-=======
-    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            // Lấy enrollment_id từ request
-            int enrollment_id = Integer.parseInt(request.getParameter("enrollment_id"));
+    private void updateUserName_Gmail(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("user");
 
-            // Gọi DAO để cập nhật trạng thái thành 'CANCELLED'
-            boolean isDeleted = enrollmentsDAO.delete(enrollment_id);
-
-            // Sử dụng session để lưu thông báo khi redirect
-            HttpSession session = request.getSession();
-            if (isDeleted) {
-                session.setAttribute("message", "Enrollment ID " + enrollment_id + " has been cancelled.");
-            } else {
-                session.setAttribute("error", "Failed to cancel enrollment ID " + enrollment_id + ".");
-            }
-
-            // Chuyển hướng về trang danh sách khóa học sau khi xóa
-            response.sendRedirect(request.getContextPath() + "/user/course");
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            request.getSession().setAttribute("error", "Invalid enrollment ID.");
-            response.sendRedirect(request.getContextPath() + "/user/course");
+        if (user == null) {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            return;
         }
+        String newName = request.getParameter("profile-name");
+        String newEmail = request.getParameter("profile-email");
+
+        if (newName == null || newEmail == null || newName.trim().isEmpty() || newEmail.trim().isEmpty()) {
+            session.setAttribute("error", "Name and Email cannot be empty.");
+            response.sendRedirect(request.getContextPath() + "/user/settings");
+            return;
+        }
+
+        user.setFull_name(newName);
+        user.setEmail(newEmail);
+
+        boolean isUpdated = usersDao.updateUserName_Gmail(user);
+
+        if (isUpdated) {
+            // Cập nhật lại session để hiển thị thông tin mới ngay lập tức
+            session.setAttribute("user", user);
+            session.setAttribute("message", "Profile updated successfully.");
+        } else {
+            session.setAttribute("error", "Failed to update profile.");
+        }
+
+        // Chuyển hướng về trang profile (vẫn giữ dữ liệu mới)
+        response.sendRedirect(request.getContextPath() + "/user/settings");
     }
 
->>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
 }

@@ -1,4 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
 <!doctype html>
 <html lang="en">
     <head>
@@ -82,6 +86,7 @@
                                     <div class="tab-content" id="myTabContent">
                                         <div class="tab-pane fade show active" id="profile-tab-pane">
                                             <h6 class="mb-4">User Profile</h6>
+<<<<<<< HEAD
 
                                             <form class="custom-form profile-form" action="#" method="post">
                                                 <input class="form-control" type="text" name="profile-name" placeholder="John Doe">
@@ -108,10 +113,51 @@
                                                 </div>
                                             </form>
                                         </div>
+=======
+                                            <c:if test="${not empty message}">
+                                            <div class="alert alert-success" role="alert">
+                                                ${message}
+                                            </div>
+                                            <c:remove var="message" scope="session"/>
+                                        </c:if>
+
+                                        <c:if test="${not empty error}">
+                                            <div class="alert alert-danger" role="alert">
+                                                ${error}
+                                            </div>
+                                            <c:remove var="error" scope="session"/>
+                                        </c:if>
+                                            
+                                        <form class="custom-form profile-form" action="${pageContext.request.contextPath}/user/settings?action=account" method="post">
+                                            <input class="form-control" type="text" name="profile-name" value="${user.full_name}" placeholder="Enter your name">
+                                            <input class="form-control" type="email" name="profile-email" value="${user.email}" placeholder="Enter your email">
+
+                                            <div class="d-flex">
+                                                <button type="reset" class="form-control me-3">Reset</button>
+                                                <button type="submit" class="form-control ms-2">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="password-tab-pane">
+                                        <h6 class="mb-4">Password</h6>
+
+                                        <form class="custom-form password-form" action="#" method="post">
+                                            <input type="password" name="password" class="form-control" placeholder="Current Password" required="">
+                                            <input type="password" name="new_password" class="form-control" placeholder="New Password" required="">
+                                            <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required="">
+
+                                            <div class="d-flex">
+                                                <button type="button" class="form-control me-3">Reset</button>
+                                                <button type="submit" class="form-control ms-2">Update Password</button>
+                                            </div>
+                                        </form>
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
                                     </div>
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
 
                         <footer class="site-footer">
                             <div class="container">
@@ -129,6 +175,26 @@
 
             <!-- JAVASCRIPT FILES -->
             <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+=======
+                    </div>
+
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 col-12">
+                                    <p class="copyright-text">Copyright © Mini Finance 2048 
+                                        - Design: <a href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
         <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/custom.js"></script>
 

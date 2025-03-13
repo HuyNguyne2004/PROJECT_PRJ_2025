@@ -22,32 +22,19 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     }
 
     public static void main(String[] args) {
-        EnrollmentsDAO enrollmentsDAO = new EnrollmentsDAO();
+        EnrollmentsDAO dao  = new EnrollmentsDAO();
 
-        // 1. Tạo một đối tượng Enrollment mới
-        Enrollments newEnrollment = Enrollments.builder()
-                .student_id(154) // Giả sử student_id là 1
-                .course_id(444) // Giả sử course_id là 101
-                .enrolled_date(new Timestamp(System.currentTimeMillis())) // Thời gian hiện tại
-                .status("ENROLLED") // Trạng thái ban đầu
-                .build();
+        // ID của enrollment cần xóa (cập nhật trạng thái thành 'CANCELLED')
+        int enrollmentId = 31; // Thay đổi giá trị này để test với các ID khác
 
-        // 2. Thực hiện chèn dữ liệu vào database
-        enrollmentsDAO.insert(newEnrollment);
+        // Gọi phương thức delete() để cập nhật trạng thái
+        boolean result = dao.delete(enrollmentId);
 
-        System.out.println("New enrollment inserted successfully!");
-
-        // 3. Lấy danh sách enrollments sau khi thêm
-        List<Enrollments> enrollmentsList = enrollmentsDAO.findAll();
-
-        // 4. In ra danh sách enrollments
-        System.out.println("Enrollments list after insert:");
-        for (Enrollments enrollment : enrollmentsList) {
-            System.out.println("Enrollment ID: " + enrollment.getEnrollment_id()
-                    + ", Student ID: " + enrollment.getStudent_id()
-                    + ", Course ID: " + enrollment.getCourse_id()
-                    + ", Enrolled Date: " + enrollment.getEnrolled_date()
-                    + ", Status: " + enrollment.getStatus());
+        // Kiểm tra kết quả
+        if (result) {
+            System.out.println("✅ Successfully updated enrollment ID " + enrollmentId + " to 'CANCELLED'.");
+        } else {
+            System.out.println("❌ Failed to update enrollment ID " + enrollmentId + ".");
         }
     }
 
@@ -73,10 +60,12 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     }
 
     public boolean delete(int enrollmentId) {
-        String sql = "DELETE FROM enrollments WHERE enrollment_id = ?";
+        String sql = "UPDATE Enrollments\n"
+                + "SET status = 'CANCELLED'\n"
+                + "WHERE enrollment_id = ?";
         parameterMap = parameterMap = new LinkedHashMap<>();
         parameterMap.put("enrollment_id", enrollmentId);
-        return deleteGenericDAO(sql, parameterMap);
+        return updateGenericDAO(sql, parameterMap);
     }
 
     public Enrollments findById(int enrollmentId) {
@@ -95,6 +84,17 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
         parameterMap.put("enrolled_date", enrollments.getEnrolled_date());
         parameterMap.put("status", enrollments.getStatus());
         int insert = insertGenericDAO(sql, parameterMap);
+    }
+
+    public List<Enrollments> findByStudentID(int studentID) {
+        String sql = "SELECT e.enrollment_id, e.student_id, u.full_name, e.course_id, c.title, e.enrolled_date, e.status "
+                + "FROM enrollments e "
+                + "JOIN users u ON e.student_id = u.user_id "
+                + "JOIN courses c ON e.course_id = c.course_id "
+                + "WHERE e.student_id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("student_id", studentID);
+        return queryGenericDAO(Enrollments.class, sql, parameterMap);
     }
 
 }
