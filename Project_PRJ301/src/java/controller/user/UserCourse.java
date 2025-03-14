@@ -90,6 +90,9 @@ public class UserCourse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< HEAD
+        processRequest(request, response);
+=======
         String action = request.getParameter("action");
         switch (action) {
             case "delete":
@@ -98,6 +101,7 @@ public class UserCourse extends HttpServlet {
             default:
                 throw new AssertionError();
         }
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
     }
 
     /**
@@ -110,6 +114,8 @@ public class UserCourse extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+<<<<<<< HEAD
+=======
     private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             // Lấy enrollment_id từ request
@@ -135,4 +141,5 @@ public class UserCourse extends HttpServlet {
         }
     }
 
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
 }

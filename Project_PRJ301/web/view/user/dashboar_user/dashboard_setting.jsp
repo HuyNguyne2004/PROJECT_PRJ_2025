@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<<<<<<< HEAD
+=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
 <!doctype html>
 <html lang="en">
     <head>
@@ -83,7 +86,39 @@
                                     <div class="tab-content" id="myTabContent">
                                         <div class="tab-pane fade show active" id="profile-tab-pane">
                                             <h6 class="mb-4">User Profile</h6>
+<<<<<<< HEAD
                                         <c:if test="${not empty message}">
+=======
+<<<<<<< HEAD
+
+                                            <form class="custom-form profile-form" action="#" method="post">
+                                                <input class="form-control" type="text" name="profile-name" placeholder="John Doe">
+                                                <input class="form-control" type="email" name="profile-email" placeholder="Johndoe@gmail.com">
+
+                                                <div class="d-flex">
+                                                    <button type="button" class="form-control me-3">Reset</button>
+                                                    <button type="submit" class="form-control ms-2">Update</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="password-tab-pane">
+                                            <h6 class="mb-4">Password</h6>
+
+                                            <form class="custom-form password-form" action="#" method="post">
+                                                <input type="password" name="password" class="form-control" placeholder="Current Password" required="">
+                                                <input type="password" name="new_password" class="form-control" placeholder="New Password" required="">
+                                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required="">
+
+                                                <div class="d-flex">
+                                                    <button type="button" class="form-control me-3">Reset</button>
+                                                    <button type="submit" class="form-control ms-2">Update Password</button>
+                                                </div>
+                                            </form>
+                                        </div>
+=======
+                                            <c:if test="${not empty message}">
+>>>>>>> 323fd40f5979c0aea985a37d2ae304a6c9a1f7b8
                                             <div class="alert alert-success" role="alert">
                                                 ${message}
                                             </div>
@@ -136,10 +171,30 @@
                                                 <button type="submit" class="form-control ms-2">Update Password</button>
                                             </div>
                                         </form>
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
                                     </div>
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
+
+                        <footer class="site-footer">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12 col-12">
+                                        <p class="copyright-text">Copyright © Mini Finance 2048 
+                                            - Design: <a href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </main>
+                </div>
+            </div>
+
+            <!-- JAVASCRIPT FILES -->
+            <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+=======
                     </div>
 
                     <footer class="site-footer">
@@ -158,6 +213,7 @@
 
         <!-- JAVASCRIPT FILES -->
         <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+>>>>>>> efd4cba7778f4028de96bfcbef08514a5650e4e1
         <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/custom.js"></script>
 
