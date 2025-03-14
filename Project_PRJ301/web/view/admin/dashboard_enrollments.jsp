@@ -64,102 +64,102 @@
                                 <div class="col-md-5 col-lg-3 order-3 order-md-2">
                                     <div class="xp-searchbar">
                                         <form id="searchForm" action="${pageContext.request.contextPath}/admin/enrollments?action=search" method="post">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="search" id="searchInput"
-                                                       placeholder="Search enrollments...">
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-primary" type="submit" id="button-addon2">GO</button>
-                                                </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="search" id="searchInput"
+                                                   placeholder="Search enrollments...">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit" id="button-addon2">GO</button>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
+                            </div>
 
-                                <!-- End XP Col -->
+                            <!-- End XP Col -->
 
-                                <!-- Start XP Col -->
-                                <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
-                                    <div class="xp-profilebar text-right">
-                                        <nav class="navbar p-0">
-                                            <ul class="nav navbar-nav flex-row ml-auto">   
-                                                <li class="dropdown nav-item active">
-                                                    <a href="#" class="nav-link" data-toggle="dropdown">
-                                                        <span class="material-icons">notifications</span>
-                                                        <span class="notification">4</span>
-                                                    </a>
-                                                    <ul class="dropdown-menu">
-                                                        <li>
-                                                            <a href="#">You have 5 new messages</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">You're now friend with Mike</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Wish Mary on her birthday!</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">5 warnings in Server Console</a>
-                                                        </li>
+                            <!-- Start XP Col -->
+                            <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
+                                <div class="xp-profilebar text-right">
+                                    <nav class="navbar p-0">
+                                        <ul class="nav navbar-nav flex-row ml-auto">   
+                                            <li class="dropdown nav-item active">
+                                                <a href="#" class="nav-link" data-toggle="dropdown">
+                                                    <span class="material-icons">notifications</span>
+                                                    <span class="notification">4</span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#">You have 5 new messages</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">You're now friend with Mike</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Wish Mary on her birthday!</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">5 warnings in Server Console</a>
+                                                    </li>
 
-                                                    </ul>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="#">
-                                                        <span class="material-icons">question_answer</span>
+                                                </ul>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <span class="material-icons">question_answer</span>
 
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="#" data-toggle="dropdown">
-                                                        <img src="img/user.jpg" style="width:40px; border-radius:50%;"/>
-                                                        <span class="xp-user-live"></span>
-                                                    </a>
-                                                    <ul class="dropdown-menu small-menu">
-                                                        <li>
-                                                            <a href="#">
-                                                                <span class="material-icons">
-                                                                    person_outline
-                                                                </span>Profile
+                                                </a>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link" href="#" data-toggle="dropdown">
+                                                    <img src="img/user.jpg" style="width:40px; border-radius:50%;"/>
+                                                    <span class="xp-user-live"></span>
+                                                </a>
+                                                <ul class="dropdown-menu small-menu">
+                                                    <li>
+                                                        <a href="#">
+                                                            <span class="material-icons">
+                                                                person_outline
+                                                            </span>Profile
 
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><span class="material-icons">
-                                                                    settings
-                                                                </span>Settings</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"><span class="material-icons">
-                                                                    logout</span>Logout</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span class="material-icons">
+                                                                settings
+                                                            </span>Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span class="material-icons">
+                                                                logout</span>Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
 
 
-                                        </nav>
+                                    </nav>
 
-                                    </div>
                                 </div>
-                                <!-- End XP Col -->
+                            </div>
+                            <!-- End XP Col -->
 
-                            </div> 
-                            <!-- End XP Row -->
-
-                        </div>
-                        <div class="xp-breadcrumbbar text-center">
-                            <h4 class="page-title">Dashboard</h4>  
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Booster</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-                            </ol>                
-                        </div>
+                        </div> 
+                        <!-- End XP Row -->
 
                     </div>
+                    <div class="xp-breadcrumbbar text-center">
+                        <h4 class="page-title">Dashboard</h4>  
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Booster</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                        </ol>                
+                    </div>
+
+                </div>
 
 
 
-                    <!--------main-content------------->
+                <!--------main-content------------->
                 <%-- Hi?n th? thông báo thành công n?u có --%>
                 <c:if test="${not empty sessionScope.successMessage}">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -246,7 +246,10 @@
 
                                                     <!-- Nút Delete -->
                                                     <button class="btn btn-danger btn-sm delete-btn"
-                                                            data-enrollmentid="${enrollment.enrollment_id}">
+                                                            data-enrollmentid="${enrollment.enrollment_id}"
+                                                            data-courseid="${enrollment.course_id}"
+                                                            data-toggle="modal"
+                                                            data-target="#deleteModal">
                                                         <i class="fas fa-trash"></i> Delete
                                                     </button>
                                                 </td>
@@ -363,6 +366,7 @@
 
 
                         <!-- Modal Delete -->
+                        <!-- Modal Delete -->
                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -371,11 +375,13 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Are you sure you want to delete this course?</p>
+                                        <p>Are you sure you want to delete this enrollment?</p>
+                                        <p><strong>Enrollment ID:</strong> <span id="deleteEnrollmentId"></span></p>
+                                        <p><strong>Course ID:</strong> <span id="deleteCourseId"></span></p>
                                     </div>
                                     <div class="modal-footer">
-                                        <form id="deleteForm" action="${pageContext.request.contextPath}/admin/course?action=delete" method="post">
-                                            <input type="hidden" id="deleteCourseId" name="course_id">
+                                        <form id="deleteForm" action="${pageContext.request.contextPath}/admin/enrollments?action=delete" method="post">
+                                            <input type="hidden" id="deleteEnrollmentIdInput" name="enrollment_id">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
@@ -453,6 +459,23 @@
                 $('body').on('click', '.add-btn', function () {
                     var modal = new bootstrap.Modal(document.getElementById('addEnrollmentModal'));
                     modal.show();
+                });
+            });
+
+            $(document).ready(function () {
+                // Khi click vào nút Delete
+                $('body').on('click', '.delete-btn', function () {
+                    var enrollmentId = $(this).data('enrollmentid');
+                    var courseId = $(this).data('courseid');
+
+                    // Gán d? li?u vào modal
+                    $('#deleteEnrollmentId').text(enrollmentId);
+                    $('#deleteCourseId').text(courseId);
+                    $('#deleteEnrollmentIdInput').val(enrollmentId);
+
+                    // Hi?n th? modal
+                    var deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                    deleteModal.show();
                 });
             });
         </script>

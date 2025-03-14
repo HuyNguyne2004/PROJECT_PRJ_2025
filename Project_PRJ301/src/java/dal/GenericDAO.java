@@ -330,6 +330,8 @@ public abstract class GenericDAO<T> extends DBContext {
         // Trả về ID được tạo tự động (nếu có)
         return id;
     }
+      
+      
 
     // Abstract method to be implemented by subclasses to find all records
     public abstract List<T> findAll();

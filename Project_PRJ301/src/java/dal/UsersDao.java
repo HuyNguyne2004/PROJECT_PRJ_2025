@@ -31,22 +31,19 @@ public class UsersDao extends GenericDAO<Users> {
     }
 
     public static void main(String[] args) {
-        UsersDao userDAO = new UsersDao();
+        UsersDao usersDao = new UsersDao(); // Tạo đối tượng DAO để thao tác với DB
+        int userId = 101; // ID của user cần BLOCK
 
-        // Tạo một đối tượng User với thông tin cần cập nhật
-        Users user = new Users();
-        user.setUser_id(101); // Cập nhật user_id = 1
-        user.setFull_name("John Doe Updated");
-        user.setEmail("johndoe_updated@gmail.com");
+        try {
+            boolean result = usersDao.delete(userId); // Gọi phương thức để block user
 
-        // Gọi phương thức update
-        boolean isUpdated = userDAO.updateUserName_Gmail(user);
-
-        // Kiểm tra kết quả
-        if (isUpdated) {
-            System.out.println("✅ User updated successfully!");
-        } else {
-            System.out.println("❌ Failed to update user.");
+            if (result) {
+                System.out.println("✅ User ID " + userId + " has been BLOCKED successfully!");
+            } else {
+                System.out.println("❌ ERROR: Could not block User ID " + userId + ".");
+            }
+        } catch (Exception e) {
+            System.err.println("❌ ERROR: " + e.getMessage());
         }
     }
 
@@ -123,15 +120,11 @@ public class UsersDao extends GenericDAO<Users> {
     }
 
     public boolean delete(int userId) {
-        String sqlDeleteEnrollments = "DELETE FROM enrollments WHERE student_id = ?";
-        parameterMap = new LinkedHashMap<>();
-        parameterMap.put("student_id", userId);
-        deleteGenericDAO(sqlDeleteEnrollments, parameterMap);
-
-        String sqlDeleteUser = "DELETE FROM users WHERE user_id = ?";
-        parameterMap = new LinkedHashMap<>();
-        parameterMap.put("user_id", userId);
-        return deleteGenericDAO(sqlDeleteUser, parameterMap);
+         String sqlUpdateUser = "UPDATE users SET status = 'BLOCKED' WHERE user_id = ?";
+         parameterMap = new LinkedHashMap<>();
+         parameterMap.put("user_id", userId);
+         boolean update = updateGenericDAO(sqlUpdateUser, parameterMap);
+         return update;
     }
 
     public Users findById(int userId) {

@@ -99,27 +99,28 @@ public class EnrollmentsDAO extends GenericDAO<Enrollments> {
     }
 
     public void insert(Enrollments enrollments) {
-        String sql = "WITH NewEnrollment AS ( "
-                + "    INSERT INTO enrollments (student_id, course_id, enrolled_date, status) "
-                + "    OUTPUT INSERTED.course_id "
-                + "    VALUES (?, ?, ?, ?) "
-                + ") "
-                + "UPDATE courses "
+        String insertSql = "INSERT INTO enrollments (student_id, course_id, enrolled_date, status) VALUES (?, ?, ?, ?);";
+        String updateSql = "UPDATE courses "
                 + "SET max_students = max_students - 1 "
-                + "WHERE course_id = (SELECT course_id FROM NewEnrollment) AND max_students > 0";
+                + "WHERE course_id = ? AND max_students > 0;";
+        try {
+            parameterMap = new LinkedHashMap<>();
+            parameterMap.put("student_id", enrollments.getStudent_id());
+            parameterMap.put("course_id", enrollments.getCourse_id());
+            parameterMap.put("enrolled_date", enrollments.getEnrolled_date());
+            parameterMap.put("status", enrollments.getStatus());
+            int insertResult = insertGenericDAO(insertSql, parameterMap);
+            if (insertResult == 0) {
+                throw new RuntimeException("❌ Enrollment failed: Could not insert into enrollments.");
+            }
+            parameterMap.clear();
+            parameterMap.put("course_id", enrollments.getCourse_id());
+            boolean update = updateGenericDAO(updateSql, parameterMap);
+            if (!update) {
+                throw new RuntimeException("❌ Enrollment failed: The course is full.");
+            }
 
-        parameterMap = new LinkedHashMap<>();
-        parameterMap.put("student_id", enrollments.getStudent_id());
-        parameterMap.put("course_id", enrollments.getCourse_id());
-        parameterMap.put("enrolled_date", enrollments.getEnrolled_date());
-        parameterMap.put("status", enrollments.getStatus());
-
-        // Gọi thực hiện câu SQL
-        int rowsAffected = insertGenericDAO(sql, parameterMap);
-
-        // Kiểm tra nếu không có dòng nào bị ảnh hưởng -> khóa học đã đầy
-        if (rowsAffected == 0) {
-            throw new RuntimeException("Enrollment failed: The course is full or an error occurred.");
+        } catch (Exception e) {
         }
     }
 

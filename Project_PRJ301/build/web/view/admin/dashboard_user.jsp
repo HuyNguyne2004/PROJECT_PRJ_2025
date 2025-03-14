@@ -244,7 +244,10 @@
                                                     </button>
                                                     <!-- Nút Delete -->
                                                     <button class="btn btn-danger btn-sm delete-btn"
-                                                            data-userid="${user.user_id}">
+                                                            data-userid="${user.user_id}"
+                                                            data-fullname="${user.full_name}"
+                                                            data-toggle="modal"
+                                                            data-target="#deleteUserModal">
                                                         <i class="fas fa-trash"></i> Delete
                                                     </button>
                                                 </td>
@@ -378,20 +381,23 @@
 
 
 
+
                         <!-- Modal Delete -->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                                        <h5 class="modal-title" id="deleteUserModalLabel">Confirm Delete</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Are you sure you want to delete this course?</p>
+                                        <p>Are you sure you want to delete this user?</p>
+                                        <p><strong>User ID:</strong> <span id="deleteUserIdText"></span></p>
+                                        <p><strong>Full Name:</strong> <span id="deleteUserName"></span></p>
                                     </div>
                                     <div class="modal-footer">
-                                        <form id="deleteForm" action="${pageContext.request.contextPath}/admin/course?action=delete" method="post">
-                                            <input type="hidden" id="deleteCourseId" name="course_id">
+                                        <form id="deleteUserForm" action="${pageContext.request.contextPath}/admin/user?action=delete" method="post">
+                                            <input type="hidden" id="deleteUserId" name="user_id">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
@@ -399,6 +405,7 @@
                                 </div>
                             </div>
                         </div>
+
 
 
 
@@ -461,15 +468,6 @@
                     modal.show();
                 });
 
-                // Khi nh?n nút "Delete", l?y user_id và truy?n vào form modal
-                $('body').on('click', '.delete-btn', function () {
-                    var userId = $(this).data('userid');
-                    $('#deleteUserId').val(userId);
-
-                    // Hi?n th? modal xác nh?n xóa
-                    var modal = new bootstrap.Modal(document.getElementById('deleteUserModal'));
-                    modal.show();
-                });
 
                 // Khi nh?n nút "Add User", m? modal và ??t giá tr? m?c ??nh
                 $('body').on('click', '.add-btn', function () {
@@ -510,6 +508,23 @@
                         alert('Vui lòng nh?p l?i thông tin ');
                         event.preventDefault();
                     }
+                });
+            });
+            
+            $(document).ready(function () {
+                // Khi click vào nút Delete
+                $('body').on('click', '.delete-btn', function () {
+                    var userId = $(this).data('userid');
+                    var fullName = $(this).data('fullname');
+
+                    // Gán d? li?u vào modal
+                    $('#deleteUserIdText').text(userId);
+                    $('#deleteUserName').text(fullName);
+                    $('#deleteUserId').val(userId);
+
+                    // Hi?n th? modal
+                    var deleteModal = new bootstrap.Modal(document.getElementById('deleteUserModal'));
+                    deleteModal.show();
                 });
             });
 
