@@ -17,7 +17,7 @@
                 margin: 0;
                 padding: 0;
                 font-family: Arial, sans-serif;
-                background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+                background: linear-gradient(to bottom, #b1a6a4 0%, #d8cfd0 20%, #f2f1ef 50%, #d8cfd0 90%, #b1a6a4 100%);
                 max-width: 100vw; /* Giới hạn chiều rộng tối đa bằng khung màn hình */
                 overflow-x: hidden; /* Ngăn cuộn ngang nếu có phần tử vượt quá khung */
                 font-family: Arial, sans-serif;
@@ -34,7 +34,7 @@
                 top: 0;
                 left: 0;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.9);
+                background-color: rgba(177, 166, 164, 0.98);
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -97,6 +97,7 @@
                 font-size: 36px;
                 color: #fff;
                 margin-bottom: 15px;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
             }
 
             .banner-section .section-title p {
@@ -208,97 +209,98 @@
             }
 
             h2::after {
-                content: ""; /* Tạo phần tử giả để làm gạch chân */
-                display: block;
-                width: 10%; /* Điều chỉnh độ dài của gạch chân */
-                height: 4px; /* Độ dày của gạch chân */
-                background-color: #ddd; /* Màu của gạch chân */
-                position: absolute;
-                left: 50%;
-                bottom: 124px; /* Khoảng cách giữa chữ và gạch chân */
-                transform: translateX(-50%); /* Căn giữa gạch chân */
-            }
+    content: ""; /* Tạo phần tử giả để làm gạch chân */
+    display: block;
+    width: 10%; /* Điều chỉnh độ dài của gạch chân */
+    height: 4px; /* Độ dày của gạch chân */
+    background-color: #697184; /* Màu của gạch chân */
+    position: absolute;
+    left: 50%;
+    bottom: 124px; /* Khoảng cách giữa chữ và gạch chân */
+    transform: translateX(-50%); /* Căn giữa gạch chân */
+}
 
-            .content p {
-                color: #fff;
-                max-width: 800px;
-                margin: 40px auto;
-                font-size: 18px;
-                text-align: justify;
-            }
-            .content h2 {
-                color: #ddd;
-                text-align: center;
-                max-width: 800px;
-                margin: 0px auto;
-                font-size: 40px;
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+.content p {
+            color: #b1a6a4;
+            max-width: 800px;
+            margin: 40px auto;
+            font-size: 18px;
+            text-align: justify;
+        }
+.content h2 {
+            color: #697184;
+            text-align: center;
+            max-width: 800px;
+            margin: 0px auto;
+            font-size: 40px;
+            text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
 
-            }
-            .roles {
-                display: flex;
-                justify-content: space-between;
-                gap: 20px;
-                color: #fff;
-                font-size: 18px;
-                padding: 20px 34px;
-            }
-            .role-item {
-                width: 48%;
-                background: rgba(255, 255, 255, 0.1);
-                padding: 20px;
-                border-radius: 10px;
-            }
-            .content h4 {
-                color: #ddd;
-                text-align: center;
-                max-width: 800px;
-                margin: 0px auto;
-                font-size: 40px;
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        } 
+.roles {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            color: #fff;
+            font-size: 18px;
+            padding: 20px 34px;
+        }
+        .role-item {
+            width: 48%;
+            background: rgba(105, 113, 131, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .content h4 {
+            color: #697184;
+            text-align: center;
+            max-width: 800px;
+            margin: 0px auto;
+            font-size: 40px;
+            text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
 
-            }
-            h4 {
-                position: relative;
-                text-align: center;
-                font-size: 40px;
-                color: #ddd;
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-                padding-top: 20px; /* Thêm khoảng cách từ trên xuống */
-            }
+        }
+        h4 {
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    color: #697184;
+    text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
+    padding-top: 20px; /* Thêm khoảng cách từ trên xuống */
+}
 
-            h4::before {
-                content: "";
-                display: block;
-                width: 20%; /* Độ dài của gạch */
-                height: 4px; /* Độ dày của gạch */
-                background-color: #ddd; /* Màu của gạch */
-                position: absolute;
-                top: -10px; /* Điều chỉnh vị trí gạch */
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            /* Popup */
-            /* Popup */
-            /* Popup */
-            .popup {
-                display: none; /* Ẩn ban đầu */
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: linear-gradient(to bottom, #3a345e, #e05b82, #4a4b6a); /* Gradient nhẹ hơn */
-                color: white;
-                padding: 25px 50px; /* Tăng kích thước hộp */
-                border-radius: 15px; /* Bo góc mềm mại */
-                font-size: 20px; /* Chữ to hơn */
-                font-weight: bold; /* Làm chữ đậm hơn */
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ hơn */
-                z-index: 9999;
-                text-align: center; /* Căn giữa chữ */
-                width: 300px; /* Chiều rộng hộp */
-                opacity: 0.9; /* Làm màu nhẹ hơn một chút */
-            }
+h4::before {
+    content: "";
+    display: block;
+    width: 20%; /* Độ dài của gạch */
+    height: 4px; /* Độ dày của gạch */
+    background-color: #697184; /* Màu của gạch */
+    position: absolute;
+    top: -10px; /* Điều chỉnh vị trí gạch */
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* Popup */
+/* Popup */
+/* Popup */
+.popup {
+    display: none; /* Ẩn ban đầu */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to bottom, #3a345e, #e05b82, #4a4b6a); /* Gradient nhẹ hơn */
+    color: white;
+    padding: 25px 50px; /* Tăng kích thước hộp */
+    border-radius: 15px; /* Bo góc mềm mại */
+    font-size: 20px; /* Chữ to hơn */
+    font-weight: bold; /* Làm chữ đậm hơn */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Đổ bóng nhẹ hơn */
+    z-index: 9999;
+    text-align: center; /* Căn giữa chữ */
+    width: 300px; /* Chiều rộng hộp */
+    opacity: 0.9; /* Làm màu nhẹ hơn một chút */
+}
+
 
 
 

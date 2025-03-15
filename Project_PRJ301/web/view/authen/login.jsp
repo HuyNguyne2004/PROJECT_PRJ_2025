@@ -10,7 +10,7 @@
                 align-items: center;
                 min-height: 100vh;
                 font-family: 'Jost', sans-serif;
-                background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+                background: linear-gradient(to bottom, #b1a6a4 0%, #d8cfd0 20%, #f2f1ef 50%, #d8cfd0 90%, #b1a6a4 100%);
             }
             .container{
                 width: 350px;
@@ -22,7 +22,7 @@
                 text-align: center;
             }
             label{
-                color: #cc204c;
+                color: #697184;
                 font-size: 2em;
                 font-weight: bold;
             }
@@ -39,7 +39,7 @@
             button{
                 width: 80%;
                 height: 40px;
-                background: #cc204c;
+                background: #697184;
                 color: #fff;
                 font-size: 1em;
                 font-weight: bold;
@@ -49,7 +49,7 @@
                 margin-top: 15px;
             }
             button:hover{
-                background: #b81b3c;
+                background: #697184;
             }
             span{
                 color: red;

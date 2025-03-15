@@ -88,6 +88,22 @@
             transition: color 0.3s ease;
             font-size: 18px;
         }
+        .LOG{
+        display: inline-block;
+    min-width: 196px;
+    text-align: center;
+    border: none;
+    padding: 15px 10px;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+    background: #697184;
+    }
+   ::after, ::before {
+    box-sizing: border-box;
+    }
         
        
         </style>
@@ -113,7 +129,7 @@
                         </nav>
                     <div class="TRANGCHU">
                         <c:if test="${user == null}">
-                            <a href="${pageContext.request.contextPath}/authen?action=login" class="site-btn header-btn">Login</a>
+                            <a href="${pageContext.request.contextPath}/authen?action=login" class="LOG">Login</a>
                         </c:if>
                             
                         
@@ -127,18 +143,17 @@
 
                             <c:if test="${user.role == 'STUDENT'}">
 
-                                <a href="${pageContext.request.contextPath}/view/user/dashboar_user/dashboard_user.jsp">
-                                   <li class="admin"><strong>My Account</strong></li>
+                               
 
                                 <a href="${pageContext.request.contextPath}/user/course">
                                     <li class="admin"><strong>My Account</strong></li>
                                 </a>
                             </c:if>
                             
-                            <a href="${pageContext.request.contextPath}/authen?action=logout" class="site-btn header-btn">Log out</a>
+                            <a href="${pageContext.request.contextPath}/authen?action=logout" class="LOG">Log out</a>
                            
                         </c:if>
-                            <a href="${pageContext.request.contextPath}/authen?action=sign_up" class="site-btn header-btn">Sign up</a>
+                            <a href="${pageContext.request.contextPath}/authen?action=sign_up" class="LOG">Sign up</a>
 
                     </div>
                                 

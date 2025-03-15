@@ -17,7 +17,7 @@
             margin: 0;
 	        padding: 0;
 	        font-family: Arial, sans-serif;
-	        background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+	        background: linear-gradient(to bottom, #b1a6a4 0%, #d8cfd0 20%, #f2f1ef 50%, #d8cfd0 90%, #b1a6a4 100%);
             max-width: 100vw; /* Giới hạn chiều rộng tối đa bằng khung màn hình */
             overflow-x: hidden; /* Ngăn cuộn ngang nếu có phần tử vượt quá khung */
             font-family: Arial, sans-serif;
@@ -34,7 +34,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.9); 
+    background-color: rgba(177, 166, 164, 0.98); 
     display: flex;
     align-items: center; 
     justify-content: space-between; 
@@ -97,6 +97,7 @@
     font-size: 36px;
     color: #fff;
     margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .banner-section .section-title p {
@@ -206,7 +207,7 @@ h2::after {
     display: block;
     width: 10%; /* Điều chỉnh độ dài của gạch chân */
     height: 4px; /* Độ dày của gạch chân */
-    background-color: #ddd; /* Màu của gạch chân */
+    background-color: #697184; /* Màu của gạch chân */
     position: absolute;
     left: 50%;
     bottom: 124px; /* Khoảng cách giữa chữ và gạch chân */
@@ -214,19 +215,19 @@ h2::after {
 }
 
 .content p {
-            color: #fff;
+            color: #b1a6a4;
             max-width: 800px;
             margin: 40px auto;
             font-size: 18px;
             text-align: justify;
         }
 .content h2 {
-            color: #ddd;
+            color: #697184;
             text-align: center;
             max-width: 800px;
             margin: 0px auto;
             font-size: 40px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
 
         } 
 .roles {
@@ -239,25 +240,25 @@ h2::after {
         }
         .role-item {
             width: 48%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(105, 113, 131, 0.5);
             padding: 20px;
             border-radius: 10px;
         }
         .content h4 {
-            color: #ddd;
+            color: #697184;
             text-align: center;
             max-width: 800px;
             margin: 0px auto;
             font-size: 40px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
 
         }
         h4 {
     position: relative;
     text-align: center;
     font-size: 40px;
-    color: #ddd;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    color: #697184;
+    text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
     padding-top: 20px; /* Thêm khoảng cách từ trên xuống */
 }
 
@@ -266,7 +267,7 @@ h4::before {
     display: block;
     width: 20%; /* Độ dài của gạch */
     height: 4px; /* Độ dày của gạch */
-    background-color: #ddd; /* Màu của gạch */
+    background-color: #697184; /* Màu của gạch */
     position: absolute;
     top: -10px; /* Điều chỉnh vị trí gạch */
     left: 50%;
@@ -293,6 +294,7 @@ h4::before {
     width: 300px; /* Chiều rộng hộp */
     opacity: 0.9; /* Làm màu nhẹ hơn một chút */
 }
+
 
 
 

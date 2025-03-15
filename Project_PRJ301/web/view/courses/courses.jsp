@@ -16,7 +16,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+            background: linear-gradient(to bottom, #b1a6a4 0%, #d8cfd0 20%, #f2f1ef 50%, #d8cfd0 90%, #b1a6a4 100%);
             max-width: 100vw; /* Giới hạn chiều rộng tối đa bằng khung màn hình */
             overflow-x: hidden; /* Ngăn cuộn ngang nếu có phần tử vượt quá khung */
             font-family: Arial, sans-serif;
@@ -116,8 +116,8 @@
         }
         .search-btn {
             padding: 8px 15px;
-            background-color: #d32f2f;
-            color: white;
+            background-color: #697184;
+            color: #fff;
             font-weight: bold;
             border: none;
             border-radius: 5px;
@@ -130,8 +130,9 @@
             text-align:inherit;
             color: var(--text-color);
             font-weight: bold;
-            color: #fff;
+            color: #697184;
             margin-left: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
         .course-container {
             display: flex;
@@ -180,7 +181,8 @@
             text-align:justify;
             margin: 5px 0;
             padding: 10px;
-            color:#fff;
+            color: #697184;
+            text-shadow: 5px 5px 10px rgba(242, 241, 239, 1.8);
         }
         .course-desc {
             font-size: 14px;
@@ -192,7 +194,7 @@
             display: flex;
             padding: 10px 0px 10px 10px;
             background: var(--secondary-color);
-            color:#828080;
+            color:#fff;
             text-decoration: none;
             border-radius: 5px;
             text-align:justify;
@@ -200,7 +202,7 @@
             font-weight: bold;
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
-            background-color: #fff;
+            background-color: #697184;
             margin-bottom: 10px;
             box-sizing: border-box;
         }
@@ -269,7 +271,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* ná»n Äáº­m Äá» ná»i báº­t trÃªn cÃ¡c pháº§n khÃ¡c */
+            background-color: rgba(177, 166, 164, 0.98); /* ná»n Äáº­m Äá» ná»i báº­t trÃªn cÃ¡c pháº§n khÃ¡c */
             display: flex;
             align-items: center; /* Canh logo vÃ  menu theo chiá»u dá»c */
             justify-content: space-between; /* Logo trÃ¡i, menu pháº£i */
@@ -304,6 +306,7 @@
             font-size: 36px;
             color: #fff;
             margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         .banner-section .section-title p {
@@ -321,7 +324,7 @@
             display: center;
             margin-top: 30px;
             background: var(--secondary-color);
-            color: #828080;
+            color: #fff;
             text-decoration: none;
             text-align: justify;
             font-weight: bold;
@@ -329,7 +332,7 @@
             box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
             padding: 12px 24px;
             display: inline-block;
-            background-color: #fff;
+            background-color: #697184;
         }
         .text-center .site-btn:hover {
             background-color: #fff;
@@ -377,7 +380,7 @@
             display: block;
             margin: 15px auto;
             padding: 10px 20px;
-            background: #c62839;
+            background: #697184;
             color: #fff;
             border: none;
             cursor: pointer;
@@ -386,7 +389,7 @@
         }
 
         .newsletter .site-btn:hover {
-            background: #a21b29;
+            background: #697184;
         }
 
 
@@ -409,8 +412,8 @@
             <div class="col-lg-10 col-md-10">
                 <nav class="main-menu">
                     <ul>
-                        <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a><strong>/</li>
-                        <li><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></li>
+                        <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></strong></li>
+                        <li><strong><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></strong></li>
                         <li><strong><a href="contact.html">Contact</a></strong></li>
                     </ul>
                 </nav>
@@ -430,7 +433,7 @@
 <body>
     <div class="container">
         <div class="header-container">
-            <h1>COURSES</h1>
+            <h1><strong>COURSES</strong></h1>
                          
         </div>        
         <div class="course-container">
