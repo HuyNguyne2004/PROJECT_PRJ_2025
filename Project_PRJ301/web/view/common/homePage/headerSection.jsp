@@ -40,7 +40,7 @@
             display: flex;
             justify-content: center;
             justify-content: flex-start;
-            padding-left: 10px;
+            padding-left: 70px;
         }
 
 
@@ -128,7 +128,9 @@
                             </ul>
                         </nav>
                     <div class="TRANGCHU">
+                        
                         <c:if test="${user == null}">
+                            <a href="${pageContext.request.contextPath}/authen?action=sign_up" class="LOG">Sign up</a>
                             <a href="${pageContext.request.contextPath}/authen?action=login" class="LOG">Login</a>
                         </c:if>
                             
@@ -136,8 +138,8 @@
                         <c:if test="${user != null}">
                             
                             <c:if test="${user.role == 'ADMIN'}">
-                                <a href="${pageContext.request.contextPath}/admin/dashboard">
-                                    <li class="admin"><strong>My Account</strong></li>
+                                <a href="${pageContext.request.contextPath}/admin/dashboard" class="LOG">
+                                    My Account
                                 </a>
                             </c:if>
 
@@ -145,15 +147,15 @@
 
                                
 
-                                <a href="${pageContext.request.contextPath}/user/course">
-                                    <li class="admin"><strong>My Account</strong></li>
+                                <a href="${pageContext.request.contextPath}/user/course" class="LOG">
+                                    My Account
                                 </a>
                             </c:if>
                             
                             <a href="${pageContext.request.contextPath}/authen?action=logout" class="LOG">Log out</a>
                            
                         </c:if>
-                            <a href="${pageContext.request.contextPath}/authen?action=sign_up" class="LOG">Sign up</a>
+                            
 
                     </div>
                                 

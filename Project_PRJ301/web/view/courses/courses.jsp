@@ -665,9 +665,7 @@
 
                     <p>Success is better when shared! Become part of a thriving community where you can learn, grow, and achieve more—together.</p>
                 </div>
-                <div class="text-center pt-5">
-                    <a href="#" class="site-btn">COURSES</a>
-                </div>
+                
             </div>
 
             <div class="widget-item">

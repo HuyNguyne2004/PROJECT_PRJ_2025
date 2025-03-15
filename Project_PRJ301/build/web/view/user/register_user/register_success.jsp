@@ -36,7 +36,7 @@
                 align-items: center;
                 min-height: 100vh;
                 font-family: 'Jost', sans-serif;
-                background: linear-gradient(to bottom, #0f0c29, #cc204c, #24243e);
+                background: linear-gradient(to bottom, #b1a6a4 0%, #d8cfd0 20%, #f2f1ef 50%, #d8cfd0 90%, #b1a6a4 100%);
             }
             .hoanho {
                 width: 1300px;
@@ -49,18 +49,18 @@
                 font-size: 2em;
                 font-weight: bold;
                 text-align: center;
-                text-shadow: 0 0 10px rgba(255, 182, 193, 1.5);
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
                 
             }
             .thongtin{
-                color: #dfe0e1;
+                color: #697184;
                 max-width: 800px;
                 margin: 40px auto;
                 font-size: 20px;
                 text-align: justify;
             }
             .container li{
-                color: #dfe0e1;
+                color: #413F3D;
                 max-width: 900px;
                 margin: 10px 400px;
                 font-size: 18px;
@@ -70,7 +70,7 @@
     display: block; /* Make the anchor a block element so it can be centered */
     width: 300px; /* Set the width for the button */
     height: 80px;
-    background: #cc204c;
+    background: #697184;
     color: #fff;
     font-size: 1.2em; /* Increase the font size */
     font-weight: bold;
@@ -84,8 +84,9 @@
 }
 
 a:hover {
-    background: #b81b3c;
-    border-color: #fff; /* Ensure border color stays consistent on hover */
+    background: #fff;
+    border-color: #413F3D; /* Ensure border color stays consistent on hover */
+    color: #413F3D;
 }
         </style>
     </head>
