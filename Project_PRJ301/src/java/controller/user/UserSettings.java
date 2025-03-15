@@ -79,6 +79,9 @@ public class UserSettings extends HttpServlet {
             case "account":
                 updateUserName_Gmail(request, response);
                 break;
+            case "pass":
+                updatePassWord(request, response);
+                break;
             default:
                 throw new AssertionError();
         }
@@ -126,6 +129,56 @@ public class UserSettings extends HttpServlet {
 
         // Chuyển hướng về trang profile (vẫn giữ dữ liệu mới)
         response.sendRedirect(request.getContextPath() + "/user/settings");
+    }
+
+    private void updatePassWord(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("user");
+
+        if (user == null) {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            return;
+        }
+
+        int userID = user.getUser_id();
+        String currentPassword = request.getParameter("password");
+        String newPassword = request.getParameter("new_password");
+        String confirmPassword = request.getParameter("confirm_password");
+
+        // Kiểm tra các trường có bị null hoặc rỗng không
+        if (currentPassword == null || newPassword == null || confirmPassword == null
+                || currentPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
+
+            session.setAttribute("errorMessage", "All fields are required.");
+            response.sendRedirect(request.getContextPath() + "/user/settings?action=pass");
+            return;
+        }
+
+        // Kiểm tra mật khẩu mới và mật khẩu xác nhận có trùng khớp không
+        if (!newPassword.equals(confirmPassword)) {
+            session.setAttribute("errorMessage", "New password and confirm password do not match.");
+            response.sendRedirect(request.getContextPath() + "/user/settings?action=pass");
+            return;
+        }
+
+
+        // **Sử dụng hàm kiểm tra mật khẩu hiện tại**
+        if (!usersDao.checkCurrentPassword(userID, currentPassword)) {
+            session.setAttribute("errorMessage", "Current password is incorrect.");
+            response.sendRedirect(request.getContextPath() + "/user/settings?action=pass");
+            return;
+        }
+
+        // Cập nhật mật khẩu mới
+        boolean updateSuccess = usersDao.updatePassword(userID, newPassword);
+
+        if (updateSuccess) {
+            session.setAttribute("successMessage", "Password updated successfully.");
+        } else {
+            session.setAttribute("errorMessage", "Failed to update password. Please try again.");
+        }
+
+        response.sendRedirect(request.getContextPath() + "/user/settings?action=pass");
     }
 
 }

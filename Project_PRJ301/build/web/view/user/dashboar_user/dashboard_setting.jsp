@@ -87,6 +87,9 @@
                                         <div class="tab-pane fade show active" id="profile-tab-pane">
                                             <h6 class="mb-4">User Profile</h6>
 <<<<<<< HEAD
+                                        <c:if test="${not empty message}">
+=======
+<<<<<<< HEAD
 
                                             <form class="custom-form profile-form" action="#" method="post">
                                                 <input class="form-control" type="text" name="profile-name" placeholder="John Doe">
@@ -115,6 +118,7 @@
                                         </div>
 =======
                                             <c:if test="${not empty message}">
+>>>>>>> 323fd40f5979c0aea985a37d2ae304a6c9a1f7b8
                                             <div class="alert alert-success" role="alert">
                                                 ${message}
                                             </div>
@@ -127,7 +131,7 @@
                                             </div>
                                             <c:remove var="error" scope="session"/>
                                         </c:if>
-                                            
+
                                         <form class="custom-form profile-form" action="${pageContext.request.contextPath}/user/settings?action=account" method="post">
                                             <input class="form-control" type="text" name="profile-name" value="${user.full_name}" placeholder="Enter your name">
                                             <input class="form-control" type="email" name="profile-email" value="${user.email}" placeholder="Enter your email">
@@ -141,8 +145,23 @@
 
                                     <div class="tab-pane fade" id="password-tab-pane">
                                         <h6 class="mb-4">Password</h6>
+                                        <!-- Hiển thị thông báo lỗi -->
+                                        <c:if test="${not empty errorMessage}">
+                                            <div class="alert alert-danger" role="alert">
+                                                ${errorMessage}
+                                            </div>
+                                            <c:remove var="errorMessage" scope="session"/>
+                                        </c:if>
 
-                                        <form class="custom-form password-form" action="#" method="post">
+                                        <!-- Hiển thị thông báo thành công -->
+                                        <c:if test="${not empty successMessage}">
+                                            <div class="alert alert-success" role="alert">
+                                                ${successMessage}
+                                            </div>
+                                            <c:remove var="successMessage" scope="session"/>
+                                        </c:if>
+
+                                        <form class="custom-form password-form" action="${pageContext.request.contextPath}/user/settings?action=pass" method="post">
                                             <input type="password" name="password" class="form-control" placeholder="Current Password" required="">
                                             <input type="password" name="new_password" class="form-control" placeholder="New Password" required="">
                                             <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required="">
