@@ -504,7 +504,7 @@ white-space:nowrap;
 
 .tp-caption.huge_thin_yellow {
 position:absolute;
-color:#;
+color: #ff0000;
 border:1px solid white;
 font-weight:300;
 text-transform:capitalize;

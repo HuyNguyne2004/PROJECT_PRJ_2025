@@ -2,9 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group name="PRO">
             <file>file:/D:/Spring%202025/PRJ301/code/PROJECT_PRJ_2025/Project_PRJ301/src/java/controller/user/UserCourse.java</file>
             <file>file:/D:/Spring%202025/PRJ301/code/PROJECT_PRJ_2025/Project_PRJ301/web/view/admin/dashboard_user.jsp</file>
+=======
+        <group>
+            <file>file:/C:/Users/Minh%20Kien%20PC/Documents/NetBeansProjects/PROJECT_PRJ_2025/Project_PRJ301/web/css/bootstrap.min_2.css</file>
+>>>>>>> 75ba2f7f019aa3de77585c602531e13f27a506d6
         </group>
     </open-files>
 </project-private>
