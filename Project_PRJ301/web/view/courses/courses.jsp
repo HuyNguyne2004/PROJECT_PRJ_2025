@@ -236,8 +236,7 @@
             flex-grow: 1;
             display: flex;
             justify-content: center;
-            justify-content: flex-start;
-            padding-left: 440px;
+            padding-right: 105px;
         }
 
 
@@ -418,13 +417,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="search-container">
-                <div class="search-fields">
-                    <input type="text" class="search-input" placeholder="Course">
-                    <input type="text" class="search-input" placeholder="Category">
-                    <button class="search-btn">Search Course</button>
-                </div>
-            </div>            
+                  
         </div>
     </div>
 </header>  
