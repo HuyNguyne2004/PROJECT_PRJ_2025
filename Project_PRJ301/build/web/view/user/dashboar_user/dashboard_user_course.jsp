@@ -66,9 +66,9 @@
     <body>
         <header class="navbar sticky-top flex-md-nowrap">
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-                 <div class="site-logo">
-                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
-                        </div>
+                <div class="site-logo">
+                    <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
+                </div>
             </div>
 
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -126,7 +126,7 @@
 
                                     <div class="table-responsive">
                                         <table class="account-table table">
-                                            <thead>
+                            <%--                <thead>
                                                 <tr>
                                                     <th scope="col">Enrollment ID</th>
                                                     <th scope="col">Student ID</th>
@@ -135,117 +135,117 @@
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Action</th> <!-- C?t hành ??ng -->
                                                 </tr>
-                                            </thead>
+                                            </thead>     --%>
                                             <tbody>
 
-                                <c:if test="${not empty message}">
-                                    <div class="alert alert-success" role="alert">
-                                        ${message}
+                                            <c:if test="${not empty message}">
+                                            <div class="alert alert-success" role="alert">
+                                                ${message}
+                                            </div>
+                                        </c:if>
+
+                                        <c:if test="${not empty error}">
+                                            <div class="alert alert-danger" role="alert">
+                                                ${error}
+                                            </div>
+                                        </c:if>
+                          <%--              <h5 class="mb-4">Account Activities</h5>   --%>
+
+                                        <div class="table-responsive">
+                                            <table class="account-table table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Enrollment ID</th>
+                                                        <th scope="col">Student ID</th>
+                                                        <th scope="col">Course ID</th>
+                                                        <th scope="col">Enrolled Date</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Action</th> <!-- C?t hành ??ng -->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <c:choose>
+                                                        <c:when test="${not empty listCourseUser}">
+                                                            <c:forEach var="enrollment" items="${listCourseUser}">
+                                                                <tr>
+                                                                    <td>${enrollment.enrollment_id}</td>
+                                                                    <td>${enrollment.student_id}</td>
+                                                                    <td>${enrollment.course_id}</td>
+                                                                    <td>${enrollment.enrolled_date}</td>
+                                                                    <td>
+                                                                        <span class="badge ${enrollment.status eq 'ENROLLED' ? 'text-bg-success' :
+                                                                                             enrollment.status eq 'WAITLISTED' ? 'text-bg-danger' :
+                                                                                             'text-bg-secondary'}">
+                                                                                  ${enrollment.status}
+                                                                              </span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <!-- Nút Delete v?i h?p tho?i xác nh?n -->
+
+                                                                            <form action="deleteEnrollment" method="post" style="display:inline;">
+
+                                                                                <form action="${pageContext.request.contextPath}//user/course?action=delete" method="post" style="display:inline;">
+
+                                                                                    <input type="hidden" name="enrollment_id" value="${enrollment.enrollment_id}">
+                                                                                    <button type="submit" class="btn btn-danger btn-sm"
+                                                                                            onclick="return confirmDelete('${enrollment.enrollment_id}')">
+                                                                                        Delete
+                                                                                    </button>
+                                                                                </form>
+                                                                        </td>
+                                                                    </tr>
+                                                                </c:forEach>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <tr>
+                                                                    <td colspan="6" class="text-center">Không có d? li?u</td>
+                                                                </tr>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
                                     </div>
-                                </c:if>
+                                </div>
 
-                                <c:if test="${not empty error}">
-                                    <div class="alert alert-danger" role="alert">
-                                        ${error}
-                                    </div>
-                                </c:if>
-                                <h5 class="mb-4">Account Activities</h5>
+                            </div>
 
-                                <div class="table-responsive">
-                                    <table class="account-table table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Enrollment ID</th>
-                                                <th scope="col">Student ID</th>
-                                                <th scope="col">Course ID</th>
-                                                <th scope="col">Enrolled Date</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Action</th> <!-- C?t hành ??ng -->
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                        </div>
 
-                                            <c:choose>
-                                                <c:when test="${not empty listCourseUser}">
-                                                    <c:forEach var="enrollment" items="${listCourseUser}">
-                                                        <tr>
-                                                            <td>${enrollment.enrollment_id}</td>
-                                                            <td>${enrollment.student_id}</td>
-                                                            <td>${enrollment.course_id}</td>
-                                                            <td>${enrollment.enrolled_date}</td>
-                                                            <td>
-                                                                <span class="badge ${enrollment.status eq 'ENROLLED' ? 'text-bg-success' :
-                                                                                     enrollment.status eq 'WAITLISTED' ? 'text-bg-danger' :
-                                                                                     'text-bg-secondary'}">
-                                                                          ${enrollment.status}
-                                                                      </span>
-                                                                </td>
-                                                                <td>
-                                                                    <!-- Nút Delete v?i h?p tho?i xác nh?n -->
+                        <footer class="site-footer">
+                            <div class="container">
+                                <div class="row">
 
-                                                                    <form action="deleteEnrollment" method="post" style="display:inline;">
-
-                                                                    <form action="${pageContext.request.contextPath}//user/course?action=delete" method="post" style="display:inline;">
-
-                                                                        <input type="hidden" name="enrollment_id" value="${enrollment.enrollment_id}">
-                                                                        <button type="submit" class="btn btn-danger btn-sm"
-                                                                                onclick="return confirmDelete('${enrollment.enrollment_id}')">
-                                                                            Delete
-                                                                        </button>
-                                                                    </form>
-                                                                </td>
-                                                            </tr>
-                                                        </c:forEach>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <tr>
-                                                            <td colspan="6" class="text-center">Không có d? li?u</td>
-                                                        </tr>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </tbody>
-                                        </table>
+                                    <div class="col-lg-12 col-12">
+                                        <p class="copyright-text">Copyright © Mini Finance 2048 
+                                            - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
                                     </div>
 
                                 </div>
                             </div>
-
-                        </div>
+                        </footer>
+                    </main>
 
                 </div>
+            </div>
 
-                <footer class="site-footer">
-                    <div class="container">
-                        <div class="row">
+            <!-- JAVASCRIPT FILES -->
+            <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+            <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
+            <script src="${pageContext.request.contextPath}/js/apexcharts.min.js"></script>
+            <script src="${pageContext.request.contextPath}/js/custom.js"></script>
+            <script>
 
-                            <div class="col-lg-12 col-12">
-                                <p class="copyright-text">Copyright © Mini Finance 2048 
-                                    - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
-                            </div>
+                                                                                                function confirmDelete(enrollmentID) {
+                                                                                                    return confirm("B?n có ch?c ch?n mu?n xóa Enrollment ID " + enrollmentID + " không?");
+                                                                                                }
 
-                        </div>
-                    </div>
-                </footer>
-            </main>
+                                                                                                function confirmDelete(enrollmentID) {
+                                                                                                    return confirm("B?nn có ch?c ch?n mu?n xóa Enrollment ID " + enrollmentID + " không?");
+                                                                                                }
 
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT FILES -->
-    <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.bundle.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/apexcharts.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/custom.js"></script>
-    <script>
-
-    function confirmDelete(enrollmentID) {
-        return confirm("B?n có ch?c ch?n mu?n xóa Enrollment ID " + enrollmentID + " không?");
-    }
-
-                                                                                    function confirmDelete(enrollmentID) {
-                                                                                        return confirm("B?nn có ch?c ch?n mu?n xóa Enrollment ID " + enrollmentID + " không?");
-                                                                                    }
-
-    </script>
-</body>
-</html>
+            </script>
+        </body>
+    </html>
