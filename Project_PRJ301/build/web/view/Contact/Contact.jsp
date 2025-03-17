@@ -1,6 +1,6 @@
 <%-- 
-    Document   : VideoEditing
-    Created on : Mar 9, 2025, 8:55:46 PM
+    Document   : Contact
+    Created on : Mar 15, 2025, 10:09:55 PM
     Author     : ADMIN
 --%>
 
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Video Editing</title>
+        <title>Artificial Intelligence Basics</title>
         <style>
 /* menu */            
         body {
@@ -193,8 +193,14 @@
         }
         
         .content h2 {
-            color: #ddd;
+            position: relative;
+            left: 24%;
+            transform: translateX(-50%);
+            width: auto; /* Không giới hạn chiều rộng */
+            white-space: nowrap; /* Không xuống dòng */
             text-align: center;
+            color: #ddd;
+            justify-content: center;
             max-width: 800px;
             margin: 0px auto;
             font-size: 40px;
@@ -210,14 +216,14 @@ h2::after {
     background-color: #697184; /* Màu của gạch chân */
     position: absolute;
     left: 50%;
-    bottom: 124px; /* Khoảng cách giữa chữ và gạch chân */
+    bottom: 490px; /* Khoảng cách giữa chữ và gạch chân */
     transform: translateX(-50%); /* Căn giữa gạch chân */
 }
 
 .content p {
             color: #b1a6a4;
             max-width: 800px;
-            margin: 40px auto;
+            margin: 20px auto;
             font-size: 18px;
             text-align: justify;
         }
@@ -225,7 +231,7 @@ h2::after {
             color: #697184;
             text-align: center;
             max-width: 800px;
-            margin: 0px auto;
+            margin: 80px auto;
             font-size: 40px;
             text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
 
@@ -259,7 +265,7 @@ h2::after {
     font-size: 40px;
     color: #697184;
     text-shadow: 0 0 10px rgba(177, 166, 164, 0.8);
-    padding-top: 20px; /* Thêm khoảng cách từ trên xuống */
+    padding-top: 60px; /* Thêm khoảng cách từ trên xuống */
 }
 
 h4::before {
@@ -269,7 +275,7 @@ h4::before {
     height: 4px; /* Độ dày của gạch */
     background-color: #697184; /* Màu của gạch */
     position: absolute;
-    top: -10px; /* Điều chỉnh vị trí gạch */
+    top: 35px; /* Điều chỉnh vị trí gạch */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -294,8 +300,31 @@ h4::before {
     width: 300px; /* Chiều rộng hộp */
     opacity: 0.9; /* Làm màu nhẹ hơn một chút */
 }
+.hoanho {
+                width: 100%;
+                height: 150px;
+                background:  #413F3D;
+                border-radius: 10px;
+                
+                padding: 90px 40px 40px 40px;
+                color: #fff;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+                
+            }
 
+footer {
+            background-color: #413F3D;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
 
+        footer p {
+            font-size: 16px;
+        }
 
 
     </style>  
@@ -315,90 +344,66 @@ h4::before {
                 <div class="col-lg-10 col-md-10">
                     <nav class="main-menu">
                         <ul>
-                            <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></strong></li>
+                            
+                        <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></strong></li>
                         <li><strong><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></strong></li>
                         <li><strong><a href="${pageContext.request.contextPath}/view/Contact/Contact.jsp">Contact</a></strong></li>
+                    
                         </ul>
                     </nav>
                 </div>    
             </div>
         </div>
     </header>  
-    <section class="hero">
-        <img src="${pageContext.request.contextPath}/img/courses/20.jpg">
-    </section>
+    <div class="hoanho">
+        <h1>FPT University Courses</h1>
+        <p>Contact us for consultation and enrollment in the courses:</p>
+    </div>
     <section id="about" class="content">
-        <h2>Introduction to Video Editing</h2>
-        <p>Python is one of the most widely used programming languages today, known for its simplicity, readability, and versatility. Whether you are an absolute beginner or someone looking to enhance your coding skills, learning Python is a great starting point.</p>
-        <p>This course, Introduction to Python for Beginners, is designed to provide a strong foundation in programming concepts while keeping things engaging and practical. You will start with the basics, such as variables, data types, operators, and control flow structures like loops and conditional statements. As you progress, you will explore functions, modules, file handling, and error handling-key components that help you build robust programs.</p>
-        <p>One of Python’s biggest advantages is its extensive ecosystem, with libraries and frameworks that support a variety of fields, including web development, data science, automation, and artificial intelligence. By the end of this course, you will have the skills to write clean, efficient Python scripts and solve real-world problems.</p>
-        <p>This course is structured with hands-on coding exercises, real-world projects, and interactive learning resources to help you grasp concepts effectively. Whether your goal is to automate tasks, analyze data, or develop applications, this course will serve as the perfect stepping stone into the world of programming.</p>
-        <p>Python’s beginner-friendly nature, combined with its powerful capabilities, makes it an ideal choice for new programmers. So, let's embark on this exciting journey into coding with Python!</p>
+        <h2>Why Choose Our Courses?</h2>
+        <p><strong>Diverse Course Offerings:</strong> Over 1,000 courses in various fields including Programming, Marketing, Design, Business Management, Foreign Languages, etc. Always up-to-date to meet job market needs.</p>
+        <p><strong>Dedicated Instructors:</strong> Experienced professionals who inspire and provide high-quality, engaging lessons.</p>
+        <p><strong>Modern Learning Methods:</strong> Advanced online learning with engaging video lectures, practical exercises, and skill assessments.</p>
+        <p><strong>Learn Anytime, Anywhere:</strong> Study at your own pace, with flexible schedules.</p>
+        <p><strong>Affordable Tuition:</strong> Competitive pricing with various discounts and promotions.</p>
+        <p><strong>Comprehensive Support:</strong> Our team is available 24/7 to assist you with any questions.</p>
     </section>
     <section id="role" class="content">
         <h4>Role of Uni</h4>
         <div class="roles">
             <div class="role-item">
-                <h3>For Schools & Teachers</h3>
+                <h3>Contact Information</h3>
                 <ul>
-                    <li>Enhancing Digital Literacy: This course equips educators with a structured approach to teaching Python, making it easier to integrate programming into the curriculum.</li>
-                    <li>Providing Quality Learning Resources: Teachers can utilize interactive exercises and real-world coding examples to engage students effectively.</li>
-                    <li>Tracking Student Progress: The course includes assessments and coding challenges that allow teachers to monitor student performance and guide them accordingly.</li>
+                    <li><strong>Campus:</strong> FPT University</li>
+                    <br>
+                    <li><strong>Phone:</strong> 0969045182</li>
+                    <br>
+                    <li><strong>Email:</strong> yourmail@gmail.com</li>
+                    <br>
+                    <li><strong>Working Hours:</strong> Monday to Friday, 8:00 AM - 6:00 PM</li>
+                    <br>
+                    <li><strong>Location on Map:</strong> <a href="https://maps.app.goo.gl/2fCKEApuEHgCGPMS8?g_st=com.google.maps.preview.copy" target="_blank">Google Maps</a></li>
+                    
                 </ul>
             </div>
             <div class="role-item">
-                <h3>For Students & Learners</h3>
+                <h3>Why Choose Our Courses?</h3>
                 <ul>
-                    <li>Building Strong Coding Foundations: Beginners gain a solid understanding of Python programming, from fundamental concepts to practical applications.</li>
-                    <li>Developing Problem-Solving Skills: The course encourages logical thinking and hands-on practice, preparing students for real-world programming challenges.</li>
-                    <li>Exploring Career Opportunities: Python is widely used in web development, data science, artificial intelligence, and automation, opening doors to various career paths.</li>
+                    <li><strong>Diverse Course Offerings:</strong> Over 1,000 courses in various fields including Programming, Marketing, Design, Business Management, Foreign Languages, etc. Always up-to-date to meet job market needs.</li>
+                <li><strong>Dedicated Instructors:</strong> Experienced professionals who inspire and provide high-quality, engaging lessons.</li>
+                <li><strong>Modern Learning Methods:</strong> Advanced online learning with engaging video lectures, practical exercises, and skill assessments.</li>
+                <li><strong>Learn Anytime, Anywhere:</strong> Study at your own pace, with flexible schedules.</li>
+                <li><strong>Affordable Tuition:</strong> Competitive pricing with various discounts and promotions.</li>
+                <li><strong>Comprehensive Support:</strong> Our team is available 24/7 to assist you with any questions.</li>
                 </ul>
             </div>
         </div>
     </section>
-    <section class="banner-section spad">
-            <div class="container">
-                <div class="section-title mb-0 pb-2">
-                    <h2>Join Our Community Now!</h2>
-                    <p>"If you want to go fast, go alone. If you want to go far, go together."</p>
-
-                    <p>Success is better when shared! Become part of a thriving community where you can learn, grow, and achieve more—together.</p>
-                </div>
-                
-            </div>
-                <div class="widget-item">
-                            <ul class="contact-list">
-                                <li>Đại Học FPT Hà Nội<br>Group 2_SE1907</li>
-                                <li>+84 969045182</li>
-                                <li>yourmail@gmail.com</li>
-                            </ul>
-                        </div>
-        </section>
-<!-- Popup Dang ky thanh cong -->
-<div id="successPopup" class="popup">
-    <p>Registration successful</p>
-    <p>Thank you for trusting us</p>
-</div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Lấy nút Register Now
-        var registerBtn = document.querySelector(".site-btn");
-        var popup = document.getElementById("successPopup");
-
-        // Gắn sự kiện click vào nút
-        registerBtn.addEventListener("click", function(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
-
-            // Hiển thị popup
-            popup.style.display = "block";
-
-            // Ẩn popup sau 2 giây
-            setTimeout(function() {
-                popup.style.display = "none";
-            }, 2000);
-        });
-    });
-</script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FPT University. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     </body>
 </html>

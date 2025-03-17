@@ -236,8 +236,7 @@
             flex-grow: 1;
             display: flex;
             justify-content: center;
-            justify-content: flex-start;
-            padding-left: 440px;
+            padding-right: 105px;
         }
 
 
@@ -275,7 +274,7 @@
             display: flex;
             align-items: center; /* Canh logo vÃ  menu theo chiá»u dá»c */
             justify-content: space-between; /* Logo trÃ¡i, menu pháº£i */
-            padding: 15px 10px; /* Khoáº£ng cÃ¡ch bÃªn trong header */
+            padding: 20px 10px; /* Khoáº£ng cÃ¡ch bÃªn trong header */
             z-index: 1000; /* LuÃ´n ná»i trÃªn cÃ¹ng */
 
         }
@@ -414,17 +413,11 @@
                     <ul>
                         <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></strong></li>
                         <li><strong><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></strong></li>
-                        <li><strong><a href="contact.html">Contact</a></strong></li>
+                        <li><strong><a href="${pageContext.request.contextPath}/view/Contact/Contact.jsp">Contact</a></strong></li>
                     </ul>
                 </nav>
             </div>
-            <div class="search-container">
-                <div class="search-fields">
-                    <input type="text" class="search-input" placeholder="Course">
-                    <input type="text" class="search-input" placeholder="Category">
-                    <button class="search-btn">Search Course</button>
-                </div>
-            </div>            
+                  
         </div>
     </div>
 </header>  
@@ -670,9 +663,9 @@
 
             <div class="widget-item">
                 <ul class="contact-list">
-                    <li>1481 Creekside Lane <br>Avila Beach, CA 931</li>
-                    <li>+53 345 7953 32453</li>
-                    <li>yourmail@gmail.com</li>
+                    <li>Đại Học FPT Hà Nội<br>Group 2_SE1907</li>
+                                <li>+84 969045182</li>
+                                <li>yourmail@gmail.com</li>
                 </ul>
             </div>
         </section>

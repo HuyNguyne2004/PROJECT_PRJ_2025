@@ -27,53 +27,53 @@
             overflow-x: hidden; /* Ngăn cuộn ngang nếu có phần tử vượt quá khung */
                 
         }
-            .banner-section {
+            .bs {
     text-align: center;
     padding: 60px 0px 5px;
    
 }
 
-.banner-section .section-title h2 {
+.bs .st h2 {
     font-size: 36px;
     color: #fff;
     margin-bottom: 15px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-.banner-section .section-title p {
+.bs .st p {
     text-align: center;
     font-size: 16px;
     color: #666;
     max-width: 600px;
     margin: 10px auto;
 }
-.text-center {
-    padding-top: 40px;
+.wi {
+    padding: 10px -10px;
+    border-top: 2px solid #24243e;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    
 }
 
-.text-center .site-btn {
-    display: center;
-    margin-top: 30px;
-    background: var(--secondary-color);
-    color: #828080;
-    text-decoration: none;
-    text-align: justify;
-    font-weight: bold;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
-    padding: 12px 24px;
-    display: inline-block;
-    background-color: #fff;
+.wi .cl {
+    list-style: none;
+    text-align: right;
+    padding-right: 50px;
 }
-.text-center .site-btn:hover {
-    background-color: #fff;
+
+.wi .cl li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding-left: 30px;
+    color: #fff;
 }
 </style>
     </head>
     <body>
-        <section class="banner-section spad">
-            <div class="container">
-                <div class="section-title mb-0 pb-2">
+        <section class="bs">
+            <div class="con">
+                <div class="st">
                     <h2>Join Our Community Now!</h2>
                     <p>"If you want to go fast, go alone. If you want to go far, go together."</p>
 
@@ -81,10 +81,10 @@
                 </div>
                 
             </div>
-                <div class="widget-item">
-                            <ul class="contact-list">
-                                <li>1481 Creekside Lane <br>Avila Beach, CA 931</li>
-                                <li>+53 345 7953 32453</li>
+                <div class="wi">
+                            <ul class="cl">
+                                <li>Đại Học FPT Hà Nội<br>Group 2_SE1907</li>
+                                <li>+84 969045182</li>
                                 <li>yourmail@gmail.com</li>
                             </ul>
                         </div>

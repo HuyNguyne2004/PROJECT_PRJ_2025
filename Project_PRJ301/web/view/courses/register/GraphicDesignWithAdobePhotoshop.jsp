@@ -320,13 +320,9 @@ h4::before {
                 <div class="col-lg-10 col-md-10">
                     <nav class="main-menu">
                         <ul>
-                            <li><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></li>
-                            <li><a href="#">About us</a></li>
-
-                            <li><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></li>
-
-                            <li><a href="blog.html">News</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></strong></li>
+                        <li><strong><a href="${pageContext.request.contextPath}/view/courses/courses.jsp">Courses</a></strong></li>
+                        <li><strong><a href="${pageContext.request.contextPath}/view/Contact/Contact.jsp">Contact</a></strong></li>
                         </ul>
                     </nav>
                 </div>    
@@ -377,8 +373,8 @@ h4::before {
             </div>
                 <div class="widget-item">
                             <ul class="contact-list">
-                                <li>1481 Creekside Lane <br>Avila Beach, CA 931</li>
-                                <li>+53 345 7953 32453</li>
+                                <li>Đại Học FPT Hà Nội<br>Group 2_SE1907</li>s
+                                <li>+84 969045182</li>
                                 <li>yourmail@gmail.com</li>
                             </ul>
                         </div>

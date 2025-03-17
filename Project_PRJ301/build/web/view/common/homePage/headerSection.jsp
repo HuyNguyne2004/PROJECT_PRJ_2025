@@ -124,7 +124,7 @@
                             <ul>
                                 <li><strong><a href="${pageContext.request.contextPath}/authen?action=home">Home</a></strong></li>   
                                 <li><strong><a href="view/courses/courses.jsp">Courses</a></strong></li>
-                                <li><strong><a href="contact.html">Contact</a></strong></li>
+                                <li><strong><a href="${pageContext.request.contextPath}/view/Contact/Contact.jsp">Contact</a></strong></li>
                             </ul>
                         </nav>
                     <div class="TRANGCHU">
