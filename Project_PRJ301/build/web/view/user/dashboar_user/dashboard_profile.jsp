@@ -40,7 +40,7 @@
             .custom-block-profile {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start;
                 padding: 40px;
                 background-color: #1e1e2f;
                 border-radius: 15px;
@@ -78,7 +78,7 @@
 
             /* Thông tin cá nhân */
             .profile-info {
-                padding-left: 30px;
+                padding-left: 100px;
                 text-align: left;
             }
 
@@ -116,20 +116,21 @@
                 <div class="nav-item text-nowrap d-flex align-items-center">
                     <div class="dropdown px-3">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">
+                            <img src="https://www.caythuocdangian.com/wp-content/uploads/anh-dai-dien-47.jpg" class="profile-image img-fluid" alt="">
                         </a>
                         <ul class="dropdown-menu bg-white shadow">
                             <li>
                                 <div class="dropdown-menu-profile-thumb d-flex">
-                                    <img src="images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid me-3" alt="">
+                
+
                                     <div class="d-flex flex-column">
-                                        <small>Thomas</small>
-                                        <a href="#">thomas@site.com</a>
+                                        <small><span><%= user != null ? user.getFull_name() : "N/A" %></span></small>
+                                        <a href="#"><%= user != null ? user.getEmail() : "N/A" %></a>
                                     </div>
                                 </div>
                             </li>
                             <li class="border-top mt-3 pt-2 mx-4">
-                                <a class="dropdown-item ms-0 me-0" href="#">
+                                <a class="dropdown-item ms-0 me-0" href="${pageContext.request.contextPath}/authen?action=logout">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>
@@ -153,10 +154,6 @@
                         <div class="row my-4">
                             <div class="col-lg-12 col-12">
                                 <div class="custom-block custom-block-profile d-flex">
-                                    <div class="custom-block-profile-image-wrap">
-                                        <img src="images/medium-shot-happy-man-smiling.jpg" class="custom-block-profile-image img-fluid" alt="">
-                                        <a href="setting.html" class="bi-pencil-square custom-block-edit-icon"></a>
-                                    </div>
 
                                     <div class="profile-info">
                                         <p><strong>Name:</strong> <span><%= user != null ? user.getFull_name() : "N/A" %></span></p>
