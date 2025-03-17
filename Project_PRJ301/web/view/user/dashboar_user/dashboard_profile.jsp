@@ -101,10 +101,9 @@
     <body>
         <header class="navbar sticky-top flex-md-nowrap">
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-                <a class="navbar-brand" href="wallet.html">
-                    <i class="bi-box"></i>
-                    Mini Finance
-                </a>
+                 <div class="site-logo">
+                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
+                        </div>
             </div>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" 
                     data-bs-toggle="collapse" data-bs-target="#sidebarMenu" 
