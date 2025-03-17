@@ -236,7 +236,8 @@
             flex-grow: 1;
             display: flex;
             justify-content: center;
-            padding-right: 105px;
+            justify-content: flex-start;
+            padding-left: 440px;
         }
 
 
@@ -274,7 +275,7 @@
             display: flex;
             align-items: center; /* Canh logo vÃ  menu theo chiá»u dá»c */
             justify-content: space-between; /* Logo trÃ¡i, menu pháº£i */
-            padding: 20px 10px; /* Khoáº£ng cÃ¡ch bÃªn trong header */
+            padding: 15px 10px; /* Khoáº£ng cÃ¡ch bÃªn trong header */
             z-index: 1000; /* LuÃ´n ná»i trÃªn cÃ¹ng */
 
         }
@@ -417,7 +418,13 @@
                     </ul>
                 </nav>
             </div>
-                  
+            <div class="search-container">
+                <div class="search-fields">
+                    <input type="text" class="search-input" placeholder="Course">
+                    <input type="text" class="search-input" placeholder="Category">
+                    <button class="search-btn">Search Course</button>
+                </div>
+            </div>            
         </div>
     </div>
 </header>  
@@ -663,9 +670,9 @@
 
             <div class="widget-item">
                 <ul class="contact-list">
-                    <li>Đại Học FPT Hà Nội<br>Group 2_SE1907</li>
-                                <li>+84 969045182</li>
-                                <li>yourmail@gmail.com</li>
+                    <li>1481 Creekside Lane <br>Avila Beach, CA 931</li>
+                    <li>+53 345 7953 32453</li>
+                    <li>yourmail@gmail.com</li>
                 </ul>
             </div>
         </section>

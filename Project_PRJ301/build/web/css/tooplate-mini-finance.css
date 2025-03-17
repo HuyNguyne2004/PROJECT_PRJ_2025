@@ -404,7 +404,7 @@ strong {
 }
 
 .navbar {
-  background-color:#212529;
+  background: var(--white-color);
   border-bottom: 1px solid var(--border-color);
   padding-top: 8px;
   padding-bottom: 8px;
