@@ -63,7 +63,7 @@
                                     <a class="nav-link" href="#">Profile</a>
                                 </li>
                                 <li class="nav-link">
-                                    <a href="${pageContext.request.contextPath}/admin/logout">Logout</a>
+                                    <a href="${pageContext.request.contextPath}/authen?action=home">Home</a>
                                 </li>
                             </ul>
                         </div>
