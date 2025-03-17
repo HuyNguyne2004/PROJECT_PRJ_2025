@@ -63,14 +63,7 @@
                             <div class="col-md-5 col-lg-3 order-3 order-md-2">
                                 <div class="xp-searchbar">
                                     <form>
-                                        <div class="input-group">
-                                            <input type="search" class="form-control" 
-                                                   placeholder="Search">
-                                            <div class="input-group-append">
-                                                <button class="btn" type="submit" 
-                                                        id="button-addon2">GO</button>
-                                            </div>
-                                        </div>
+                                        
                                     </form>
                                 </div>
                             </div>
@@ -82,10 +75,7 @@
                                     <nav class="navbar p-0">
                                         <ul class="nav navbar-nav flex-row ml-auto">   
                                             <li class="dropdown nav-item active">
-                                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                                    <span class="material-icons">notifications</span>
-                                                    <span class="notification">4</span>
-                                                </a>
+                                                
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <a href="#">You have 5 new messages</a>
@@ -103,10 +93,7 @@
                                                 </ul>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#">
-                                                    <span class="material-icons">question_answer</span>
-
-                                                </a>
+                                                
                                             </li>
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link" href="#" data-toggle="dropdown">
@@ -114,21 +101,10 @@
                                                     <span class="xp-user-live"></span>
                                                 </a>
                                                 <ul class="dropdown-menu small-menu">
+                                                    
+                                                    
                                                     <li>
-                                                        <a href="#">
-                                                            <span class="material-icons">
-                                                                person_outline
-                                                            </span>Profile
-
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><span class="material-icons">
-                                                                settings
-                                                            </span>Settings</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"><span class="material-icons">
+                                                        <a href="${pageContext.request.contextPath}/authen?action=logout"><span class="material-icons">
                                                                 logout</span>Logout</a>
                                                     </li>
                                                 </ul>
@@ -321,7 +297,7 @@
                 <footer class="footer">
                     <div class="container-fluid">
                         <div class="footer-in">
-                            <p class="mb-0">&copy 2020 Vishweb design - All Rights Reserved.</p>
+                            <p class="mb-0">&copy; 2025 FPT University. All Rights Reserved.</p>
                         </div>
                     </div>
                 </footer>

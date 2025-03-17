@@ -13,9 +13,7 @@
     </head>
     <body>
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3><img src="img/logo.png" class="img-fluid"/><span>Vishweb design</span></h3>
-            </div>
+            
             <!-- Sidebar -->
             <div class="sidebar d-flex flex-column p-3">
                 <h4 class="text-center py-3 border-bottom">TicketBox Admin</h4>
@@ -63,7 +61,7 @@
                                     <a class="nav-link" href="#">Profile</a>
                                 </li>
                                 <li class="nav-link">
-                                    <a href="${pageContext.request.contextPath}/admin/logout">Logout</a>
+                                    <a href="${pageContext.request.contextPath}/authen?action=home">Home</a>
                                 </li>
                             </ul>
                         </div>
