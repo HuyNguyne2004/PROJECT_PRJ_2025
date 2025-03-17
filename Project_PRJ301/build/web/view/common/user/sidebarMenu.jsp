@@ -45,9 +45,9 @@
 
 
                 <li class="nav-item border-top mt-auto pt-2">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/authen?action=logout">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/authen?action=home">
                         <i class="bi-box-arrow-left me-2"></i>
-                        Logout
+                        Home
                     </a>
                 </li>
             </ul>
