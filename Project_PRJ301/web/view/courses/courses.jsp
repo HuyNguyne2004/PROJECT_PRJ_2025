@@ -274,7 +274,7 @@
             display: flex;
             align-items: center; /* Canh logo vÃ  menu theo chiá»u dá»c */
             justify-content: space-between; /* Logo trÃ¡i, menu pháº£i */
-            padding: 15px 10px; /* Khoáº£ng cÃ¡ch bÃªn trong header */
+            padding: 20px 10px; /* Khoáº£ng cÃ¡ch bÃªn trong header */
             z-index: 1000; /* LuÃ´n ná»i trÃªn cÃ¹ng */
 
         }
@@ -390,7 +390,6 @@
         .newsletter .site-btn:hover {
             background: #697184;
         }
-
 
 
 

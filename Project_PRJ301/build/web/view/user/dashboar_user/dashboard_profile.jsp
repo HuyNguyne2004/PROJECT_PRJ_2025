@@ -96,6 +96,62 @@
                 color: #cc204c;
                 font-weight: bold;
             }
+            .body {
+  background-color: var(--white-color);
+  font-family: var(--body-font-family); 
+}
+
+       
+#sidebarMenu .nav {
+  flex-wrap: inherit;
+}
+
+#sidebarMenu .nav-link {
+  border-radius: var(--border-radius-small);
+  color: var(--p-color);
+  font-size: var(--menu-font-size);
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+}
+
+#sidebarMenu .nav-link.active, 
+#sidebarMenu .nav-link:hover {
+  background: #697184;
+  color: var(--white-color);
+}     
+ .btn-danger {
+    color: #fff;
+    background-color: #697184;
+    border-color: #697184;
+}
+:root {
+ 
+  --custom-btn-bg-color:          #B1A6A4;
+;
+}
+.navbar {
+  background: #413F3D;
+  border-bottom: 1px solid var(--border-color);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.navbar .nav-link {
+  position: relative;
+}
+
+.navbar .header-form {
+  width: 35%;
+}
+
+.navbar .header-form .form-control {
+  margin-bottom: 0;
+}
+
+.navbar .dropdown-toggle::after {
+  display: none;
+}
         </style>
     </head>
     <body>
@@ -165,18 +221,7 @@
                         </div>
                     </div>
                                 
-                    <footer class="site-footer">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12 col-12">
-                                    <p class="copyright-text">
-                                        Copyright © Mini Finance 2048 
-                                        - Design: <a rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
+                    
                 </main>
             </div>
         </div>

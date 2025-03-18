@@ -33,7 +33,40 @@
             .navbar.sticky-top {
                 background: #413f3d;
             }
-            
+            .body {
+  background-color: var(--white-color);
+  font-family: var(--body-font-family); 
+}
+
+       
+#sidebarMenu .nav {
+  flex-wrap: inherit;
+}
+
+#sidebarMenu .nav-link {
+  border-radius: var(--border-radius-small);
+  color: var(--p-color);
+  font-size: var(--menu-font-size);
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+}
+
+#sidebarMenu .nav-link.active, 
+#sidebarMenu .nav-link:hover {
+  background: #697184;
+  color: var(--white-color);
+}     
+ .btn-danger {
+    color: #fff;
+    background-color: #697184;
+    border-color: #697184;
+}
+:root {
+ 
+  --custom-btn-bg-color:          #B1A6A4;
+;
+}
         </style>
     </head>
 
