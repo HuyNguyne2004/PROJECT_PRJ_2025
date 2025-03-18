@@ -99,6 +99,40 @@
 .navbar .dropdown-toggle::after {
   display: none;
 }
+.tab-content {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-medium);
+}
+
+.nav-tabs {
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 35px;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  color: var(--p-color);
+  font-size: var(--menu-font-size);
+  font-weight: var(--font-weight-normal);
+  padding: 15px 25px;
+  transition: all 0.3s;
+}
+
+.nav-tabs .nav-item.show .nav-link, 
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-link:focus, 
+.nav-tabs .nav-link:hover {
+  border-bottom-color: #B1A6A4;
+  color: #FFF;
+}
+.nav-tabs .nav-item.show .nav-link,.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #B1A6A4;
+    border-color: #dee2e6 #dee2e6 #fff
+}
         </style>
     </head>
 
